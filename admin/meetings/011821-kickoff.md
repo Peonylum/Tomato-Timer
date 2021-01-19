@@ -1,9 +1,9 @@
 # Kickoff Meeting 1/18/2021
-Attendance: All members were in attendance.
-Speaker: Uday
-Note-taker: George
-Objective Statement: Try to figure out team logistics and setup the team repository.
-Time: 7:00pm-8:20pm
+Attendance: All members were in attendance.  
+Speaker: Uday  
+Note-taker: George  
+Objective Statement: Try to figure out team logistics and setup the team repository.  
+Time: 7:00pm-8:20pm  
 
 ### Completed Tasks
 * Created Team repository and went over basic git logistics
@@ -13,45 +13,53 @@ Time: 7:00pm-8:20pm
 
 ## Meeting Logistics
 **Weekly Monday Stand-up Meeting at 6pm-7pm**
-Roles/Roster:
-Every week we will have one person create a presentation and one person do notes.
-It will be based on a roster ordered alphabetically and we will go up the list:
-https://docs.google.com/spreadsheets/d/1UoaO2ntDrvAmDe8nV8F164JQYPTsovfv7M_ys8rCrS8/edit?usp=sharing
+Roles/Roster:  
+Every week we will have one person create a presentation and one person do notes.  
+It will be based on a roster ordered alphabetically and we will go up the list:  
+https://docs.google.com/spreadsheets/d/1UoaO2ntDrvAmDe8nV8F164JQYPTsovfv7M_ys8rCrS8/edit?usp=sharing  
+  
+Stand-up Meetings:  
+Done through whentomeet (will figure out asynchronously)  
 
-Stand-up Meetings:
-Done through whentomeet (will figure out asynchronously)
-
-Should check Slack (At least 1/19):
-By 6pm for team wiki/rules/video
+Should check Slack (At least 1/19):  
+By 6pm for team wiki/rules/video  
 
 
 ## GIT
 
-Our repo is located at:
-https://github.com/cse110-w21-group15-org/cse110-w21-group15
+Our repo is located at:  
+https://github.com/cse110-w21-group15-org/cse110-w21-group15  
 
-To access it you want to check your email and make sure you are added to the organization.
+To access it you want to check your email and make sure you are added to the organization.  
 
-workflow:
-to update your local github, `git pull`
-`git branch firstnamelastinitial-month-day-year` ex:`git branch georgel-01-18-21`
+workflow:  
+to update your local github, `git pull`  
+`git branch firstnamelastinitial-month-day-year`  
+ex:`git branch georgel-01-18-21`  
+  
+Make sure to branch!  If you forget you can also:
+```javascript
+git log --oneline
+git reset "id-of-commit"
+``` 
+  https://opensource.com/article/18/6/git-reset-revert-rebase-commands  
 
-Add changes in your branch
+Add changes in your branch  
 
-`git add --all` (or `git add .` or whatever way you're used to)
+`git add --all` (or `git add .` or whatever way you're used to)  
 
-`git commit -m "message here"`
+`git commit -m "message here"`  
 
-`git push origin branchname`
+`git push origin branch-name`  
 
-Afterwards your branch should appear on github.  Submit a pull request after.
+Afterwards your branch should appear on github.  Submit a pull request after.  
 
 ## THEME/NAME
-Name: 110gineers
-    Theme:
-    Important Values:
-        * Simplicity
-        * Consistency
-        * Creativity
+Name: 110gineers  
+    Theme:  
+    Important Values:  
+        * Simplicity  
+        * Consistency  
+        * Creativity  
 
 
