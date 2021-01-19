@@ -12,13 +12,14 @@ Time: 7:00pm-8:20pm
 * Drafted team contract
 
 ## Meeting Logistics
-**Weekly Monday Stand-up Meeting at 6pm-7pm**
+**Weekly Monday Stand-up Meeting at 6pm-7pm**  
 Roles/Roster:  
 Every week we will have one person create a presentation and one person do notes.  
-It will be based on a roster ordered alphabetically and we will go up the list:  
+Note taker will push and assign presentation creator to review pull request.  
+It will be based on a roster ordered alphabetically and we will go down the list:  
 https://docs.google.com/spreadsheets/d/1UoaO2ntDrvAmDe8nV8F164JQYPTsovfv7M_ys8rCrS8/edit?usp=sharing  
   
-Stand-up Meetings:  
+Additional Stand-up Meetings:  
 Done through whentomeet (will figure out asynchronously)  
 
 Should check Slack (At least 1/19):  
