@@ -1,9 +1,17 @@
 # Kickoff Meeting 1/18/2021
 Attendance: All members were in attendance.  
 Speaker: Uday  
-Note-taker: George  
+Note-taker: George
+Agenda:  
+ * Discuss Meeting Format
+ * Setup Repo
+ * Name/Theme
+ * Team wiki
+ * Team Video
+ * Team Rules  
+
 Objective Statement: Try to figure out team logistics and setup the team repository.  
-Time: 7:00pm-8:20pm  
+Time/Place: 7:00pm-8:20pm over zoom
 
 ### Completed Tasks
 * Created Team repository and went over basic git logistics
@@ -64,3 +72,7 @@ Name: 110gineers
         * Creativity  
 
 
+#### ITEMS FOR NEXT MEETING:
+- Finalize Theme/Name 
+- Finalize Meeting Structure
+- Finalize Meeting Logistics
