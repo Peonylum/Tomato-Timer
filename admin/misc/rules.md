@@ -2,8 +2,8 @@
 ## PRIMARY MEANS OF COMMUNICATION
 1. Synchronous meetings will be held over zoom at an aforementioned time.
 2. Asynchronous responsibilities will be processed/delegated over slack.
-    3. Check for updates on slack by 2pm daily.
-3. Managers are responsible for ensuring an appropriate meeting schedule, as well as handling direct team conflicts.
+3. Check for updates on slack by 2pm daily.
+4. Managers are responsible for ensuring an appropriate meeting schedule, as well as handling direct team conflicts.
 
 ## GENERAL RULES
 1. Members must be vocal and clear to the team about any obstacles or issues preventing progress.
