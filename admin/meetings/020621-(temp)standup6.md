@@ -45,7 +45,8 @@ Time/Place: 8:30pm-9:40pm over Zoom
 ## Assignment Review
 * Sprint kickoff meeting Sunday night @8pm (read notes if missed)
 * Subgroup meeting Sunday @4pm (put things together)
+* Everyone need to submit user persona
 * System Diagram (George + Poeny + Sam + Nhat)
-* User Persona (Yuke + Lufan)
+* Collect User Persona (Yuke + Lufan)
 * Rabbithole presentation (Uday)
 * Tasks for kick off (Dylan + Hannah)
