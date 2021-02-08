@@ -1,6 +1,6 @@
 # [short title of solved problem and solution]
 
-* Status: accepted 
+* Status: accepted  
 * Deciders: Team-wide (2/8/21)
 * Date: 2/8/21
 
@@ -22,10 +22,10 @@ We are trying to decide whether our project needs a back end.  Would it make sen
 
 Chosen option: "local storage" because we now know that a backend is not necessary for our timer to function.  It also makes more sense in regards to our time-line and removing from added complexity.
 
-### Positive Consequences 
+### Positive Consequences  
 
 * By forgoing a backend we can focus on our core functionality first and worry about that implementation later if needed.
 
-### Negative Consequences 
+### Negative Consequences  
 
 * Limits what our app can do.
