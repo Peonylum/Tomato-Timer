@@ -1,0 +1,542 @@
+/* General */
+div {
+    border: none; /*change to `1px solid black` to see how webpage is formatted */
+}
+ul {
+    list-style: none;
+}
+form {
+    /* padding: 0; */
+    margin: 0;
+}
+button {
+    cursor: pointer;
+    outline: none;
+    background: none;
+    border: none;
+} 
+header {
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+a{
+    color: inherit;
+    cursor: pointer;
+    text-decoration: inherit;
+}
+
+/* NAVBAR (Header/top bar) */
+
+.navBar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: .5rem;
+    padding-bottom: .5rem;
+}
+
+
+.navBar>.container{
+    display: flex;
+    flex-wrap: inherit;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container{
+    max-width: 1920px;
+    width: 100%;
+    padding-right: .75rem;
+    padding-left: .75rem;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#pageTitle {
+
+    /* height: 60px; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: Lato;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 20px;
+
+
+    text-align: center;
+    letter-spacing: 0.01em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #000000;
+}
+
+#XVSoft {
+    font-family: Nunito;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 30px;
+
+    position: absolute;
+    bottom: 17.5px;
+    /* or 100% */
+
+    text-align: center;
+    letter-spacing: 0.01em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #000000;
+    transition: all 0.3s ease;
+}
+
+#XVSoft:hover {
+    color: #16A9EC;
+}
+
+#logo {
+    width: 54px;
+    height: 54px;
+    left: 34px;
+    top: 94px;
+}
+
+
+/* infoBar (work/shortbreak/longbreak) */
+.infoBar{
+    max-width:633px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 30%;
+    position: relative;
+    margin: auto;
+    margin-top: 1%;
+}
+
+.infoCont{
+    padding: 0 10px;
+    width: 100px;
+    text-align: center;
+
+    width: 213px;
+    height: 54px;
+    left: 587px;
+    top: 184px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    /* or 229% */
+
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    letter-spacing: 0.05em;
+
+    color: #939393;
+}
+
+/* Actual timer div */
+.Timer{
+    max-width: 1920px;
+    position: relative;
+    margin: auto;
+    width: 100%;
+    height: 600px;
+}
+/* controls background and timer text. should be renamed */
+.timerBack{
+    position: absolute;
+    top: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+/* .timerText{
+    position: absolute;
+    width: 100%;
+    height: 50%;
+    text-align: center;
+} */
+
+/* Time text (I know monkey names) */
+#actualTime{
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    left: 50%;
+    transform: translateX(-50%);
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 200;
+    font-size: 60px;
+    line-height: 60px;
+    /* or 100% */
+
+    text-align: center;
+    letter-spacing: 0.01em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #000000;
+}
+
+/* START BUTTON */
+#start{
+    position: absolute;
+    top: 410px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 243px;
+    height: 66px;
+    background: #FF2222;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 72px;
+
+    border: inherit;
+    font-family: Lato;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 55px;
+    /* or 229% */
+
+    text-align: center;
+    letter-spacing: 0.05em;
+
+    color: #FFFFFF;
+    transition: all 0.1s ease;
+}
+
+#start:hover{
+    background: #680000;
+}
+
+#start.started {
+    background: rgb(66, 66, 66);
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 72px;
+}
+
+#start.started:hover{
+    background: black;
+}
+
+/* TASK LIST*/
+#taskList{ /*controls the div around task list (rectangle behind it) */
+    border: inherit;
+    position: absolute;
+    top: 500px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    justify-content:space-evenly;
+    width: 627px;
+    height: 58px;
+
+    background: #FFFFFF;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 22px;
+    transition: all 0.1s ease;
+    z-index: +1;
+}
+
+#taskList:hover{
+        Background: #d6d6d6;
+}
+/* controls the button (it's invisible and overlayed over triangle) */
+
+#taskButton{
+    border: none;
+    background: none;
+    width: 100%;
+    height: 58px;
+
+    font-family: 'Visby Round CF';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 24px;
+    line-height: 35px;
+    /* or 146% */
+
+    text-align: center;
+    letter-spacing: 0.15em;
+
+    color: #616161;
+}
+
+#taskList.active{
+    border-radius: 0;
+}
+
+#tasks {
+    display: none;
+    justify-content: space-between;
+    align-items: left;
+    flex-direction: column;
+
+    position: absolute;
+    width: 627px;
+    height: 190px;
+    top: 540px;
+    left: 50%;
+    transform: translateX(-50%);
+
+    background: #e4e4e4;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+#tasks.active{
+    display: flex;
+}
+.taskUL{
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    top: 15%;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: space-evenly;
+    flex-flow: column;
+    height: 148px;
+}
+
+.taskL:hover{
+    background: #e7e7e7;
+}
+
+.taskL{
+        position: relative;
+        display: block;
+        background: #ffffff;
+        width: 95%;
+        height: 100%;
+        margin: auto;
+        padding: 5px;
+
+        box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+        border-bottom: 1px solid rgb(230, 230, 230);
+        font-style: normal;
+        font-weight: 300;
+        font-size: 20px;
+}
+/* check mark for task */
+#check{
+    border: inherit;
+    background: none;
+    height: 38px;
+    width: 38px;
+    position: absolute;
+    margin: 10px;
+}
+
+.checkIcon{
+    display: inline-block;
+    height: 2rem;
+    width: 2rem;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: url('./Check.svg');
+}
+
+/* TASK END */
+
+/* Bottom Bar */
+.bottomBar{
+    max-width: 952px;
+    display: flex;
+    align-items:center;
+    justify-content:space-evenly;
+    width: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 920px;
+}
+
+.bottomCont{
+    width: 350px;
+    height: 26px;
+
+    font-family: Lato;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 20px;
+    /* or 100% */
+
+    text-align: center;
+    letter-spacing: 0.01em;
+    font-feature-settings: 'pnum' on, 'lnum' on;
+
+    color: #969696;
+
+    transition: all 0.3s ease;
+    mix-blend-mode: normal;
+}
+
+.bottomCont:hover{
+    color: #000000;
+    font-weight: 500;
+}
+
+.infoCont.current {
+    color: #C20404;
+    font-weight: bold;
+}
+
+/* PSEUDO ELEMENT THAT CREATES LINE UNDERNEATH CURRENT SEGMENT */
+.infoCont.current::after {
+    display: block;
+    content: '';
+    position: absolute;
+    bottom: 0.5rem;
+    width: 121px;
+    height: 0px;
+
+    border: 1px solid #C61414;
+}
+
+#settingsOverlay {
+    position: absolute;
+    top: 1rem;
+    right: 0;
+    width: 700px;
+    margin: 0 0rem;
+
+    display: none;
+    align-items: left;
+    justify-content: space-evenly;
+    flex-direction: column;
+    z-index: +1;
+}
+
+#settingsOverlay.active {
+    display: flex;
+}
+
+.selection{
+    display: flex;
+    align-items: left;
+    justify-content: space-evenly;
+    flex-direction: column;
+    border: 1px solid black;
+    padding: 5px;
+    background: #FFFFFF;
+
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.selection:hover {
+    background: #dddddd;
+}
+
+.selectButton{
+    font-family: Lato, sans-serif;
+    text-align: left;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+.selection>.check{
+    display: none;
+    position: absolute;
+    height: 13px;
+    width: 13px;
+    right: 10px;
+}
+
+.selection>.check.active{
+    display: block;
+}
+
+/*
+.shortBreak{
+position: absolute;
+width: 213px;
+height: 54px;
+left: 587px;
+top: 184px;
+
+font-family: Visby Round CF;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 55px;
+/* or 229% 
+
+text-align: center;
+letter-spacing: 0.05em;
+
+color: #939393;
+
+}
+
+
+.Work{
+
+position: absolute;
+width: 213px;
+height: 54px;
+left: 425px;
+top: 184px;
+
+font-family: Visby Round CF;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 55px;
+/* or 229% 
+
+text-align: center;
+letter-spacing: 0.05em;
+
+color: #C20404;
+}
+
+
+/* Long Break 
+
+.longBreak{
+position: absolute;
+width: 213px;
+height: 54px;
+left: 785px;
+top: 184px;
+
+font-family: Visby Round CF;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 55px;
+/* or 229% 
+
+text-align: center;
+letter-spacing: 0.05em;
+
+color: #939393;
+}
+
+#settings {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    right: 2%;
+    top: 2%;    
+}
+
+.infoBar{
+    width:
+} */
