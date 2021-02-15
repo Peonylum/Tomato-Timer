@@ -1,9 +1,9 @@
 //TASK MENU
-document.getElementById("taskButton").addEventListener("click", e => {
+/*document.getElementById("taskButton").addEventListener("click", e => {
     e.preventDefault;
     document.getElementById("tasks").classList.toggle("active");
     hideOnClickOutside(document.getElementById("tasks"), "taskButton");
-})
+}) */
 
 // SETTINGS MENU JS
 //opens settings menu

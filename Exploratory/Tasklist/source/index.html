@@ -1,161 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <!-- HEADER STUFF -->
-        <meta charset="utf-8">
+  <head>
+    <!-- HEADER STUFF -->
+    <meta charset="utf-8">
 
-        <title>PomoDorks</title>
-        <meta name="description" content="Timer">
-        <meta name="author" content="XVSoft">
-        <meta name="viewport" content= "width=device-width, user-scalable=no"> <!-- Dis not working -->
+    <title>PomoDorks</title>
+    <meta name="description" content="Timer">
+    <meta name="author" content="XVSoft">
+    <meta name="viewport" content= "width=device-width, user-scalable=no"> <!-- Dis not working -->
 
-        <!-- STYLESHEETS AND FONTS AND SCRIPT LINK-->
-        <link rel="stylesheet" href="./index.css">
-        <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/fonts/Visby Round CF/stylesheet.css" type="text/css">
-        <script src="index.js" defer></script>
+    <!-- STYLESHEETS AND FONTS AND SCRIPT LINK-->
+    <link rel="stylesheet" href="styles.css">
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+    <script src="index.js" defer></script>
+    <script src="tasklist.js" defer></script>
 
-    </head>
-    <body>
+  </head>
+  <body>
 
-        <!-- HEADER CONTAINING NAV BAR WITH SETTINGS, TITLE, AND LOGO -->
-        <header>
-            <!-- TOP NAV BAR -->
-            <div class="navBar">
-                <div class="container">
-                    <a href="https://github.com/UdayKalra/cse110-w21-group15">
-                        <img src="logo 4.svg" id="logo" alt="logo">
-                        <strong id="XVSoft">XVSoft</strong>
-                    </a>
-                    <div id="pageTitle">POMODORKS</div>
-                    <button id="settings">
-                        <img id="settings" src="settings.svg" alt="settings">
-                    </button>
-                </div>
-            </div>
-            <!-- SETTINGS -->
-            <div>
-                <!-- HIDDEN SETTINGS OVERLAY, UNHIDDEN WHEN CLASS ACTIVE ATTACHED -->
-                <ul id="settingsOverlay">
-                    <li class="selection">
-                        <button class="selectButton">TOGGLE EXPERIMENTAL MODE</button>
-                        <img class="check" src="settingsCheck.svg" alt="">
-                    </li >
-                    <li class="selection">
-                        <button class="selectButton">OPTION 2</button>
-                        <img class="check" src="settingsCheck.svg" alt="">
-                    </li >
-                    <li class="selection">
-                        <button class="selectButton">OPTION 3</button>
-                        <img class="check" src="settingsCheck.svg" alt="">
-                    </li>
-                    <li class="selection">
-                        <button class="selectButton">OPTION 4</button>
-                        <img class="check" src="settingsCheck.svg" alt="">
-                    </li>
-                    <li class="selection">
-                        <button class="selectButton">OPTION 5</button>
-                        <img class="check" src="settingsCheck.svg" alt="">
-                    </li>
-                    <li class="selection">
-                        <button class="selectButton">OPTION 6</button>
-                        <img class="check" src="settingsCheck.svg" alt="">
-                    </li>
-                </ul>
-                <!-- <div class="selection">
-                    <button class="selectButton">TOGGLE EXPERIMENTAL MODE</button>
-                </div>
-                <div class="selection">
-                    <button class="selectButton">OPTION 1</button>
-                </div>
-                <div class="selection">
-                    <button class="selectButton">OPTION 2</button>
-                </div>
-                <div class="selection">
-                    <button class="selectButton">OPTION 3</button>
-                </div>
-                <div class="selection">
-                    <button class="selectButton">OPTION 4</button>
-                </div>
-                <div class="selection">
-                    <button class="selectButton">OPTION 5</button>
-                </div> -->
+    <!-- HEADER CONTAINING NAV BAR WITH SETTINGS, TITLE, AND LOGO -->
+    <header>
+      <div id="logo">
+	<a href="https://github.com/UdayKalra/cse110-w21-group15">
+	  <img src="logo 4.svg" id="logo" alt="logo">
+	  <strong id="XVSoft">XVSoft</strong>
+	</a>
+      </div>
+      <div id="pageTitle">
+	POMODORKS
+      </div>
+      <div id="settingsButton">
+	<button id="settings">
+	  <img id="settings" src="settings.svg" alt="settings">
+	</button>
+	<div>
+    </header>
 
-            </div>
-        </header>
+    <main>
+      <!-- MAIN SECTION OF PROGRAM (INCLUDES TIMER, WORK/BREAKS, START + TASKS) -->
+      <Section>
+	<div class="infoBar">
+	  <div class="infoCont current">
+	    Work
+	  </div>
+	  <div class="infoCont">
+	    Short Break
+	  </div>
+	  <div class="infoCont">
+	    Long Break
+	  </div>
+	</div>
+	<div class="Timer">
+	  <!-- TIMER, CURRENTLY JUST A STATIONARY BACKGROUND, TODO: Figure out progress bar (perhaps using two overlayed images). -->
+	  <div class="timerBack">
+	    <img src="Timer.svg" alt="Timer backdrop">
+	    <div id="actualTime"> 25:00</div>
+	  </div>
+	  <button id="start">
+	    START
+	  </button>
+	  <audio src="click.wav" id="click"></audio> <!-- sound file -->
+	  <div class="taskListCont">
+	    <form id="listEntry">
+	      <label for="task"> Enter some tasks:</label><br>
+	      <input type="text" id="task" name="task">
+	    </form>
+	    <div id="taskBox">
+	      <caption>Task Queue</caption>
+	      <ol id="taskQueue">
+		<div id="dropZone">
+		</div>
+	    </div>
+	    </ol>
+	  </div>
+	</div>
+      </Section>
 
-        <main>
-            <!-- MAIN SECTION OF PROGRAM (INCLUDES TIMER, WORK/BREAKS, START + TASKS) -->
-            <Section>
-                <div class="infoBar">
-                    <div class="infoCont current">
-                        Work
-                    </div>
-                    <div class="infoCont">
-                        Short Break
-                    </div>
-                    <div class="infoCont">
-                        Long Break
-                    </div>
-                </div>
-                <div class="Timer">
-                    <!-- TIMER, CURRENTLY JUST A STATIONARY BACKGROUND, TODO: Figure out progress bar (perhaps using two overlayed images). -->
-                        <div class="timerBack">
-                            <img src="Timer.svg" alt="Timer backdrop">
-                            <div id="actualTime"> 25:00</div>
-                        </div>
-                        <button id="start">
-                            START
-                        </button>
-                        <audio src="click.wav" id="click"></audio> <!-- sound file -->
-                        <div class="taskListCont">
-                            <!-- TASKLIST BAR (SAYS TASK LIST + CHECKMARK) -->
-                            <div id="taskList">
-                                <button id="check">
-                                    <span class="checkIcon"></span>
-                                </button>
-                                <button id="taskButton">
-                                    TASK LIST
-                                </button>
-                            </div>
-                            <!-- TASK LIST (DROPDOWN, usually hidden) -->
-                            <div id="tasks">
-                                <ul class="taskUL">
-                                    <li class="taskL">
-                                            TASK 1
-                                    </li>
-                                    <li class="taskL">
-                                            TASK 2
-                                    </li>
-                                    <li class="taskL">
-                                            TASK 3
-                                    </li>
-                                    <li class="taskL">
-                                            TASK 4
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                </div>
-            </Section>
-
-            <!-- BOTTOM BAR WITH ABOUT US SUGGESTIONS AND POMODORO TECHNIQUE -->
-            <Section>
-                <div class="bottomBar">
-                    <div class="bottomCont">
-                        <a href="https://github.com/UdayKalra/cse110-w21-group15">ABOUT US</a>
-                    </div>
-                    <div class="bottomCont">
-                        <a href="https://github.com/UdayKalra/cse110-w21-group15">SUGGESTIONS</a>
-                    </div>
-                    <div class="bottomCont">
-                        <a href="https://github.com/UdayKalra/cse110-w21-group15">POMODORO TECHNIQUE</a>
-                    </div>
-                </div>
-            </Section>
-        </main>
-    </body>
+      <!-- BOTTOM BAR WITH ABOUT US SUGGESTIONS AND POMODORO TECHNIQUE -->
+      <Section>
+	<div class="bottomBar">
+	  <div class="bottomCont">
+	    <a href="https://github.com/UdayKalra/cse110-w21-group15">ABOUT US</a>
+	  </div>
+	  <div class="bottomCont">
+	    <a href="https://github.com/UdayKalra/cse110-w21-group15">SUGGESTIONS</a>
+	  </div>
+	  <div class="bottomCont">
+	    <a href="https://github.com/UdayKalra/cse110-w21-group15">POMODORO TECHNIQUE</a>
+	  </div>
+	</div>
+      </Section>
+    </main>
+  </body>
 </html>
