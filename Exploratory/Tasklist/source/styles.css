@@ -1,6 +1,7 @@
 header {
   width: 100%;
   height: 55px;
+	
   /* flex-direction: row;
   flex-wrap: nowrap;
   justify-content: space-evenly; */
@@ -12,7 +13,7 @@ header {
 }
 
 #xvsoft {
-  font-family: Nunito;
+  font-family: Nunito, serif;
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
@@ -22,7 +23,7 @@ header {
   text-align: center;
   letter-spacing: 0.01em;
   font-feature-settings: 'pnum' on, 'lnum' on;
-  color: #000000;
+  color: #000;
   transition: all 0.3s ease;
 }
 
@@ -30,11 +31,11 @@ header {
   color: #16a9ec;
 }
 
-#page-title { 
+#page-title {
   position: absolute;
   text-align: center;
   left: 48%;
-  font-family: Lato;
+  font-family: Lato, serif;
   font-style: normal;
   font-weight: bold;
   font-size: 30px;
@@ -64,7 +65,7 @@ header {
   height: 54px;
   left: 587px;
   top: 184px;
-  font-family: Lato;
+  font-family: Lato, serif;
   font-style: normal;
   font-weight: 300;
   font-size: 1.5rem;
@@ -97,18 +98,15 @@ header {
   top: 40%;
   transform: translateY(-50%);
   left: 50%;
-
-  font-family: Lato;
+  font-family: Lato, serif;
   font-style: normal;
   font-weight: 200;
   font-size: 60px;
   line-height: 60px;
-
   text-align: center;
   letter-spacing: 0.01em;
   font-feature-settings: 'pnum' on, 'lnum' on;
-
-  color: #000000;
+  color: #000;
 }
 
 .bottom-bar {
@@ -126,20 +124,15 @@ header {
 .bottom-cont {
   width: 350px;
   height: 26px;
-
-  font-family: Lato;
+  font-family: Lato, serif;
   font-style: normal;
   font-weight: 300;
   font-size: 20px;
   line-height: 20px;
-  /* or 100% */
-
   text-align: center;
   letter-spacing: 0.01em;
   font-feature-settings: 'pnum' on, 'lnum' on;
-
   color: #969696;
-
   transition: all 0.3s ease;
   mix-blend-mode: normal;
 }
@@ -162,22 +155,22 @@ header {
   transform: translateX(-50%);
   width: 243px;
   height: 66px;
-  background: #ff2222;
+  background: #f22;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 72px;
   border: inherit;
-  font-family: Lato;
+  font-family: Lato, serif;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 55px;
   text-align: center;
   letter-spacing: 0.05em;
-  color: #FFF;
+  color: #fff;
   transition: all 0.1s ease;
 }
 
-#start:hover{
+#start:hover {
   background: #680000;
 }
 
@@ -187,7 +180,7 @@ header {
   border-radius: 72px;
 }
 
-#start.started:hover{
+#start.started:hover {
   background: black;
 }
 
@@ -209,7 +202,6 @@ header {
   margin-top: 0;
   margin-bottom: 0;
   padding-left: 0;
-
 }
 
 li button {
