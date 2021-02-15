@@ -11,28 +11,28 @@
 
     <!-- STYLESHEETS AND FONTS AND SCRIPT LINK-->
     <link rel="stylesheet" href="styles.css">
-    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
-    <script src="index.js" defer></script>
-    <script src="tasklist.js" defer></script>
 
   </head>
   <body>
+    <script src="index.js" defer></script>
+    <script src="tasklist.js" defer></script>
 
     <!-- HEADER CONTAINING NAV BAR WITH SETTINGS, TITLE, AND LOGO -->
     <header>
       <div id="logo">
 	<a href="https://github.com/UdayKalra/cse110-w21-group15">
 	  <img src="logo 4.svg" id="logo" alt="logo">
-	  <strong id="XVSoft">XVSoft</strong>
+	  <strong id="xvsoft">XVSoft</strong>
 	</a>
       </div>
-      <div id="pageTitle">
+      <div id="page-title">
 	POMODORKS
       </div>
-      <div id="settingsButton">
+      <div id="settings-button">
 	<button id="settings">
 	  <img id="settings" src="settings.svg" alt="settings">
 	</button>
@@ -41,54 +41,54 @@
 
     <main>
       <!-- MAIN SECTION OF PROGRAM (INCLUDES TIMER, WORK/BREAKS, START + TASKS) -->
-      <Section>
-	<div class="infoBar">
-	  <div class="infoCont current">
+      <section>
+	<div class="info-bar">
+	  <div class="info-cont-current">
 	    Work
 	  </div>
-	  <div class="infoCont">
+	  <div class="info-cont">
 	    Short Break
 	  </div>
-	  <div class="infoCont">
+	  <div class="info-cont">
 	    Long Break
 	  </div>
 	</div>
-	<div class="Timer">
+	<div class="timer">
 	  <!-- TIMER, CURRENTLY JUST A STATIONARY BACKGROUND, TODO: Figure out progress bar (perhaps using two overlayed images). -->
-	  <div class="timerBack">
+	  <div class="timer-back">
 	    <img src="Timer.svg" alt="Timer backdrop">
-	    <div id="actualTime"> 25:00</div>
+	    <div id="actual-time"> 25:00</div>
 	  </div>
 	  <button id="start">
 	    START
 	  </button>
 	  <audio src="click.wav" id="click"></audio> <!-- sound file -->
-	  <div class="taskListCont">
-	    <form id="listEntry">
+	  <div class="task-list-cont">
+	    <form id="list-entry">
 	      <label for="task"> Enter some tasks:</label><br>
 	      <input type="text" id="task" name="task">
 	    </form>
-	    <div id="taskBox">
+	    <div id="task-box">
 	      <caption>Task Queue</caption>
-	      <ol id="taskQueue">
-		<div id="dropZone">
+	      <ol id="task-queue">
+		<div id="drop-zone">
 		</div>
 	    </div>
 	    </ol>
 	  </div>
 	</div>
-      </Section>
+      </section>
 
       <!-- BOTTOM BAR WITH ABOUT US SUGGESTIONS AND POMODORO TECHNIQUE -->
       <Section>
-	<div class="bottomBar">
-	  <div class="bottomCont">
+	<div class="bottom-bar">
+	  <div class="bottom-cont">
 	    <a href="https://github.com/UdayKalra/cse110-w21-group15">ABOUT US</a>
 	  </div>
-	  <div class="bottomCont">
+	  <div class="bottom-cont">
 	    <a href="https://github.com/UdayKalra/cse110-w21-group15">SUGGESTIONS</a>
 	  </div>
-	  <div class="bottomCont">
+	  <div class="bottom-cont">
 	    <a href="https://github.com/UdayKalra/cse110-w21-group15">POMODORO TECHNIQUE</a>
 	  </div>
 	</div>

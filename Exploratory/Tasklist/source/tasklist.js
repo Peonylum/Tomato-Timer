@@ -1,19 +1,19 @@
 /* script for modifying the task list via drag-and-drop
  * this file may later absorb all of the task list functionality */
 
-document.getElementById('listEntry').addEventListener('submit', addToList)
+document.getElementById('list-entry').addEventListener('submit', function (event) { addToList(event) })
 
-const list = document.getElementById('taskQueue')
+const list = document.getElementById('task-queue')
 const listItems = []
 const delBtns = []
 let curr
-const dropZones = [document.getElementById('dropZone')]
+const dropZones = [document.getElementById('drop-zone')]
 
 /* this function adds bullet points and drag spaces to our list
    there is a cleaner way to do this, will update next sprint :)
    involves just adding to array then redrawing list, like in the
    functions to remove or rearrange */
-function addToList () {
+function addToList (event) {
   event.preventDefault()
   const newItem = document.getElementById('task')
   const li = document.createElement('li')
@@ -23,9 +23,9 @@ function addToList () {
   li.setAttribute('draggable', true)
   const delBtn = document.createElement('BUTTON')
   delBtn.innerHTML = 'X'
-  delBtn.setAttribute('id', 'delBtn')
+  delBtn.setAttribute('id', 'del-btn')
   const dropZone = document.createElement('DIV')
-  dropZone.setAttribute('id', 'dropZone')
+  dropZone.setAttribute('id', 'drop-zone')
   li.appendChild(document.createTextNode(newItem.value))
   li.appendChild(delBtn)
   listItems.push(li)
@@ -52,8 +52,8 @@ function addToList () {
   for (let i = 0; i < dropZones.length; i++) {
     dropZones[i].addEventListener('dragenter', function () { dragIn(this) })
     dropZones[i].addEventListener('dragleave', function () { dragOut(this) })
-    dropZones[i].addEventListener('dragover', function () { dragOn(event) })
-    dropZones[i].addEventListener('drop', function () { dropMove(event, this) })
+    dropZones[i].addEventListener('dragover', function (event) { dragOn(event) })
+    dropZones[i].addEventListener('drop', function (event) { dropMove(event, this) })
   }
 
   /* these are listeners for when we drag a task item */

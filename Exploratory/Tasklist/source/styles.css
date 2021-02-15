@@ -11,7 +11,7 @@ header {
 	float: left;
 }
 
-#XVSoft {
+#xvsoft {
 	font-family: Nunito;
 	font-style: normal;
 	font-weight: bold;
@@ -30,12 +30,12 @@ header {
 	transition: all 0.3s ease;
 }
 
-#XVSoft:hover {
+#xvsoft:hover {
 	color: #16A9EC;
 }
 
 
-#pageTitle { 
+#page-title { 
 	position: absolute;
 	text-align: center;
 	left: 48%;
@@ -48,11 +48,11 @@ header {
 	font-feature-settings: 'pnum' on, 'lnum' on;
 }
 
-#settingsButton {
+#settings-button {
 	float: right;
 }
 
-.infoBar {
+.info-bar {
 	max-width:633px;
 	display: flex;
 	align-items: center;
@@ -64,7 +64,7 @@ header {
 }
 
 
-.infoCont {
+.info-cont {
 	padding: 0 10px;
 	width: 100px;
 	text-align: center;
@@ -90,7 +90,7 @@ header {
 	color: #939393;
 }
 
-.Timer {
+.timer {
 	max-width: 1920px;
 	position: relative;
 	margin: auto;
@@ -98,7 +98,7 @@ header {
 	height: 600px;
 }
 
-.timerBack {
+.timer-back {
 	position: absolute;
 	top: 30px;
 	left: 50%;
@@ -106,7 +106,7 @@ header {
 }
 
 /* Time text (I know monkey names) */
-#actualTime {
+#actual-time {
 	position: absolute;
 	top: 40%;
 	transform: translateY(-50%);
@@ -127,7 +127,7 @@ header {
 	color: #000000;
 }
 
-.bottomBar{
+.bottom-bar{
 	max-width: 952px;
 	display: flex;
 	align-items:center;
@@ -139,7 +139,7 @@ header {
 	top: 920px;
 }
 
-.bottomCont{
+.bottom-cont{
 	width: 350px;
 	height: 26px;
 
@@ -160,12 +160,12 @@ header {
 	mix-blend-mode: normal;
 }
 
-.bottomCont:hover{
+.bottom-cont:hover{
 	color: #000000;
 	font-weight: 500;
 }
 
-.infoCont.current {
+.info-cont.current {
 	color: #C20404;
 	font-weight: bold;
 }
@@ -211,7 +211,7 @@ header {
 	background: black;
 }
 
-.taskListCont {
+.task-list-cont {
 	position: absolute;
 	top: 500px;
 	left: 50%;
@@ -220,11 +220,11 @@ header {
 	justify-content: space-evenly;
 }
 
-#listEntry {
+#list-entry {
 	vertical-align: top;
 }
 
-#taskQueue {
+#task-queue {
 	vertical-align: top;
 	margin-top: 0px;
 	margin-bottom: 0px;
@@ -238,11 +238,11 @@ li button {
 	margin-left: 4px;
 }
 
-#taskBox {
+#task-box {
 	padding-left: 40px;
 }
 
-#dropZone {
+#drop-zone {
 	height: 2em;
 }
 
