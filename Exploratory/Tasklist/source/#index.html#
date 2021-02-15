@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- HEADER STUFF -->
+    <meta charset="utf-8">
+
+    <title>PomoDorks</title>
+    <meta name="description" content="Timer">
+    <meta name="author" content="XVSoft">
+    <meta name="viewport" content= "width=device-width, user-scalable=no"> <!-- Dis not working -->
+
+    <!-- STYLESHEETS AND FONTS AND SCRIPT LINK-->
+    <link rel="stylesheet" href="styles.css">
+    <link href="http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300&display=swap" rel="stylesheet">
+
+  </head>
+  <body>
+    <script src="index.js" defer></script>
+    <script src="tasklist.js" defer></script>
+
+    <!-- HEADER CONTAINING NAV BAR WITH SETTINGS, TITLE, AND LOGO -->
+    <header>
+      <div id="logo">
+        <a href="https://github.com/UdayKalra/cse110-w21-group15">
+          <img src="logo 4.svg" alt="logo">
+          <strong id="xvsoft">XVSoft</strong>
+        </a>
+      </div>
+      <div id="page-title">
+        POMODORKS
+      </div>
+      <div id="settings-button">
+        <button id="settings">
+          <img src="settings.svg" alt="settings">
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <!-- MAIN SECTION OF PROGRAM (INCLUDES TIMER, WORK/BREAKS, START + TASKS) -->
+      <section>
+        <div class="info-bar">
+          <div class="info-cont-current">
+            Work
+          </div>
+          <div class="info-cont">
+            Short Break
+          </div>
+          <div class="info-cont">
+            Long Break
+          </div>
+        </div>
+        <div class="timer">
+          <!-- TIMER, CURRENTLY JUST A STATIONARY BACKGROUND, TODO: Figure out progress bar (perhaps using two overlayed images). -->
+          <div class="timer-back">
+            <img src="Timer.svg" alt="Timer backdrop">
+            <div id="actual-time"> 25:00</div>
+          </div>
+          <button id="start">
+            START
+          </button>
+          <audio src="click.wav" id="click"></audio> <!-- sound file -->
+        </div>
+        <div class="task-list-cont">
+          <form id="list-entry">
+            <label for="task"> Enter some tasks:</label><br>
+            <input type="text" id="task" name="task">
+          </form>
+          <div id="task-box">
+            <caption>Task Queue</caption>
+            <ol id="task-queue">
+              <div id="drop-zone">
+              </div>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <!-- BOTTOM BAR WITH ABOUT US SUGGESTIONS AND POMODORO TECHNIQUE -->
+      <section>
+        <div class="bottom-bar">
+          <div class="bottom-cont">
+            <a href="https://github.com/UdayKalra/cse110-w21-group15">ABOUT US</a>
+          </div>
+          <div class="bottom-cont">
+            <a href="https://github.com/UdayKalra/cse110-w21-group15">SUGGESTIONS</a>
+          </div>
+          <div class="bottom-cont">
+            <a href="https://github.com/UdayKalra/cse110-w21-group15">POMODORO TECHNIQUE</a>
+          </div>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>
