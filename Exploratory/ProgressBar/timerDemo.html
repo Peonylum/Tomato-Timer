@@ -70,7 +70,7 @@
     <p id="timer-type">Pomo #1</p>
     <p id="time-display">25:00</p>
     <div id="my-progress">
-        <div id="myBar">0%</div>
+        <div id="-bar">0%</div>
     </div>
     <div class="center">
         <button id="timer-button" onclick="onTimerPressed()">Start</button>
@@ -126,7 +126,7 @@
         function move() {
             if (i == 0) {
                 i = 1;
-                var elem = document.getElementById("myBar");
+                var elem = document.getElementById("my-bar");
                 var width = 0;
                 var id = setInterval(frame, 15000); // ((minutes * 60)/100) * 1000
 
