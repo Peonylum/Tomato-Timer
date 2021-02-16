@@ -1,11 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <!--Little demo timer made with html/css/js. Just for fun.-->
-<title>PomoTimerDemo</title>
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet">
 
 <head>
+    <title>PomoTimerDemo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
         body {
@@ -14,7 +14,7 @@
             text-transform: lowercase;
         }
 
-        [id=pageTitle] {
+        [id=page-title] {
             text-align: center;
             color: #fff;
             font-size: 60px;
@@ -22,31 +22,31 @@
             margin-bottom: 15px;
         }
 
-        [id=timerType] {
+        [id=timer-type] {
             text-align: center;
             color: #ddd;
             font-size: 30px;
             margin: 30px;
         }
 
-        [id=timeDisplay] {
+        [id=time-display] {
             text-align: center;
             font-size: 60px;
             margin-top: 30px;
         }
 
-        [id=timerButton] {
+        [id=timer-button] {
             font-size: 30px;
         }
 
-        [id=myProgress] {
+        [id=my-progress] {
             width: 100%;
             background-color: #ddd;
             margin-bottom: 5vh;
             border-radius: 10px;
         }
 
-        [id=myBar] {
+        [id=my-bar] {
             width: 0%;
             height: 30px;
             background-color: rgb(255, 236, 61);
@@ -66,17 +66,17 @@
 </head>
 
 <body>
-    <p id=pageTitle>Lil Pom Timer</p>
-    <p id=timerType>Pomo #1</p>
-    <p id=timeDisplay>25:00</p>
-    <div id="myProgress">
+    <p id="page-title">Lil Pom Timer</p>
+    <p id="timer-type">Pomo #1</p>
+    <p id="time-display">25:00</p>
+    <div id="my-progress">
         <div id="myBar">0%</div>
     </div>
-    <div class=center>
-        <button id=timerButton onclick="onTimerPressed()">Start</button>
+    <div class="center">
+        <button id="timer-button" onclick="onTimerPressed()">Start</button>
     </div>
-    <input type="checkbox" id=test name=test onclick="onTestCheckboxChecked()">
-    <label for=test>Testing Timelength</label>
+    <input type="checkbox" id="test" name="test" onclick="onTestCheckboxChecked()">
+    <label for="test">Testing Timelength</label>
     <script>
         var pomTime = 25 * 60 * 1000;
         var breakTime = 5 * 60 * 1000;
@@ -103,22 +103,22 @@
                 clearInterval(delta);
                 isPomTime = true;
                 pomCount = 0;
-                document.getElementById("timerButton").innerHTML = "Start";
-                document.getElementById("timeDisplay").innerHTML = "Timer Stopped";
+                document.getElementById("timer-button").innerHTML = "Start";
+                document.getElementById("time-display").innerHTML = "Timer Stopped";
             } else {
                 //Start
                 startCountdown();
                 if (isPomTime) {
-                    document.getElementById("timerType").innerHTML = "Pomo #" + pomCount;
+                    document.getElementById("timer-type").innerHTML = "Pomo #" + pomCount;
                 } else {
                     if (pomCount < 4) {
-                        document.getElementById("timerType").innerHTML = "Short Break";
+                        document.getElementById("timer-type").innerHTML = "Short Break";
                     } else {
-                        document.getElementById("timerType").innerHTML = "Long Break";
+                        document.getElementById("timer-type").innerHTML = "Long Break";
                         pomCount = 0;
                     }
                 }
-                document.getElementById("timerButton").innerHTML = "Stop";
+                document.getElementById("timer-button").innerHTML = "Stop";
                 move();
             }
         }
@@ -131,7 +131,7 @@
                 var id = setInterval(frame, 15000); // ((minutes * 60)/100) * 1000
 
                 function frame() {
-                    if (width >= 100 || document.getElementById("timerButton").innerHTML == "Start") {
+                    if (width >= 100 || document.getElementById("timer-button").innerHTML == "Start") {
                         clearInterval(id);
                         i = 0;
                         console.log(id);
@@ -171,19 +171,19 @@
                     seconds = "0" + seconds;
                 }
                 //Update display
-                document.getElementById("timeDisplay").innerHTML = minutes + ":" + seconds;
+                document.getElementById("time-display").innerHTML = minutes + ":" + seconds;
 
                 //Countdown over
                 if (timeDiff < 0) {
                     clearInterval(delta);
-                    document.getElementById("timeDisplay").innerHTML = "Timer Ended";
+                    document.getElementById("time-display").innerHTML = "Timer Ended";
                     isCounting = false;
                     if (isPomTime) {
                         isPomTime = false;
                     } else {
                         isPomTime = true;
                     }
-                    document.getElementById("timerButton").innerHTML = "Start";
+                    document.getElementById("timer-button").innerHTML = "Start";
                 }
             }, timerInt);
         }
