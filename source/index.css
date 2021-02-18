@@ -197,7 +197,7 @@ button {
     z-index: -5;
 }
 
-#main {
+body {
     background-image: url('./assets/background.svg');
     background-size: 100%;
     width: 100%;
