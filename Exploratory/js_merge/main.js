@@ -21,6 +21,8 @@ function main () {
      it's purpose is to reset the state to working and
      call the timer function */
   function runSession (event) {
+    /* TODO: in here we should also prevent start from being clickable
+       until the end of the break times */
     event.preventDefault()
     // playAudio() /*if we choose to */
 
