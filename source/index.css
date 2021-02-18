@@ -1,6 +1,5 @@
 /* default */
 div {
-    border: 1px solid black;
     margin: 0
 }
 header {
@@ -24,7 +23,7 @@ button {
 }
 /* nav bar */
 .container { 
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
     height: 87px;
@@ -132,6 +131,7 @@ button {
 }
 
 #timer {
+    top: 30px;
     position: relative;
     height: 500px;
 }
@@ -197,7 +197,7 @@ button {
     z-index: -5;
 }
 
-#main {
+body {
     background-image: url('./assets/background.svg');
     background-size: 100%;
     width: 100%;
