@@ -38,6 +38,6 @@
   - Parallax Scroll
   - **Final Decision: Dialogue box in center (appears during first time or when button is clicked)**
 
-  ## Task Division
+## Task Division
   * Finalize Design on Figma: George
   * Begin coding static site: Everyone
