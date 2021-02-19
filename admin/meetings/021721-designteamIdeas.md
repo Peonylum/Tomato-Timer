@@ -24,7 +24,7 @@
   - Fade in full page
   - **Final Decision: Hovering overlay in top right corner**
 * Title / Nav Bar (XVSoft, Tomato Timer, Settings part)
-  - Title, Name, and Settings Icon should be in a unified color bar 
+  - Title, Name, and Settings Icon should be in a unified color bar
   - Integraded nav bar (directly on main page)
   - **Final Decision: Different Colored Nav Bar (fromt rest of page)**
 * Bottom About Us Section
@@ -39,5 +39,5 @@
   - **Final Decision: Dialogue box in center (appears during first time or when button is clicked)**
 
 ## Task Division
-  * Finalize Design on Figma: George
-  * Begin coding static site: Everyone
+* Finalize Design on Figma: George
+* Begin coding static site: Everyone
