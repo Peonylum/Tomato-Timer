@@ -1,4 +1,5 @@
 /* imports */
+import { editSettings } from './settings.js'
 import { timer } from './timer.js'
 
 function main () {
@@ -14,6 +15,14 @@ function main () {
   }
 
   const startButton = document.getElementById('start-button')
+
+  /* this will later be replaced by a more general purpose settings listener */
+  document.getElementById('length-entry').addEventListener('submit', function (event) { runSettings(event) })
+
+  function runSettings (event) {
+    event.preventDefault()
+    editSettings(pomoSession)
+  }
 
   startButton.addEventListener('click', function (event) { runSession(event) })
 
