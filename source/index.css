@@ -167,10 +167,19 @@ button {
     height: 500px;
 }
 #timer-background {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+#play {
+  height: 5rem;
+  width: 5rem;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 300px;
 }
 
 #play-button {
@@ -179,9 +188,8 @@ button {
     background-repeat: no-repeat;
     background-position: center;
     position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 300px;
+    left: 0;
+    top: 0;
     z-index: 0;
     background-size: 100%;
     background-image:  url('./assets/playButton.svg');
