@@ -13,7 +13,9 @@
   </head>
   <body>
     <!-- <img id="main-background" src="./assets/background.svg" alt="main-background"> -->
-    <script src="script.js" async defer></script>
+    <script src="./main.js" async defer></script>
+    <!-- <script type="module" src="./settings.js" async defer></script> -->
+    <script src="./tasklist.js" async defer></script>
     <section id="nav-bar">
       <div class="container"> <!--white rectangle behind -->
         <a id="logo">
@@ -41,7 +43,8 @@
         <p>Adjust Time</p>
         <div id="adjust-time">
           <label for="pomo-time">Pomo Time:</label>
-          <input id="pomo-time" type="number" value=25 max=60></input>
+          <input id="pomo-time" type="number" step="1" value="25" max="60">
+          <!-- TODO: add interval to make sure can only put whole numbers -->
         </div>
         <hr>
         <p>Adjust Volume</p>
@@ -76,7 +79,7 @@
         <button id="play"> 
           <span id="play-button"></span>
         </button>
-        <p id = "time">00:00</p>
+        <p id = "time">25:00</p>
       </div>
       
       <div id="task-container">
