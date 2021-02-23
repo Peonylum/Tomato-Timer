@@ -573,3 +573,114 @@ body {
     height: 99.62px;
     bottom: 2%;
 }
+
+/* Onboarding */
+.in-active#onboarding {
+  display: none;
+}
+
+.active#onboarding {
+  display: block;
+}
+
+#onboarding-black {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.3;
+  z-index: +10;
+  width: 100vw;
+  height: 100vh;
+}
+
+#onboarding-background {
+  background: #f8f0e9;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4);
+  border-radius: 53px;
+  margin: auto;
+  position: absolute;
+  top: 7vh;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50vw;
+  height: 75vh;
+  opacity: 100;
+  z-index: +20;
+}
+
+#wrapper {
+  position: relative;
+  width: inherit;
+  height: inherit;
+}
+
+#onboarding-image1 {
+  position: absolute;
+  border-radius: 53px;
+  padding: 7%;
+  top: 4%;
+  height: 30%;
+  width: 37.5%;
+  z-index: +20;
+}
+
+#onboarding-image2 {
+  position: absolute;
+  border-radius: 53px;
+  bottom: 4%;
+  height: 30%;
+  width: 37.5%;
+  padding: 7%;
+  z-index: +20;
+}
+
+#onboarding-flex {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+#onboarding-text {
+  position: absolute;
+  width: 45%;
+  height: 80%;
+  margin: 5%;
+  right: 0%;
+  top: 0%;
+}
+
+#onboarding-text h1 {
+  font-family: Nunito, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 40px;
+  line-height: 55px;
+  height: 20%;
+  overflow-y: hidden;
+  text-align: center;
+  color: #f51717;
+}
+
+#onboarding-text p {
+  overflow-y: auto;
+  height: 80%;
+  width: 95%;
+  text-align: left;
+  overflow-x: hidden;
+  margin: auto;
+  font-family: Nunito, sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  color: #513737;
+}
+
+#onboarding-progress {
+  position: absolute;
+  right: 6%;
+  bottom: 2%;
+}
