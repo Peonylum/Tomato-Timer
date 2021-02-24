@@ -183,8 +183,7 @@ window.addEventListener('DOMContentLoaded', e => {
   } else {
     console.log('not first time visiting')
     myStorage.setItem('firstTime', false)
-    //TODO
-    // onboarding.setAttribute('class', 'in-active')
+    onboarding.setAttribute('class', 'in-active')
   }
   return 0
 })
