@@ -81,33 +81,33 @@ function updateTimer () {
 function stateChange () {
     switch (pomoSession.state) {
         case 'work':
-        if (pomoSession.count === 4) {
-            pomoSession.state = 'longBreak';
-        }
-        else {
-            pomoSession.state = 'shortBreak';
-        }
-        runTimer();
-        break;
+            if (pomoSession.count === 4) {
+                pomoSession.state = 'longBreak';
+            }
+            else {
+                pomoSession.state = 'shortBreak';
+            }
+            runTimer();
+            break;
         case 'shortBreak':
-        pomoSession.state = 'work';
-        pomoSession.firstStart = true;
-        pomoSession.count++;
-        timerLen = updateTimerLen();
-        // Change Stop button to Start button
-        document.getElementById('play').style.display = 'block';
-        document.getElementById('stop').style.display = 'none';
-        break;
+            pomoSession.state = 'work';
+            pomoSession.firstStart = true;
+            pomoSession.count++;
+            timerLen = updateTimerLen();
+            // Change Stop button to Start button
+            document.getElementById('play').style.display = 'block';
+            document.getElementById('stop').style.display = 'none';
+            break;
         case 'longBreak':
-        pomoSession.state = 'work';
-        pomoSession.firstStart = true;
-        pomoSession.count = 0;
-        pomoSession.set++;
-        updateTimerLen();
-        // Change Stop button to Start button
-        document.getElementById('play').style.display = 'block';
-        document.getElementById('stop').style.display = 'none';
-        break;
+            pomoSession.state = 'work';
+            pomoSession.firstStart = true;
+            pomoSession.count = 0;
+            pomoSession.set++;
+            updateTimerLen();
+            // Change Stop button to Start button
+            document.getElementById('play').style.display = 'block';
+            document.getElementById('stop').style.display = 'none';
+            break;
     }
     displayMinSecond();
 }
