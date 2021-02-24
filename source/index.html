@@ -13,10 +13,16 @@
   </head>
   <body>
     <!-- <img id="main-background" src="./assets/background.svg" alt="main-background"> -->
+<<<<<<< HEAD
+    <script src="./main.js" defer></script>
+    <!-- <script type="module" src="./settings.js" async defer></script> -->
+    <script src="./tasklist.js" defer></script>
+=======
     <script src="./main.js"></script>
     <script src="./timer.js"></script>
     <!-- <script type="module" src="./settings.js" async defer></script> -->
     <!-- <script src="./tasklist.js" async defer></script> -->
+>>>>>>> 372c8ea9252e60ff937c337396111b088504967c
     <section id="nav-bar">
       <div class="container"> <!--white rectangle behind -->
         <a id="logo">
@@ -32,8 +38,7 @@
         </button>
       </div>
     </section>
-    
-    
+     
     <section id="main">
       <div id="settings-overlay">
         <div id="settings-header">
@@ -44,7 +49,7 @@
         <p>Adjust Time</p>
         <div id="adjust-time">
           <label for="pomo-time">Pomo Time:</label>
-          <input id="pomo-time" type="number" step="1" value="25" max="60">
+          <input id="pomo-time" type="number" step="1" min="15" value="25" max="60">
           <!-- TODO: add interval to make sure can only put whole numbers -->
         </div>
         <hr>
@@ -61,24 +66,27 @@
         <div id="progress-background">
           <img src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">   
         </div>    
-        <div id="progress-tomato-1">   
+        <div>   
           <img id="progress-tomato-1" src="./assets/progressBarTomato.svg" alt="progress bar work tomato">
         </div>
-        <div id="progress-tomato-2">   
+        <div>   
           <img id="progress-tomato-2" src="./assets/progressBarTomato.svg" alt="progress bar break tomato">
         </div>
-        <div id="progress-tomato-3">   
+        <div>   
           <img id="progress-tomato-3" src="./assets/progressBarTomato.svg" alt="progress bar next! tomato">
         </div>
       </div>
       
       <div id="timer">
         <div id="empty-seeds">
-          <img id="empty-seeds" src="./assets/emptySeeds.svg">
+          <img src="./assets/emptySeeds.svg" alt="plain seed">
         </div>
         <img id = "timer-background" src="./assets/timerBackground.svg" alt="Timer background">
         <button id="play"> 
           <span id="play-button"></span>
+        </button>	
+        <button id="stop"> 
+          <span id="stop-button"></span>
         </button>
         <button id="stop"> 
           <span id="stop-button"></span>
@@ -129,19 +137,7 @@
             </div>
             
             <!-- Actual Object to be appended-->
-            <div id="task-object">
-              <button id="move-task-button">
-                <img src="assets/moveTask.svg" alt="move task" id="move-task-icon">
-              </button>
-              <button id="delete-task-button">
-                <img src="assets/minusSign.svg" alt="delete task" id="delete-task-icon">
-              </button>
-              <p id="task-pomo-num">1/4</p>
-              <p id="task-name">Example Task</p>
-              <button id="complete-task">
-                <!-- Switch with src="assets/completedTask.svg" when clicked -->
-                <img src="assets/checkTask.svg" alt="complete task" id="complete-task-icon">
-              </button>
+            <div id="tasks">
             </div>
           </div>
         </div>
