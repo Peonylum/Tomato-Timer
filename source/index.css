@@ -175,7 +175,6 @@ button {
 }
 
 #stop {
-<<<<<<< HEAD
   height: 5rem;
   width: 5rem;
   position: absolute;
@@ -183,15 +182,6 @@ button {
   transform: translateX(-50%);
   top: 300px;
   display: none;
-=======
-    height: 5rem;
-    width: 5rem;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    top: 300px;
-    display: none;
->>>>>>> 372c8ea9252e60ff937c337396111b088504967c
 }
 
 #play-button {
@@ -218,19 +208,6 @@ button {
   z-index: 0;
   background-size: 100%;
   background-image: url('./assets/stop-button.svg');
-}
-
-#stop-button {
-    height: 5rem;
-    width: 5rem;
-    background-repeat: no-repeat;
-    background-position: center;
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 0;
-    background-size: 100%;
-    background-image:  url('./assets/stop-button.svg');
 }
 
 #time {

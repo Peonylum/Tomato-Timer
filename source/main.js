@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 // Initialize all global variables.
 const pomoSession = {
@@ -31,26 +30,8 @@ function startSession () {
 
   // Start the timer
   runTimer()
-=======
-
-// Initialize all global variables.
-var pomoSession = {
-  count: 0, /* 4 to a set */
-  sets: 0, /* counts how many full pomo sets completed */
-  state: 'work', /* can be work, shortBreak, or longBreak */
-  pomoLen: 0.5, /* these are all set low for testing */
-  shortBreakLen: 0.2,
-  longBreakLen: 0.2,
-  firstStart:true
->>>>>>> 372c8ea9252e60ff937c337396111b088504967c
 }
-  
-var timerLen, timerRef, mins, seconds;
-const listItems = []
-const delBtns = []
-let curr
 
-<<<<<<< HEAD
 function stopSession () {
   // Reset the pomoSession variable
   pomoSession.state = 'work'
@@ -151,16 +132,3 @@ function stateChange () {
   }
   displayMinSecond()
 }
-=======
-// Add all EventListener when the DOM Loaded
-document.addEventListener("DOMContentLoaded", function(event) {
-  document.getElementById('play').addEventListener('click', startSession);
-  document.getElementById('stop').addEventListener('click', stopSession);
-});
-
-
-
-
-
-
->>>>>>> 372c8ea9252e60ff937c337396111b088504967c
