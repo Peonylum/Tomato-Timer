@@ -1,3 +1,4 @@
+let myStorage = window.localStorage;
 
 // Initialize all global variables.
 const pomoSession = {
@@ -76,6 +77,7 @@ function stopSession () {
   // Stop the timer
   clearInterval(timerRef)
 }
+
 
 function runTimer () {
   timerLen = updateTimerLen()
@@ -159,4 +161,57 @@ function stateChange () {
       break
   }
   displayMinSecond()
+}
+
+
+//Onboarding
+// myStorage = window.localStorage
+// firstTime = true initially.
+let onboarding = document.getElementById('onboarding');
+let onboardingButton = document.getElementById('onboarding-button')
+let current = 1;
+window.addEventListener('DOMContentLoaded', e => {
+  e.preventDefault();
+  console.log('DOMContentLoaded')
+  onboardingButton.addEventListener('click', onBoardingClick);
+  restartSession();
+  if (myStorage.getItem('firstTime') === null) {
+    console.log('first time visiting')
+    myStorage.setItem('firstTime', false)
+    onboarding.setAttribute('class', 'active')
+    return 1
+  } else {
+    console.log('not first time visiting')
+    myStorage.setItem('firstTime', false)
+    //TODO
+    // onboarding.setAttribute('class', 'in-active')
+  }
+  return 0
+})
+
+//function to cycle through onboarding pages
+const onBoardingClick = e => {
+  document.getElementById(`o${current}`).style.display = 'none';
+  current = current + 1;
+  if (current > 6){
+    onboarding.setAttribute('class', 'in-active')
+    return 'closed';
+  }
+  document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
+  document.getElementById(`o${current}`).style.display = 'block';
+  return 'continue';
+}
+
+function restartSession () {
+  document.getElementById('play-restart').addEventListener('click', function() {
+      console.log('close');
+      onboarding.setAttribute('class','active')
+      current = 1;
+      restartOnboarding();
+  });
+}
+
+const restartOnboarding = () => {
+  document.getElementById(`o${current}`).style.display = 'block';
+  document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
 }

@@ -117,24 +117,22 @@ button {
 #progress-tomato-1 {
   margin: 0 auto;
   text-align: center;
-  position: relative;
-  right: 103px;
+  position: absolute;
+  left: 5px;
 }
 
 #progress-tomato-2 {
   margin: 0 auto;
   text-align: center;
-  position: relative;
-  left: 47px;
-  bottom: 31px;
+  position: absolute;
+  left: 305px;
 }
 
 #progress-tomato-3 {
   margin: 0 auto;
   text-align: center;
-  position: relative;
-  left: 99px;
-  bottom: 62px;
+  position: absolute;
+  right: 15px;
 }
 
 #progress-background {
@@ -565,8 +563,7 @@ button {
 }
 
 body {
-  background-image: url('./assets/background.svg');
-  background-size: 100%;
+  background: url('./assets/background.svg') no-repeat;
   width: 100vw;
   height: 100vh;
 }
@@ -669,7 +666,7 @@ body {
   flex-direction: column;
 }
 
-#onboarding-text {
+.onboarding-text {
   position: absolute;
   width: 45%;
   height: 80%;
@@ -678,7 +675,7 @@ body {
   top: 0;
 }
 
-#onboarding-text h1 {
+.onboarding-text h1 {
   font-family: Nunito, sans-serif;
   font-style: normal;
   font-weight: normal;
@@ -690,7 +687,7 @@ body {
   color: #f51717;
 }
 
-#onboarding-text p {
+.onboarding-text p {
   overflow-y: auto;
   height: 80%;
   width: 95%;
@@ -707,6 +704,45 @@ body {
 
 #onboarding-progress {
   position: absolute;
-  right: 6%;
+  right: 3%;
   bottom: 2%;
+}
+#onboarding-progress-bar{
+  position: relative;
+}
+
+#onboarding-button-img {
+  background: url('./assets/onboarding-button-img.svg');
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
+  display: block;
+  /* bottom: 2%;
+  right: 3%;  */
+  width: 24px;
+  height: 24px;
+  top: 0px;
+}
+
+#onboarding-button-img:hover {
+
+}
+
+#onboarding-button{
+  /* position: absolute; */
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 0px;
+  z-index: +50;
+  /* bottom: 2%;
+  right: 3%;
+  z-index: +20; */
+}
+
+#o1{
+  display: block;
+}
+#o2, #o3, #o4, #o5, #o6{
+  display: none
 }
