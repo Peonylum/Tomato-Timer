@@ -473,7 +473,7 @@ button {
 
 /* Settings */
 #settings-overlay {
-  display: block;
+  display: none;
   position: absolute;
 
   /* background-color: #F8F0E9; */

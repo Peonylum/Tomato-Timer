@@ -4,7 +4,7 @@ const pomoSession = {
   count: 0, /* 4 to a set */
   sets: 0, /* counts how many full pomo sets completed */
   state: 'work', /* can be work, shortBreak, or longBreak */
-  pomoLen: 0.5, /* these are all set low for testing */
+  pomoLen: 25, /* these are all set low for testing */
   shortBreakLen: 0.2,
   longBreakLen: 0.2,
   firstStart: true
@@ -21,7 +21,35 @@ let seconds
 document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('play').addEventListener('click', startSession)
   document.getElementById('stop').addEventListener('click', stopSession)
+  document.getElementById('settings').addEventListener('click', showSettings)
+  document.getElementById('close-settings').addEventListener('click', showSettings)
+  document.getElementById('pomo-time').addEventListener('input', settingsTime)
+
+  // Update and display timer length
+  timerLen = updateTimerLen()
+  displayMinSecond()
 })
+
+function settingsTime() {
+  var adjustedTime = document.getElementById('pomo-time').value
+
+  pomoSession.pomoLen = adjustedTime
+  timerLen = updateTimerLen()
+  displayMinSecond()
+}
+
+function showSettings() {
+  // Settings button
+  let settingStatus = document.getElementById('settings-overlay')
+
+  // Show/hide settings overlay based on current display
+  if(settingStatus.style.display === 'none') {
+    settingStatus.style.display = 'block'
+  }
+  else {
+    settingStatus.style.display = 'none'
+  }
+}
 
 function startSession () {
   // Change Start button to Stop button
