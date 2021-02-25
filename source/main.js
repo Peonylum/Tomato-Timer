@@ -167,14 +167,21 @@ function stateChange () {
 //Onboarding
 // myStorage = window.localStorage
 // firstTime = true initially.
-let onboarding = document.getElementById('onboarding');
+let onboarding = document.getElementById('onboarding')
 let onboardingButton = document.getElementById('onboarding-button')
-let current = 1;
+let current = 1
+let textDivs = [...document.querySelectorAll('.otext')]
+console.log(textDivs)
 window.addEventListener('DOMContentLoaded', e => {
   e.preventDefault();
   console.log('DOMContentLoaded')
-  onboardingButton.addEventListener('click', onBoardingClick);
-  restartSession();
+  onboardingButton.addEventListener('click', onBoardingClick)
+  document.getElementById('onboarding-black').addEventListener('click', blackClicked)
+  restartSession()
+
+  document.getElementById('o1').addEventListener('animationend', e => {
+
+  })
   if (myStorage.getItem('firstTime') === null) {
     console.log('first time visiting')
     myStorage.setItem('firstTime', false)
@@ -203,6 +210,7 @@ const onBoardingClick = e => {
 
 function restartSession () {
   document.getElementById('play-restart').addEventListener('click', function() {
+    hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
       console.log('close');
       onboarding.setAttribute('class','active')
       current = 1;
@@ -211,6 +219,36 @@ function restartSession () {
 }
 
 const restartOnboarding = () => {
+  textDivs.forEach(item => item.style.display = 'none');
   document.getElementById(`o${current}`).style.display = 'block';
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
 }
+
+const blackClicked = e => {
+  e.preventDefault();
+  console.log('clicked');
+}
+
+const showOnBoarding = () => {
+  onboarding.setAttribute('class', 'active');
+}
+//hides onboarding menu
+const hideOnClickOutside = (element, buttonId) => {
+  const outsideClickListener = e => {
+      if (e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target)){
+          document.getElementById('onboarding').setAttribute('class','in-active');
+          removeClickListener();
+      }
+      console.log(element.contains(e.target))
+      console.log(e.target);
+  }
+  console.log("removed by outside window");
+  console.log(element);
+  const removeClickListener = () => {
+      document.removeEventListener('click', outsideClickListener);
+  }
+
+  setTimeout(document.addEventListener('click', outsideClickListener),0);
+}
+
+//testing for click on onboarding-black
