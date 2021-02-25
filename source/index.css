@@ -108,33 +108,26 @@ button {
   padding: 50px;
   position: relative;
   align-items: center;
-  width: 50%;
-  height: 92px;
+  width: 400px;
+  height: 100px;
   left: 50%;
+  bottom: 5px;
   transform: translateX(-50%);
 }
 
 #progress-tomato-1 {
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  right: 103px;
+  position: absolute;
+  left: 10px;
 }
 
 #progress-tomato-2 {
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  left: 47px;
-  bottom: 31px;
+  position: absolute;
+  left: 315px;
 }
 
 #progress-tomato-3 {
-  margin: 0 auto;
-  text-align: center;
-  position: relative;
-  left: 99px;
-  bottom: 62px;
+  position: absolute;
+  left: 420px;
 }
 
 #progress-background {
@@ -150,6 +143,19 @@ button {
   position: relative;
   right: 0;
   top: -6px;
+}
+
+#filler-bar-1{
+ position: absolute; 
+ left: 73px;
+ top: 68px;
+ 
+}
+
+#filler-bar-2{
+  position: absolute;
+  left: 373px;
+  top: 68px;
 }
 
 #timer {
