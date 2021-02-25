@@ -1,4 +1,4 @@
-let myStorage = window.localStorage;
+let myStorage = window.localStorage
 
 // Initialize all global variables.
 const pomoSession = {
@@ -26,41 +26,41 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('close-settings').addEventListener('click', showSettings)
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
   document.getElementById('volume-text').addEventListener('input', changeVolumeSlider)
-  document.getElementById('volume-slider').addEventListener('input',changeVolumeText)
+  document.getElementById('volume-slider').addEventListener('input', changeVolumeText)
 
   // Update and display timer length
   timerLen = updateTimerLen()
   displayMinSecond()
 })
 
-function changeVolumeText() {
-  let slider = document.getElementById('volume-slider')
-  let number = document.getElementById('volume-text')
+function changeVolumeText () {
+  const slider = document.getElementById('volume-slider')
+  const number = document.getElementById('volume-text')
 
   number.value = slider.value
 }
 
- function changeVolumeSlider() {
-  let slider = document.getElementById('volume-slider')
-  let number = document.getElementById('volume-text')
-  
-  slider.value = (number.value) ? number.value: 0
+function changeVolumeSlider () {
+  const slider = document.getElementById('volume-slider')
+  const number = document.getElementById('volume-text')
+
+  slider.value = (number.value) ? number.value : 0
 }
 
-function settingsTime() {
-  var adjustedTime = document.getElementById('pomo-time').value
+function settingsTime () {
+  const adjustedTime = document.getElementById('pomo-time').value
 
   pomoSession.pomoLen = adjustedTime
   timerLen = updateTimerLen()
   displayMinSecond()
 }
 
-function showSettings() {
+function showSettings () {
   // Settings button
-  let settingStatus = document.getElementById('settings-overlay')
+  const settingStatus = document.getElementById('settings-overlay')
 
   // Show/hide settings overlay based on current display
-  if(settingStatus.style.display === 'none') {
+  if (settingStatus.style.display === 'none') {
     settingStatus.style.display = 'block'
   }
   else {
@@ -93,7 +93,6 @@ function stopSession () {
   // Stop the timer
   clearInterval(timerRef)
 }
-
 
 function runTimer () {
   timerLen = updateTimerLen()
@@ -179,17 +178,16 @@ function stateChange () {
   displayMinSecond()
 }
 
-
-//Onboarding
+// Onboarding
 // myStorage = window.localStorage
 // firstTime = true initially.
-let onboarding = document.getElementById('onboarding')
-let onboardingButton = document.getElementById('onboarding-button')
+const onboarding = document.getElementById('onboarding')
+const onboardingButton = document.getElementById('onboarding-button')
 let current = 1
-let textDivs = [...document.querySelectorAll('.otext')]
+const textDivs = [...document.querySelectorAll('.otext')]
 console.log(textDivs)
 window.addEventListener('DOMContentLoaded', e => {
-  e.preventDefault();
+  e.preventDefault()
   console.log('DOMContentLoaded')
   onboardingButton.addEventListener('click', onBoardingClick)
   document.getElementById('onboarding-black').addEventListener('click', blackClicked)
@@ -212,60 +210,60 @@ window.addEventListener('DOMContentLoaded', e => {
   return 0
 })
 
-//function to cycle through onboarding pages
+// function to cycle through onboarding pages
 const onBoardingClick = e => {
-  document.getElementById(`o${current}`).style.display = 'none';
-  current = current + 1;
-  if (current > 6){
+  document.getElementById(`o${current}`).style.display = 'none'
+  current = current + 1
+  if (current > 6) {
     onboarding.setAttribute('class', 'in-active')
-    return 'closed';
+    return 'closed'
   }
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
-  document.getElementById(`o${current}`).style.display = 'block';
-  return 'continue';
+  document.getElementById(`o${current}`).style.display = 'block'
+  return 'continue'
 }
 
 function restartSession () {
-  document.getElementById('play-restart').addEventListener('click', function() {
+  document.getElementById('play-restart').addEventListener('click', function () {
     hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
-      console.log('close');
-      onboarding.setAttribute('class','active')
-      current = 1;
-      restartOnboarding();
-  });
+    console.log('close')
+    onboarding.setAttribute('class', 'active')
+    current = 1
+    restartOnboarding()
+  })
 }
 
 const restartOnboarding = () => {
-  textDivs.forEach(item => item.style.display = 'none');
-  document.getElementById(`o${current}`).style.display = 'block';
+  textDivs.forEach(item => item.style.display = 'none')
+  document.getElementById(`o${current}`).style.display = 'block'
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
 }
 
 const blackClicked = e => {
   e.preventDefault();
-  console.log('clicked');
+  console.log('clicked')
 }
 
 const showOnBoarding = () => {
-  onboarding.setAttribute('class', 'active');
+  onboarding.setAttribute('class', 'active')
 }
-//hides onboarding menu
+// hides onboarding menu
 const hideOnClickOutside = (element, buttonId) => {
   const outsideClickListener = e => {
-      if (e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target)){
-          document.getElementById('onboarding').setAttribute('class','in-active');
-          removeClickListener();
+      if (e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target)) {
+          document.getElementById('onboarding').setAttribute('class', 'in-active')
+          removeClickListener()
       }
       console.log(element.contains(e.target))
-      console.log(e.target);
+      console.log(e.target)
   }
-  console.log("removed by outside window");
-  console.log(element);
+  console.log("removed by outside window")
+  console.log(element)
   const removeClickListener = () => {
-      document.removeEventListener('click', outsideClickListener);
+    document.removeEventListener('click', outsideClickListener)
   }
 
-  setTimeout(document.addEventListener('click', outsideClickListener),0);
+  setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
 
-//testing for click on onboarding-black
+// testing for click on onboarding-black
