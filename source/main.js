@@ -25,11 +25,27 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('settings').addEventListener('click', showSettings)
   document.getElementById('close-settings').addEventListener('click', showSettings)
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
+  document.getElementById('volume-text').addEventListener('input', changeVolumeSlider)
+  document.getElementById('volume-slider').addEventListener('input',changeVolumeText)
 
   // Update and display timer length
   timerLen = updateTimerLen()
   displayMinSecond()
 })
+
+function changeVolumeText() {
+  let slider = document.getElementById('volume-slider')
+  let number = document.getElementById('volume-text')
+
+  number.value = slider.value
+}
+
+ function changeVolumeSlider() {
+  let slider = document.getElementById('volume-slider')
+  let number = document.getElementById('volume-text')
+  
+  slider.value = (number.value) ? number.value: 0
+}
 
 function settingsTime() {
   var adjustedTime = document.getElementById('pomo-time').value
