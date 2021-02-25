@@ -1,4 +1,4 @@
-let myStorage = window.localStorage
+const myStorage = window.localStorage
 
 // Initialize all global variables.
 const pomoSession = {
@@ -33,21 +33,21 @@ document.addEventListener('DOMContentLoaded', function (event) {
   displayMinSecond()
 })
 
-function changeVolumeText() {
+function changeVolumeText () {
   const slider = document.getElementById('volume-slider')
   const number = document.getElementById('volume-text')
 
   number.value = slider.value
 }
 
-function changeVolumeSlider() {
+function changeVolumeSlider () {
   const slider = document.getElementById('volume-slider')
   const number = document.getElementById('volume-text')
 
   slider.value = (number.value) ? number.value : 0
 }
 
-function settingsTime() {
+function settingsTime () {
   const adjustedTime = document.getElementById('pomo-time').value
 
   pomoSession.pomoLen = adjustedTime
@@ -55,7 +55,7 @@ function settingsTime() {
   displayMinSecond()
 }
 
-function showSettings() {
+function showSettings () {
   // Settings button
   const settingStatus = document.getElementById('settings-overlay')
 
@@ -67,7 +67,7 @@ function showSettings() {
   }
 }
 
-function startSession() {
+function startSession () {
   // Change Start button to Stop button
   document.getElementById('play').style.display = 'none'
   document.getElementById('stop').style.display = 'block'
@@ -76,7 +76,7 @@ function startSession() {
   runTimer()
 }
 
-function stopSession() {
+function stopSession () {
   // Reset the pomoSession variable
   pomoSession.state = 'work'
   pomoSession.count = 0
@@ -93,7 +93,7 @@ function stopSession() {
   clearInterval(timerRef)
 }
 
-function runTimer() {
+function runTimer () {
   timerLen = updateTimerLen()
   console.log(timerLen)
   // Special case for first time start a work state, we need to offet a delay when clicking start button
@@ -104,7 +104,7 @@ function runTimer() {
   timerRef = setInterval(updateTimer, 1000)
 }
 
-function updateTimerLen() {
+function updateTimerLen () {
   let length
   // Set the timer length based on its state
   switch (pomoSession.state) {
@@ -121,7 +121,7 @@ function updateTimerLen() {
   return length * 60 * 1000 /* pomoLen in miliseconds */
 }
 
-function displayMinSecond() {
+function displayMinSecond () {
   console.log(timerLen)
   mins = Math.floor((timerLen / 1000) / 60)
   seconds = (timerLen / 1000) % 60
@@ -133,7 +133,7 @@ function displayMinSecond() {
   }
   document.getElementById('time').innerHTML = mins + ':' + seconds
 }
-function updateTimer() {
+function updateTimer () {
   if (timerLen <= 0) {
     clearInterval(timerRef)
     stateChange()
@@ -144,7 +144,7 @@ function updateTimer() {
 
 /* this function does the actual changes to the document and our
    session object. it's a bit hefty right now */
-function stateChange() {
+function stateChange () {
   switch (pomoSession.state) {
     case 'work':
       if (pomoSession.count === 4) {
@@ -222,7 +222,7 @@ const onBoardingClick = e => {
   return 'continue'
 }
 
-function restartSession() {
+function restartSession () {
   document.getElementById('play-restart').addEventListener('click', function () {
     hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
     console.log('close')
