@@ -145,14 +145,13 @@ button {
   top: -6px;
 }
 
-#filler-bar-1{
- position: absolute; 
- left: 73px;
- top: 68px;
- 
+#filler-bar-1 {
+  position: absolute;
+  left: 73px;
+  top: 68px;
 }
 
-#filler-bar-2{
+#filler-bar-2 {
   position: absolute;
   left: 373px;
   top: 68px;
