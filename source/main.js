@@ -186,6 +186,7 @@ window.addEventListener('DOMContentLoaded', e => {
     console.log('first time visiting')
     myStorage.setItem('firstTime', false)
     onboarding.setAttribute('class', 'active')
+    hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
     return 1
   } else {
     console.log('not first time visiting')
