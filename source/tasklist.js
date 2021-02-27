@@ -6,7 +6,10 @@
    modify delfromList to work with new modifications
 */
 function tasklist () {
+  const focusedTask = []
   const masterList = []
+  const completedList = []
+  let timeTrackRef
 
   document.getElementById('add-task').addEventListener('click', addToList)
 
@@ -22,20 +25,22 @@ function tasklist () {
     newTask.setAttribute('class', 'task-object')
 
     /* fill task object with it's buttons and text elements */
-    const moveButton = document.createElement('button')
-    moveButton.setAttribute('class', 'move-task-button')
-    moveButton.innerHTML = '<img src="assets/moveTask.svg" alt="move task" id="move-task-icon">'
-    newTask.appendChild(moveButton)
+    const focusButton = document.createElement('button')
+    focusButton.setAttribute('class', 'focus-task-button')
+    focusButton.innerHTML = '<img src="assets/moveTask.svg" alt="move task" id="move-task-icon">'
+    focusButton.addEventListener('click', focusTask)
+    newTask.appendChild(focusButton)
 
     const delButton = document.createElement('button')
     delButton.setAttribute('class', 'delete-task-button')
     delButton.innerHTML = '<img src="assets/minusSign.svg" alt="delete task" id="delete-task-icon">'
+    delButton.addEventListener('click', delFromList)
     newTask.appendChild(delButton)
 
-    const pomoNum = document.createElement('p')
-    pomoNum.setAttribute('class', 'task-pomo-num')
-    pomoNum.innerHTML = '0'
-    newTask.appendChild(pomoNum)
+    /* const pomoNum = document.createElement('p')
+       pomoNum.setAttribute('class', 'task-pomo-num')
+       pomoNum.innerHTML = '0'
+       newTask.appendChild(pomoNum) */
 
     const taskText = document.createElement('p')
     taskText.setAttribute('class', 'task-text')
@@ -45,6 +50,7 @@ function tasklist () {
     const compButton = document.createElement('button')
     compButton.setAttribute('class', 'complete-task-button')
     compButton.innerHTML = '<img src="assets/checkTask.svg" alt="complete task" id="complete-task-icon">'
+    compButton.addEventListener('click', completeTask)
     newTask.appendChild(compButton)
 
     taskInput.value = ''
@@ -52,10 +58,6 @@ function tasklist () {
     return newTask
   }
 
-  /* this function adds bullet points and drag spaces to our list
-     there is a cleaner way to do this, will update next sprint :)
-     involves just adding to array then redrawing list, like in the
-     functions to remove or rearrange */
   function addToList () {
     const newTask = buildNewTask()
     const tmptask = {
@@ -90,17 +92,82 @@ function tasklist () {
     redrawList()
   }
 
+  function focusTask () {
+    const temp = focusedTask.pop()
+    const index = masterList.findIndex(x => x.taskBody === this.parentElement)
+    focusedTask.push(masterList[index])
+    focusedTask[0].taskBody.setAttribute('class', 'focused-task')
+    focusedTask[0].taskBody.children[0].disabled = true
+
+    clearInterval(timeTrackRef)
+    timeTrackRef = setInterval(trackTime, 1000)
+
+    /* remove focused task from the list and if there was a previously
+       focused task, add it back to the list */
+    masterList.splice(index, 1)
+    if (temp !== undefined) {
+      temp.taskBody.setAttribute('class', 'task-object')
+      temp.taskBody.children[0].disabled = false
+      masterList.splice(0, 0, temp)
+    }
+
+    /* also get rid of the drop zone below the element being deleted */
+    // dropZones.splice(delBtns.indexOf(this), 1)
+
+    redrawList()
+  }
+
   /* removes an item from our task list */
-  // function delFromList () {
-  //   /* get rid of the button and bullet from our arrays before deleting it */
-  //   listItems.splice(delBtns.indexOf(this), 1)
-  //   delBtns.splice(delBtns.indexOf(this), 1)
+  function delFromList () {
+    if (focusedTask.length > 0) {
+      if (this.parentElement === focusedTask[0].taskBody) {
+        focusedTask.pop()
+        clearInterval(timeTrackRef)
+      }
+    } else {
+      const index = masterList.findIndex(x => x.taskBody === this.parentElement)
+      if (index === -1) {
+        completedList.splice(completedList.findIndex(x => x.taskBody === this.parentElement), 1)
+      } else {
+        masterList.splice(index, 1)
+      }
+    }
+    clearInterval(timeTrackRef)
 
-  //   /* also get rid of the drop zone below the element being deleted */
-  //   dropZones.splice(delBtns.indexOf(this), 1)
+    /* also get rid of the drop zone below the element being deleted */
+    // dropZones.splice(delBtns.indexOf(this), 1)
 
-  //   redrawList()
-  // }
+    redrawList()
+  }
+
+  function completeTask () {
+    let temp
+    if (focusedTask.length > 0) {
+      if (this.parentElement === focusedTask[0].taskBody) {
+        temp = focusedTask.pop()
+      }
+    } else {
+      const index = masterList.findIndex(x => x.taskBody === this.parentElement)
+      temp = masterList[index]
+      masterList.splice(index, 1)
+    }
+    temp.taskBody.setAttribute('class', 'completed-task')
+    temp.taskBody.children[temp.taskBody.children.length - 1].remove()
+    temp.taskBody.children[0].remove()
+
+    const taskTime = document.createElement('p')
+    taskTime.setAttribute('class', 'task-time')
+    taskTime.innerHTML = 'Pomos: ' + (temp.time / (1000 * 60 * 1)).toFixed(1)
+    temp.taskBody.appendChild(taskTime)
+
+    completedList.push(temp)
+    clearInterval(timeTrackRef)
+
+    /* also get rid of the drop zone below the element being deleted */
+    // dropZones.splice(delBtns.indexOf(this), 1)
+
+    redrawList()
+  }
 
   /* highlights valid drop zones when the dragged item moves over them */
   function dragIn (zone) {
@@ -193,9 +260,21 @@ function tasklist () {
        list.appendChild(dropZones[i])
        } */
 
+    if (focusedTask.length > 0) {
+      list.appendChild(focusedTask[0].taskBody)
+    }
+
     for (let i = 0; i < masterList.length; i++) {
       list.appendChild(masterList[i].taskBody)
     }
+
+    for (let i = 0; i < completedList.length; i++) {
+      list.appendChild(completedList[i].taskBody)
+    }
+  }
+
+  function trackTime () {
+    focusedTask[0].time += 1000
   }
 }
 

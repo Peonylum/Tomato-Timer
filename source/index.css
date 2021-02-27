@@ -423,6 +423,28 @@ button {
   border-radius: 8px;
 }
 
+/* Focused Task Object */
+.focused-task {
+  display: flex;
+  flex-direction: row;
+  width: 35.25vw;
+  background-color: gainsboro;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
+/* Completed Task Object */
+.completed-task {
+  display: flex;
+  flex-direction: row;
+  width: 35.25vw;
+  background-color: #c0c0c0;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 8px;
+}
+
 .move-task-button {
   margin-right: 0.5vw;
 }
