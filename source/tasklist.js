@@ -27,7 +27,7 @@ function tasklist () {
     /* fill task object with it's buttons and text elements */
     const focusButton = document.createElement('button')
     focusButton.setAttribute('class', 'focus-task-button')
-    focusButton.innerHTML = '<img src="assets/moveTask.svg" alt="move task" id="move-task-icon">'
+    focusButton.innerHTML = '<img src="assets/focusTask.svg" alt="focus task" id="focus-task-icon">'
     focusButton.addEventListener('click', focusTask)
     newTask.appendChild(focusButton)
 
@@ -98,6 +98,7 @@ function tasklist () {
     focusedTask.push(masterList[index])
     focusedTask[0].taskBody.setAttribute('class', 'focused-task')
     focusedTask[0].taskBody.children[0].disabled = true
+    focusedTask[0].taskBody.children[0].innerHTML = '<img src="assets/focusTaskActive.svg" alt="focus task" id="focus-task-activeicon">'
 
     clearInterval(timeTrackRef)
     timeTrackRef = setInterval(trackTime, 1000)
@@ -108,6 +109,8 @@ function tasklist () {
     if (temp !== undefined) {
       temp.taskBody.setAttribute('class', 'task-object')
       temp.taskBody.children[0].disabled = false
+      temp.taskBody.children[0].innerHTML = '<img src="assets/focusTask.svg" alt="focus task" id="focus-task-icon">'
+      temp.taskBody.children[0].setAttribute('src', 'assets/focusTask.svg')
       masterList.splice(0, 0, temp)
     }
 
