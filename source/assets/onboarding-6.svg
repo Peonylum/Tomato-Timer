@@ -3,19 +3,19 @@
 <circle cx="12" cy="8" r="8" fill="#73B92D"/>
 </g>
 <g filter="url(#filter1_d)">
-<circle cx="41" cy="8" r="8" fill="#D2F0B5"/>
+<circle cx="41" cy="8" r="8" fill="#73B92D"/>
 </g>
 <g filter="url(#filter2_d)">
-<circle cx="70" cy="8" r="8" fill="#D2F0B5"/>
+<circle cx="70" cy="8" r="8" fill="#73B92D"/>
 </g>
 <g filter="url(#filter3_d)">
-<circle cx="99" cy="8" r="8" fill="#D2F0B5"/>
+<circle cx="99" cy="8" r="8" fill="#73B92D"/>
 </g>
 <g filter="url(#filter4_d)">
-<circle cx="128" cy="8" r="8" fill="#D2F0B5"/>
+<circle cx="128" cy="8" r="8" fill="#73B92D"/>
 </g>
 <g filter="url(#filter5_d)">
-<circle cx="157" cy="8" r="8" fill="#D2F0B5"/>
+<circle cx="157" cy="8" r="8" fill="#73B92D"/>
 </g>
 <defs>
 <filter id="filter0_d" x="0" y="0" width="24" height="24" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
