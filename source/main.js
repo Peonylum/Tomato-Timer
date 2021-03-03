@@ -212,38 +212,47 @@ function stateChange () {
 // Onboarding
 // myStorage = window.localStorage
 // firstTime = true initially.
-const onboarding = document.getElementById('onboarding')
-const onboardingButton = document.getElementById('onboarding-button')
-let current = 1
-const textDivs = [...document.querySelectorAll('.otext')]
-console.log(textDivs)
-window.addEventListener('DOMContentLoaded', e => {
+const onBoardingVars= {
+  onboarding: document.getElementById('onboarding'),
+  onboardingButton: document.getElementById('onboarding-button'),
+  current: 1,
+  textDivs: [...document.querySelectorAll('.otext')]
+}
+// const onboarding = document.getElementById('onboarding')
+// const onboardingButton = document.getElementById('onboarding-button')
+// let current = 1
+// const textDivs = [...document.querySelectorAll('.otext')]
+// console.log(textDivs)
+
+const addContent = e => {
   e.preventDefault()
-  console.log('DOMContentLoaded')
-  onboardingButton.addEventListener('click', onBoardingClick)
+  onBoardingVars.onboardingButton.addEventListener('click', onBoardingClick)
   document.getElementById('onboarding-black').addEventListener('click', blackClicked)
   restartSession()
 
   if (myStorage.getItem('firstTime') === null) {
     console.log('first time visiting')
     myStorage.setItem('firstTime', false)
-    onboarding.setAttribute('class', 'active')
+    onBoardingVars.onboarding.setAttribute('class', 'active')
     hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
     return 1
   } else {
     console.log('not first time visiting')
     myStorage.setItem('firstTime', false)
-    onboarding.setAttribute('class', 'in-active')
+    onBoardingVars.onboarding.setAttribute('class', 'in-active')
+    return 0
   }
-  return 0
-})
+}
 
+window.addEventListener('DOMContentLoaded', addContent);
 // function to cycle through onboarding pages
 const onBoardingClick = e => {
+  let current = onBoardingVars.current
   document.getElementById(`o${current}`).style.display = 'none'
   current = current + 1
+  onBoardingVars.current = current;
   if (current > 6) {
-    onboarding.setAttribute('class', 'in-active')
+    document.getElementById('onboarding').setAttribute('class', 'in-active')
     return 'closed'
   }
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
@@ -254,20 +263,19 @@ const onBoardingClick = e => {
 function restartSession () {
   document.getElementById('play-restart').addEventListener('click', function () {
     hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
-    console.log('close')
-    onboarding.setAttribute('class', 'active')
-    current = 1
+    onBoardingVars.onboarding.setAttribute('class', 'active')
+    onBoardingVars.current = 1
     restartOnboarding()
   })
 }
 
 const restartOnboarding = () => {
-  textDivs.forEach(item => {
+  onBoardingVars.textDivs.forEach(item => {
     item.style.display = 'none'
     return 1
   })
-  document.getElementById(`o${current}`).style.display = 'block'
-  document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
+  document.getElementById(`o${onBoardingVars.current}`).style.display = 'block'
+  document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${onBoardingVars.current}.svg`
 }
 
 const blackClicked = e => {
@@ -297,15 +305,19 @@ const hideOnClickOutside = (element, buttonId) => {
   setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
 
-// testing for click on onboarding-black
 module.exports = {
-  pomoSession: pomoSession,
-  timer: timer,
-  startSession: startSession,
-  stopSession: stopSession,
-  runTimer: runTimer,
-  updateTimerLen: updateTimerLen,
-  displayMinSecond: displayMinSecond,
-  stateChange: stateChange,
-  updateTimer: updateTimer
+  pomoSession,
+  timer,
+  startSession,
+  stopSession,
+  runTimer,
+  updateTimerLen,
+  displayMinSecond,
+  stateChange,
+  updateTimer,
+  addContent,
+  onBoardingClick,
+  onBoardingVars,
+  restartSession,
+  hideOnClickOutside
 }
