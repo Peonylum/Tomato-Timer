@@ -363,13 +363,14 @@ const onBoardingClick = e => {
   return 'continue'
 }
 
+const restartClick = function (e) {
+  hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
+  document.getElementById('onboarding').setAttribute('class', 'active')
+  onBoardingVars.current = 1
+  restartOnboarding()
+}
 function restartSession () {
-  document.getElementById('play-restart').addEventListener('click', function () {
-    hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
-    onBoardingVars.onboarding.setAttribute('class', 'active')
-    onBoardingVars.current = 1
-    restartOnboarding()
-  })
+  document.getElementById('play-restart').addEventListener('click', restartClick)
 }
 
 const restartOnboarding = () => {
@@ -396,15 +397,10 @@ const hideOnClickOutside = (element, buttonId) => {
       document.getElementById('onboarding').setAttribute('class', 'in-active')
       removeClickListener()
     }
-    console.log(element.contains(e.target))
-    console.log(e.target)
   }
-  console.log('removed by outside window')
-  console.log(element)
   const removeClickListener = () => {
     document.removeEventListener('click', outsideClickListener)
   }
-
   setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
 
@@ -422,5 +418,7 @@ module.exports = {
   onBoardingClick,
   onBoardingVars,
   restartSession,
-  hideOnClickOutside
+  hideOnClickOutside,
+  restartClick,
+  restartOnboarding
 }
