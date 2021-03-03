@@ -7,8 +7,8 @@ const pomoSession = {
   sets: 0 /* counts how many full pomo sets completed */,
   state: 'work' /* can be work, shortBreak, or longBreak */,
   pomoLen: 1 /* these are all set low for testing */,
-  shortBreakLen: 0.05,
-  longBreakLen: 0.1,
+  shortBreakLen: 2,
+  longBreakLen: 5,
   firstStart: true,
 }
 
@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('settings').addEventListener('click', showSettings)
   document.getElementById('close-settings').addEventListener('click', showSettings)
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
+  document.getElementById('short-break-time').addEventListener('input', settingsTime)
+  document.getElementById('long-break-time').addEventListener('input', settingsTime)
   document.getElementById('volume-text').addEventListener('input', changeVolumeSlider)
   document.getElementById('volume-slider').addEventListener('input', changeVolumeText)
 
@@ -50,11 +52,18 @@ function changeVolumeSlider () {
 }
 
 function settingsTime () {
-  const adjustedTime = document.getElementById('pomo-time')
+  const adjustPomoTime = document.getElementById('pomo-time')
+  const adjustSbTime = document.getElementById('short-break-time')
+  const adjustLbTime = document.getElementById('long-break-time')
 
   // Alter time based on setting inputs
-  if (adjustedTime.value >= 1 && adjustedTime.value <= 99) {
-    pomoSession.pomoLen = adjustedTime.value
+  if ((adjustPomoTime.value >= 1 && adjustPomoTime.value <= 99) &&
+  (adjustSbTime.value >= 1 && adjustSbTime.value <= 99) &&
+  (adjustLbTime.value >= 1 && adjustLbTime.value <= 99)) {
+
+    pomoSession.pomoLen = adjustPomoTime.value
+    pomoSession.shortBreakLen = adjustSbTime.value
+    pomoSession.longBreakLen = adjustLbTime.value
     timer.timerLen = updateTimerLen()
     displayMinSecond(timer.timerLen)
 
@@ -69,23 +78,39 @@ function settingsTime () {
 
 function disableTime () {
   const timeRunning = document.getElementById('stop')
-  const adjustedTime = document.getElementById('pomo-time')
+  const adjustPomoTime = document.getElementById('pomo-time')
+  const adjustSbTime = document.getElementById('short-break-time')
+  const adjustLbTime = document.getElementById('long-break-time')
 
   // Disable/enable time adjustment based on running time
   if (timeRunning.style.display === 'block') {
-    adjustedTime.disabled = true
+    adjustPomoTime.disabled = true
+    adjustSbTime.disabled = true
+    adjustLbTime.disabled = true
   } else {
-    adjustedTime.disabled = false
+    adjustPomoTime.disabled = false
+    adjustSbTime.disabled = false
+    adjustLbTime.disabled = false
   }
 }
 
 function showSettings () {
   // Settings button
   const settingStatus = document.getElementById('settings-overlay')
-  const settingTime = document.getElementById('pomo-time')
+  const adjustPomoTime = document.getElementById('pomo-time')
+  const adjustSbTime = document.getElementById('short-break-time')
+  const adjustLbTime = document.getElementById('long-break-time')
 
-  if(settingTime.value != pomoSession.pomoLen) {
-    settingTime.value = pomoSession.pomoLen
+  if(adjustPomoTime.value != pomoSession.pomoLen) {
+    adjustPomoTime.value = pomoSession.pomoLen
+  }
+
+  if(adjustSbTime.value != pomoSession.shortBreakLen) {
+    adjustSbTime.value = pomoSession.shortBreakLen
+  }
+
+  if(adjustLbTime.value != pomoSession.longBreakLen) {
+    adjustLbTime.value = pomoSession.longBreakLen
   }
 
   // disable time adjustment
