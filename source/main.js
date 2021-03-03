@@ -3,12 +3,12 @@ const myStorage = window.localStorage
 // Initialize all global variables.
 const pomoSession = {
   count: 0 /* 4 to a set */,
-  pomoPerSet: 2 /* the number of pomos per pomo set, default 4 */,
+  pomoPerSet: 4 /* the number of pomos per pomo set, default 4 */,
   sets: 0 /* counts how many full pomo sets completed */,
   state: 'work' /* can be work, shortBreak, or longBreak */,
-  pomoLen: 1 /* these are all set low for testing */,
-  shortBreakLen: 2,
-  longBreakLen: 5,
+  pomoLen: 0.05 /* these are all set low for testing */,
+  shortBreakLen: .05,
+  longBreakLen: .3,
   firstStart: true,
 }
 
@@ -303,9 +303,9 @@ function stateChange() {
       pomoSession.state = 'work'
       pomoSession.firstStart = true
       pomoSession.count++
-      if (pomoSession.count === pomoSession.pomoPerSet - 1) {
+      if (pomoSession.count === pomoSession.pomoPerSet) {
         document.getElementById('progress-bar-background').src =
-          './assets/backgroundProgressBarLongBreak.svg'
+          '/source/assets/progressBarLongBreak.svg'
         //document.getElementById('progress-bar').setAttribute('bottom',24)
         console.log('imageChangedToLongBreak')
       } else {
