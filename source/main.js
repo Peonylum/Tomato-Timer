@@ -376,7 +376,6 @@ function restartSession () {
 const restartOnboarding = () => {
   onBoardingVars.textDivs.forEach(item => {
     item.style.display = 'none'
-    return 1
   })
   document.getElementById(`o${onBoardingVars.current}`).style.display = 'block'
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${onBoardingVars.current}.svg`

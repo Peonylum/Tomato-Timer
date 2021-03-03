@@ -65,7 +65,7 @@ describe ('onBoardingClick Functionality', () => {
   })
 })
 
-describe('restartSession functionality', () => {
+describe('restartSession, restartClick, restartOnBoarding functionality', () => {
   beforeEach(() => {
     windowSpy = jest.spyOn(window, "window", "get");
   });
@@ -120,5 +120,16 @@ describe('restartSession functionality', () => {
       main.restartClick()
       expect(mockElement.getAttribute('class')).toBe('active')
       expect(main.onBoardingVars.current).toBe(1)
+  })
+  it( 'restartOnboarding correctly sets viewstyles to be none and has current as block', () => {
+    main.onBoardingVars.current = 1
+    main.onBoardingVars.textDivs = [...document.querySelectorAll('.otext')]
+    main.onBoardingVars.textDivs.forEach(item => item.style.display = 'block')
+    main.restartOnboarding()
+    main.onBoardingVars.textDivs.forEach(item => {
+      expect(item.style.display).toBe('none')
+    })
+    expect(document.getElementById(`o${main.onBoardingVars.current}`).style.display = 'block')
+    expect(document.getElementById('onboarding-progress-bar').src).toBe(`./assets/onboarding-${main.onBoardingVars.current}.svg`)
   })
 })
