@@ -6,7 +6,7 @@ const pomoSession = {
   pomoPerSet: 2 /* the number of pomos per pomo set, default 4 */,
   sets: 0 /* counts how many full pomo sets completed */,
   state: 'work' /* can be work, shortBreak, or longBreak */,
-  pomoLen: 0.1 /* these are all set low for testing */,
+  pomoLen: 1 /* these are all set low for testing */,
   shortBreakLen: 0.05,
   longBreakLen: 0.1,
   firstStart: true,
@@ -82,6 +82,11 @@ function disableTime () {
 function showSettings () {
   // Settings button
   const settingStatus = document.getElementById('settings-overlay')
+  const settingTime = document.getElementById('pomo-time')
+
+  if(settingTime.value != pomoSession.pomoLen) {
+    settingTime.value = pomoSession.pomoLen
+  }
 
   // disable time adjustment
   disableTime()
