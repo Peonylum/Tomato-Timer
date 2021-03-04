@@ -87,73 +87,52 @@
 
     <div id="task-container">
       <div id="task-list">
-        <!-- change color of text during breaks(in CSS file)-->
-        <p>TASK LIST </p>
-        <!-- switch with collapsed arrow on click: src="./assets/collapsedArrow.svg" alt="Collapsed Arrow"-->
-        <img src="./assets/arrrowDropdown.svg" alt="Dropdown">
+	<!-- change color of text during breaks(in CSS file)-->
+	<p>TASK LIST </p>
+	<!-- switch with collapsed arrow on click: src="./assets/collapsedArrow.svg" alt="Collapsed Arrow"-->
+	<img src="./assets/arrrowDropdown.svg" alt="Dropdown">
       </div>
       <div id="empty-task-queue">
-        <div id="task-description">
-          <img id="task-icon" src="./assets/taskIcon.svg" alt="task icon">
-          <p>Add a new task and start working.</p>
-        </div>
-        <img id = "timer-background" src="./assets/timerBackground.svg" alt="Timer background">
-        <button id="play"> 
-          <span id="play-button"></span>
-        </button>       
-        <button id="stop"> 
-          <span id="stop-button"></span>
-        </button>
+	<div id="task-description">
+	  <img id="task-icon" src="./assets/taskIcon.svg" alt="task icon">
+	  <p>Add a new task and start working.</p>
+	</div>
+	<button id="task-add-button">
+	  <img src="./assets/addButton.svg" alt="Plus Button" id="plus-image">
+	  Add task
+	</button>
       </div>
-      
-      <div id="task-container">
-        <div id="task-list">
-          <!-- change color of text during breaks(in CSS file)-->
-          <p>TASK LIST </p>
-          <!-- switch with collapsed arrow on click: src="./assets/collapsedArrow.svg" alt="Collapsed Arrow"-->
-          <img src="./assets/arrrowDropdown.svg" alt="Dropdown">
-        </div>
-        <div id="empty-task-queue">
-          <div id="task-description">
-            <img id="task-icon" src="./assets/taskIcon.svg" alt="task icon">
-            <p>Add a new task and start working.</p>
-          </div>
-          <button id="task-add-button">
-            <img src="./assets/addButton.svg" alt="Plus Button" id="plus-image">
-            Add task
-          </button>
-        </div>
-        <!--Unhide when there are tasks-->
-        <div id="task-queue" style="display: flex;">
-          <!-- <div id="task-queue-header">
-               <p id="pomo-task-header">POMOS</p>
-               <p id="task-header">TASK</p>
-          </div> -->
-          <!-- Append tasks to this task body-->
-          <div id="task-body">
-            <!-- Adding a task-->
-            <div id="adding-task-object">
-              <div id="task-flex">
-                <div id="task-input">
-                  <p id="task-header">TASK</p>
-                  <input id="pomo-task" name="pomo-task" type="text">
-                </div>
-              </div>
-            </div>
-            <button id="add-task">
-              <img src="assets/addButton.svg" alt="add task" id="add-task-icon">
-            </button>
-          </div>
-
-          <!-- Actual Object to be appended-->
-          <div id="tasks">
-          </div>
-        </div>
+      <!--Unhide when there are tasks-->
+      <div id="task-queue" style="display: flex;">
+	<!-- <div id="task-queue-header">
+	     <p id="pomo-task-header">POMOS</p>
+	     <p id="task-header">TASK</p>
+	</div> -->
+	<!-- Append tasks to this task body-->
+	<div id="task-body">
+	  <!-- Adding a task-->
+	  <div id="adding-task-object">
+	    <div id="task-flex">
+	      <div id="task-input">
+		<p id="task-header">TASK</p>
+		<input id="pomo-task" name="pomo-task" type="text">
+	      </div>
+	    </div>
+	    <button id="add-task">
+	      <img src="assets/addButton.svg" alt="add task" id="add-task-icon">
+	    </button>
+	  </div>
+	  
+	  <!-- Actual Object to be appended-->
+	  <div id="tasks">
+	  </div>
+	</div>
       </div>
     </div>
+
     <div id="restart-wrapper">
       <button id="play-restart">
-        <span id="restart-button"></span>
+	<span id="restart-button"></span>
       </button>
     </div>
 

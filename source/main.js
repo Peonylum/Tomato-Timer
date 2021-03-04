@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('play').addEventListener('click', startSession)
   document.getElementById('stop').addEventListener('click', stopSession)
   document.getElementById('settings').addEventListener('click', showSettings)
-  document.getElementById('close-settings').addEventListener('click', showSettings)
+  // document.getElementById('close-settings').addEventListener('click', showSettings)
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
   document.getElementById('volume-text').addEventListener('input', changeVolumeSlider)
   document.getElementById('volume-slider').addEventListener('input', changeVolumeText)
@@ -289,10 +289,8 @@ function delFromList () {
 
 function completeTask () {
   let temp
-  if (focusedTask.length > 0) {
-    if (this.parentElement === focusedTask[0].taskBody) {
-      temp = focusedTask.pop()
-    }
+  if (focusedTask.length > 0 && this.parentElement === focusedTask[0].taskBody) {
+    temp = focusedTask.pop()
   } else {
     const index = masterList.findIndex(x => x.taskBody === this.parentElement)
     temp = masterList[index]
@@ -397,7 +395,13 @@ function restartSession () {
 }
 
 const restartOnboarding = () => {
-  textDivs.forEach(item => item.style.display = 'none')
+  for (const i of textDivs) {
+    i.style.display = 'none'
+  }
+  /* I replaced the the commented line below with the above loop to make the
+     linter shush. I wish I could claim they both do the same thing but
+     I have no idea what it is supposed to be doing ??? -Dylan */
+  // textDivs.forEach(item => item.style.display = 'none')
   document.getElementById(`o${current}`).style.display = 'block'
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
 }
@@ -407,9 +411,11 @@ const blackClicked = e => {
   console.log('clicked')
 }
 
-const showOnBoarding = () => {
-  onboarding.setAttribute('class', 'active')
-}
+/* I commented this out because it's not used yet ! -Dylan */
+// const showOnBoarding = () => {
+//   onboarding.setAttribute('class', 'active')
+// }
+
 // hides onboarding menu
 const hideOnClickOutside = (element, buttonId) => {
   const outsideClickListener = e => {
