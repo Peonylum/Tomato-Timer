@@ -41,6 +41,8 @@ function changeVolumeText () {
 
   // Make volume slider and text adjustor the same value
   number.value = slider.value
+
+  return number.value
 }
 
 function changeVolumeSlider () {
@@ -447,5 +449,6 @@ module.exports = {
   onBoardingClick,
   onBoardingVars,
   restartSession,
-  hideOnClickOutside
+  hideOnClickOutside,
+  changeVolumeText
 }
