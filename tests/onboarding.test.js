@@ -65,7 +65,13 @@ describe ('onBoardingClick Functionality', () => {
   })
 })
 
-describe('restartSession functionality', () => {
+describe('restartSession, restartClick, restartOnBoarding functionality', () => {
+  beforeEach(() => {
+    windowSpy = jest.spyOn(window, "window", "get");
+  });
+  afterEach(() => {
+    windowSpy.mockRestore();
+  });
   document.body.innerHTML = 
   '<div class="active" id="onboarding">' +
   '<div id="o1" class="otext">' +
@@ -105,16 +111,25 @@ describe('restartSession functionality', () => {
   })
 
   it( 'Event Listener is functioning', () => {
-      const elementMock = { addEventListener: jest.fn()}
-      jest.spyOn(document,'getElementById').mockImplementation(() => elementMock)
-      jest.spyOn(global, window, 'get').mockImplementation(() => ({hideOnClickOutside: console.log('mock')}))
-      main.onBoardingVars.onboarding = document.getElementById('onboarding')
+      let mockElement = document.createElement('div')
+      mockElement.setAttribute('id', 'onboarding')
+      mockElement.setAttribute('class','active')
+      jest.spyOn(document,'getElementById').mockImplementation(() => mockElement)
 
       // onBoardingVars.onboarding = document.getElementById('onboarding')
-      main.restartSession()
-      const handler = elementMock.addEventListener.mock.calls[0][1]
-      handler();
-      expect(onBoardingVars.onboarding.getAttribute('class')).toBe('active')
-      expect(onBoardingVars.current).toBe(1)
+      main.restartClick()
+      expect(mockElement.getAttribute('class')).toBe('active')
+      expect(main.onBoardingVars.current).toBe(1)
+  })
+  it( 'restartOnboarding correctly sets viewstyles to be none and has current as block', () => {
+    main.onBoardingVars.current = 1
+    main.onBoardingVars.textDivs = [...document.querySelectorAll('.otext')]
+    main.onBoardingVars.textDivs.forEach(item => item.style.display = 'block')
+    main.restartOnboarding()
+    main.onBoardingVars.textDivs.forEach(item => {
+      expect(item.style.display).toBe('none')
+    })
+    expect(document.getElementById(`o${main.onBoardingVars.current}`).style.display = 'block')
+    expect(document.getElementById('onboarding-progress-bar').src).toBe(`./assets/onboarding-${main.onBoardingVars.current}.svg`)
   })
 })

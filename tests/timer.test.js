@@ -1,4 +1,5 @@
-const settings = require('../source/main')
+const main = require('../source/main')
+
 document.head.innerHTML = '<style>' +
     '.in-active#onboarding {' +
     'display: none;' +
@@ -7,33 +8,8 @@ document.head.innerHTML = '<style>' +
     'display: block;' +
     '}' +
     '</style>'
-document.body.innerHTML =
-    '<button id="settings">' +
-    '<div id="settings-overlay" style="display: none;">' +
-    '<div id="settings-header">' +
-    '<button id="close-settings">' +
-    '<img id="settings-exit" src="assets/exitButton.svg" alt="exit">' +
-    '</button>' +
-    '<p>Settings</p>' +
-    '</div>' +
-    '<hr>' +
-    '<p>Adjust Time</p>' +
-    '<div id="adjust-time">' +
-    '<label for="pomo-time">Pomo Time:</label>' +
-    '<input id="pomo-time" type="number" step="1" min="1" value="25" max="60">' +
-    '<!-- TODO: add interval to make sure can only put whole numbers -->' +
-    '</div>' +
-    '<hr>' +
-    '<p>Adjust Volume</p>' +
-    '<div id="adjust-volume">' +
-    '<div>' +
-    '<label for="volume-text">Volume:</label>' +
-    '<input id="volume-text" name="volume-text" type="number" value="100" step="1" min="0" max="100">' +
-    '</div>' +
-    '<input id="volume-slider" name="volume-slider" type="range" step="1" min="0" max="100" value="100">' +
-    '</div>' +
-    '</div>' +
-    '<div id="timer">' +
+
+document.body.innerHTML = '<div id="timer">' +
     '<div id="empty-seeds">' +
     '<img src="./assets/emptySeeds.svg" alt="plain seed">' +
     '</div>' +
@@ -46,6 +22,11 @@ document.body.innerHTML =
     '</button>' +
     '<p id="time">25:00</p>' +
     '</div>' +
+    '<div id="settings"></div>' +
+    '<div id="close-settings"></div>' +
+    '<div id="pomo-time"></div>' +
+    '<div id="volume-text"></div>' +
+    '<div id="volume-slider"></div>' +
     '<div id="onboarding-black"></div>' +
     '<div id="onboarding-background">' +
     '<div id="o1"></div>' +
@@ -76,19 +57,36 @@ document.body.innerHTML =
     '</button>' +
     '</div>' +
     '</div>'
+
 require('../source/main')
 
 const evt = document.createEvent('Event')
 evt.initEvent('DOMContentLoaded', true, true, document, '', '', '', 0)
 document.dispatchEvent(evt)
-describe('Test Volume Change', () => {
 
-    test('Volume Text Should Change with Slider Change', () => {
+describe('startSession', () => {
+    test('Hide a start button and display a stop button', () => {
+        const playBtn = document.getElementById('play')
+        const stopBtn = document.getElementById('stop')
 
-        const slider = document.getElementById('volume-slider')
-        const number = document.getElementById('volume-text')
-        number.value = 50
-        settings.changeVolumeSlider()
-        expect(slider.value).toBe('50')
+        playBtn.click()
+        expect(playBtn.style.display).toBe('none')
+        expect(stopBtn.style.display).toBe('block')
+    })
+})
+
+describe('startSession', () => {
+    test('Hide a start button and display a stop button', () => {
+        const playBtn = document.getElementById('play')
+        const stopBtn = document.getElementById('stop')
+
+        stopBtn.click()
+
+        expect(main.pomoSession.state).toBe('work')
+        expect(main.pomoSession.count).toBe(0)
+        expect(main.pomoSession.sets).toBe(1)
+        expect(main.pomoSession.firstStart).toBe(true)
+        expect(playBtn.style.display).toBe('block')
+        expect(stopBtn.style.display).toBe('none')
     })
 })

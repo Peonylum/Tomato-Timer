@@ -3,12 +3,12 @@ const myStorage = window.localStorage
 // Initialize all global variables.
 const pomoSession = {
   count: 0 /* 4 to a set */,
-  pomoPerSet: 2 /* the number of pomos per pomo set, default 4 */,
+  pomoPerSet: 4 /* the number of pomos per pomo set, default 4 */,
   sets: 0 /* counts how many full pomo sets completed */,
   state: 'work' /* can be work, shortBreak, or longBreak */,
   pomoLen: 1 /* these are all set low for testing */,
   shortBreakLen: 2,
-  longBreakLen: 5,
+  longBreakLen: 3,
   firstStart: true,
 }
 
@@ -41,8 +41,6 @@ function changeVolumeText () {
 
   // Make volume slider and text adjustor the same value
   number.value = slider.value
-
-  return number.value
 }
 
 function changeVolumeSlider () {
@@ -305,9 +303,9 @@ function stateChange() {
       pomoSession.state = 'work'
       pomoSession.firstStart = true
       pomoSession.count++
-      if (pomoSession.count === pomoSession.pomoPerSet - 1) {
+      if (pomoSession.count === pomoSession.pomoPerSet) {
         document.getElementById('progress-bar-background').src =
-          './assets/backgroundProgressBarLongBreak.svg'
+          '/source/assets/progressBarLongBreak.svg'
         //document.getElementById('progress-bar').setAttribute('bottom',24)
         console.log('imageChangedToLongBreak')
       } else {
@@ -390,19 +388,19 @@ const onBoardingClick = e => {
   return 'continue'
 }
 
+const restartClick = function (e) {
+  hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
+  document.getElementById('onboarding').setAttribute('class', 'active')
+  onBoardingVars.current = 1
+  restartOnboarding()
+}
 function restartSession () {
-  document.getElementById('play-restart').addEventListener('click', function () {
-    hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
-    onBoardingVars.onboarding.setAttribute('class', 'active')
-    onBoardingVars.current = 1
-    restartOnboarding()
-  })
+  document.getElementById('play-restart').addEventListener('click', restartClick)
 }
 
 const restartOnboarding = () => {
   onBoardingVars.textDivs.forEach(item => {
     item.style.display = 'none'
-    return 1
   })
   document.getElementById(`o${onBoardingVars.current}`).style.display = 'block'
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${onBoardingVars.current}.svg`
@@ -423,32 +421,30 @@ const hideOnClickOutside = (element, buttonId) => {
       document.getElementById('onboarding').setAttribute('class', 'in-active')
       removeClickListener()
     }
-    console.log(element.contains(e.target))
-    console.log(e.target)
   }
-  console.log('removed by outside window')
-  console.log(element)
   const removeClickListener = () => {
     document.removeEventListener('click', outsideClickListener)
   }
-
   setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
 
 module.exports = {
-  pomoSession,
-  timer,
-  startSession,
-  stopSession,
-  runTimer,
-  updateTimerLen,
-  displayMinSecond,
-  stateChange,
-  updateTimer,
+  pomoSession: pomoSession,
+  timer: timer,
+  startSession: startSession,
+  stopSession: stopSession,
+  runTimer: runTimer,
+  updateTimerLen: updateTimerLen,
+  displayMinSecond: displayMinSecond,
+  stateChange: stateChange,
+  updateTimer: updateTimer,
+  changeVolumeText: changeVolumeText,
+  changeVolumeSlider: changeVolumeSlider,
   addContent,
   onBoardingClick,
   onBoardingVars,
   restartSession,
   hideOnClickOutside,
-  changeVolumeText
+  restartClick,
+  restartOnboarding
 }
