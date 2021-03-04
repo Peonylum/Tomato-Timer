@@ -277,7 +277,7 @@ function displayMinSecond (timerLen) {
 function updateTimer () {
   if (timer.timerLen <= 0) {
     clearInterval(timer.timerRef)
-    stateChange()
+    stateChange(runTimer, displayMinSecond)
   }
   console.log(timer.timerLen)
   updateSeedsImage()
@@ -288,7 +288,7 @@ function updateTimer () {
 
 /* this function does the actual changes to the document and our
    session object. it's a bit hefty right now */
-function stateChange() {
+function stateChange(runTimer, displayMinSecond) {
   console.log('inStateChange')
   switch (pomoSession.state) {
     case 'work':

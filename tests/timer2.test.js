@@ -1,5 +1,3 @@
-const main = require('../source/main')
-
 document.body.innerHTML = '<div>' +
   '<button id="play">' +
   '<span id="play-button"></span>' +
@@ -13,30 +11,32 @@ document.body.innerHTML = '<div>' +
   '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
   '<img id="progress-bar-background" src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">' +
   '<svg id="filler-bar-1-svg" width="0" height="8">' +
-  '<svg id="filler-bar-2-svg" width="0" height="8">' +
+  '<svg id="filler-bar-2-svg" width="0" height="8">'
 
-  describe('runTimer', () => {
-    jest.useFakeTimers()
-    test('The first time the timer starts', () => {
-      const callback = jest.fn()
-      main.pomoSession.firstStart = true
-      main.runTimer(callback)
-      jest.advanceTimersByTime(3000)
-      expect(main.pomoSession.firstStart).toBe(false)
-      expect(setInterval).toBeCalled()
-      expect(callback).toHaveBeenCalledTimes(3)
-    })
+const main = require('../source/main')
 
-    test('Not the first time the timer starts', () => {
-      const callback = jest.fn()
-      main.pomoSession.firstStart = false
-      main.runTimer(callback)
-      jest.advanceTimersByTime(6000)
-      expect(main.pomoSession.firstStart).toBe(false)
-      expect(setInterval).toBeCalled()
-      expect(callback).toHaveBeenCalledTimes(6)
-    })
+describe('runTimer', () => {
+  jest.useFakeTimers()
+  test('The first time the timer starts', () => {
+    const callback = jest.fn()
+    main.pomoSession.firstStart = true
+    main.runTimer(callback)
+    jest.advanceTimersByTime(3000)
+    expect(main.pomoSession.firstStart).toBe(false)
+    expect(setInterval).toBeCalled()
+    expect(callback).toHaveBeenCalledTimes(3)
   })
+
+  test('Not the first time the timer starts', () => {
+    const callback = jest.fn()
+    main.pomoSession.firstStart = false
+    main.runTimer(callback)
+    jest.advanceTimersByTime(6000)
+    expect(main.pomoSession.firstStart).toBe(false)
+    expect(setInterval).toBeCalled()
+    expect(callback).toHaveBeenCalledTimes(6)
+  })
+})
 
 describe('updateTimeLen', () => {
   test('In work state', () => {
@@ -132,7 +132,7 @@ describe('stateChange', () => {
     expect(callback2).toHaveBeenCalledTimes(1)
   })
 
-  test('In shortBreak state and ++count=pomoPerSet-1', () => {
+  test('In shortBreak state and ++count=pomoPerSet', () => {
     const callback1 = jest.fn()
     const callback2 = jest.fn()
     const playBtn = document.getElementById('play')
@@ -140,17 +140,17 @@ describe('stateChange', () => {
     const progressBar = document.getElementById('progress-bar-background')
     main.pomoSession.state = 'shortBreak'
     main.pomoSession.pomoLen = 5
-    main.pomoSession.count = 0
+    main.pomoSession.count = 1
     main.pomoSession.pomoPerSet = 2
     main.pomoSession.firstStart = false
 
     main.stateChange(callback1, callback2)
 
     expect(main.pomoSession.state).toBe('work')
-    expect(main.pomoSession.count).toBe(1)
+    expect(main.pomoSession.count).toBe(2)
     expect(main.pomoSession.firstStart).toBe(true)
 
-    expect((progressBar).getAttribute('src')).toBe('./assets/backgroundProgressBarLongBreak.svg')
+    expect((progressBar).getAttribute('src')).toBe('/source/assets/progressBarLongBreak.svg')
 
     // expect(document.getElementById('time').innerHTML).toBe('05:00')
     expect(playBtn.style.display).toBe('block')
@@ -160,7 +160,7 @@ describe('stateChange', () => {
     expect(callback2).toHaveBeenCalledTimes(1)
   })
 
-  test('In shortBreak state and ++count<pomoPerSet-1', () => {
+  test('In shortBreak state and ++count<pomoPerSet', () => {
     const callback1 = jest.fn()
     const callback2 = jest.fn()
     const playBtn = document.getElementById('play')
@@ -210,7 +210,7 @@ describe('stateChange', () => {
     expect(main.timer.timerLen).toBe(180000)
     expect(playBtn.style.display).toBe('block')
     expect(stopBtn.style.display).toBe('none')
-
+    
     expect(callback1).toHaveBeenCalledTimes(0)
     expect(callback2).toHaveBeenCalledTimes(1)
   })
