@@ -1,4 +1,4 @@
-const main = require('../source/main')
+// const main = require('../source/main')
 
 document.head.innerHTML = '<style>' +
     '.in-active#onboarding {' +
@@ -56,9 +56,24 @@ document.body.innerHTML = '<div id="timer">' +
     '<span id="onboarding-button-img">' + '</span>' +
     '</button>' +
     '</div>' +
-    '</div>'
+    '</div>' +
+    '<div id="adjust-time">' +
+        '<div>' +
+          '<label for="pomo-time">Pomo Time:</label>' +
+          '<input class="time-input" id="pomo-time" type="number" step="1" min="1" value="25" max="60">' +
+        '</div>' +
+        '<div>' +
+          '<label for="short-break-time">Short Break Time:</label>' +
+          '<input class="time-input" id="short-break-time" type="number" step="1" min="1" value="25" max="60">' +
+        '</div>' +
+        '<div>' +
+          '<label for="long-break-time">Long Break Time:</label>' +
+          '<input class="time-input" id="long-break-time" type="number" step="1" min="1" value="25" max="60">' +
+        '</div>' +
+        '<!-- TODO: add interval to make sure can only put whole numbers -->' +
+      '</div>'
 
-require('../source/main')
+const main = require('../source/main')
 
 const evt = document.createEvent('Event')
 evt.initEvent('DOMContentLoaded', true, true, document, '', '', '', 0)
