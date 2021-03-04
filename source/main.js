@@ -357,7 +357,6 @@ module.exports = {
 *                                                  |___/  *
 ***********************************************************/
 
-
 // Onboarding
 // myStorage = window.localStorage
 // firstTime = true initially.
