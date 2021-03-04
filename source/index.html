@@ -36,43 +36,66 @@
       <div id="settings-overlay">
         <div id="settings-header">
           <img id="settings-exit" src="assets/exitButton.svg" alt="exit">
-          <p>Settings</p>
-        </div>
-        <hr>
-        <p>Adjust Time</p>
-        <div id="adjust-time">
-          <label for="pomo-time">Pomo Time:</label>
-          <input id="pomo-time" type="number" step="1" min="15" value="25" max="60">
-          <!-- TODO: add interval to make sure can only put whole numbers -->
-        </div>
-        <hr>
-        <p>Adjust Volume</p>
-        <div id="adjust-volume">
-          <div>
-            <label for="volume-text">Volume:</label>
-            <input id="volume-text" name="volume-text" type="text" value="100" min="0" max="100">
-          </div>
-          <input id="volume-slider" name="volume-slider" type="range" step="0.01" min="0.0" max="1.0" value="1.0">
-        </div>
+        </button>
+        <p>Settings</p>
       </div>
-      <div id="progress-bar">                
-        <div id="progress-background">
-          <img src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">   
-        </div>    
-        <div>   
+      <hr>
+      <p>Adjust Time</p>
+      <div id="adjust-time">
+        <label for="pomo-time">Pomo Time:</label>
+        <input id="pomo-time" type="number" step="1" min="15" value="25" max="60">
+        <!-- TODO: add interval to make sure can only put whole numbers -->
+      </div>
+      <hr>
+      <p>Adjust Volume</p>
+      <div id="adjust-volume">
+        <div>
+          <label for="volume-text">Volume:</label>
+          <input id="volume-text" name="volume-text" type="number" value="100" step="1" min="0" max="100">
+        </div>
+        <input id="volume-slider" name="volume-slider" type="range" step="1" min="0" max="100" value="100">
+      </div>
+    </div>
+    <div id="progress-bar">
+      <div id="progress-background">
+        <div>
           <img id="progress-tomato-1" src="./assets/progressBarTomato.svg" alt="progress bar work tomato">
         </div>
-        <div>   
+        <div>
           <img id="progress-tomato-2" src="./assets/progressBarTomato.svg" alt="progress bar break tomato">
         </div>
-        <div>   
+        <div>
           <img id="progress-tomato-3" src="./assets/progressBarTomato.svg" alt="progress bar next! tomato">
         </div>
+        <img src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">
       </div>
-      
-      <div id="timer">
-        <div id="empty-seeds">
-          <img src="./assets/emptySeeds.svg" alt="plain seed">
+    </div>
+
+    <div id="timer">
+      <div id="empty-seeds">
+        <img src="./assets/emptySeeds.svg" alt="plain seed">
+      </div>
+      <img id="timer-background" src="./assets/timerBackground.svg" alt="Timer background">
+      <button id="play">
+        <span id="play-button"></span>
+      </button>
+      <button id="stop">
+        <span id="stop-button"></span>
+      </button>
+      <p id="time">25:00</p>
+    </div>
+
+    <div id="task-container">
+      <div id="task-list">
+        <!-- change color of text during breaks(in CSS file)-->
+        <p>TASK LIST </p>
+        <!-- switch with collapsed arrow on click: src="./assets/collapsedArrow.svg" alt="Collapsed Arrow"-->
+        <img src="./assets/arrrowDropdown.svg" alt="Dropdown">
+      </div>
+      <div id="empty-task-queue">
+        <div id="task-description">
+          <img id="task-icon" src="./assets/taskIcon.svg" alt="task icon">
+          <p>Add a new task and start working.</p>
         </div>
         <img id = "timer-background" src="./assets/timerBackground.svg" alt="Timer background">
         <button id="play"> 
@@ -81,7 +104,6 @@
         <button id="stop"> 
           <span id="stop-button"></span>
         </button>
-        <p id = "time">25:00</p>
       </div>
       
       <div id="task-container">
@@ -117,36 +139,101 @@
                   <input id="pomo-task" name="pomo-task" type="text">
                 </div>
               </div>
-              <button id="add-task">
-                <img src="assets/addButton.svg" alt="add task" id="add-task-icon">
-              </button>
             </div>
-            
-            <!-- Actual Object to be appended-->
-            <div id="tasks">
-            </div>
+            <button id="add-task">
+              <img src="assets/addButton.svg" alt="add task" id="add-task-icon">
+            </button>
+          </div>
+
+          <!-- Actual Object to be appended-->
+          <div id="tasks">
           </div>
         </div>
       </div>
+    </div>
+    <div id="restart-wrapper">
       <button id="play-restart">
         <span id="restart-button"></span>
       </button>
-      
-      <div class="in-active" id="onboarding">
-        <div id="onboarding-black"></div>
-        <div id="onboarding-background">
-          <div id="wrapper">
-            <img src="./assets/image1.png" alt="" id="onboarding-image1">
-            <img src="./assets/image1.png" alt="" id="onboarding-image2">
-            
-            <div id="onboarding-text">
-              <h1>The Pomodoro Technique</h1>
-              <p>Lorem ipsum dolor sit amet, cons Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non bibendum libero, a fermentum neque. Sed id tempor elit, vitae pretium velit. Donec dolor sapien, viverra id nulla mattis, hendrerit dictum felis. Morbi at ligula sed purus dignissim lacinia. Suspendisse at metus ut mi dapibus suscipit ut eget risus. Duis vulputate tellus id elementum porta. Etiam sagittis aliquam scelerisque. Donec ullamcorper magna rhoncus sodales pellentesque. Phasellus quis urna pulvinar, bibendum magna quis, pellentesque nisl. Suspendisse sollicitudin sollicitudin luctus. Nulla est lacus, interdum id finibus eu, tincidunt vitae ligula. Donec blandit ultricies placerat. Maecenas quis placerat libero, in luctus lorem. Donec sed augue condimentum, blandit nisl eu, malesuada turpis. Donec vitae sodales neque, eu tincidunt leo.Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus non bibendum libero, a fermentum neque. Sed id tempor elit, vitae pretium velit. Donec dolor sapien, viverra id nulla mattis, hendrerit dictum felis. Morbi at ligula sed purus dignissim lacinia. Suspendisse at metus ut mi dapibus suscipit ut eget risus. Duis vulputate tellus id elementum porta. Etiam sagittis aliquam scelerisque. Donec ullamcorper magna rhoncus sodales pellentesque. Phasellus quis urna pulvinar, bibendum magna quis, pellentesque nisl. Suspendisse sollicitudin sollicitudin luctus. Nulla est lacus, interdum id finibus eu, tincidunt vitae ligula. Donec blandit ultricies placerat. Maecenas quis placerat libero, in luctus lorem. Donec sed augue condimentum, blandit nisl eu, malesuada turpis. Donec vitae sodales neque, eu tincidunt leo.</p>
+    </div>
+
+    <div class="active" id="onboarding">
+      <div id="onboarding-black"></div>
+      <div id="onboarding-background">
+        <div id="wrapper">
+          <!-- use arrow on leftto hide all this text -->
+          <div> 
+            <div id="o1" class="otext">
+              <img src="./assets/image1.png" alt="" id="onboarding-image1">
+              <img src="./assets/image1.png" alt="" id="onboarding-image2">
+              <div class="onboarding-text">
+                <h1>The Pomodoro Technique</h1>
+                <p>The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. 
+                  <br>
+                  <br>
+                  The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks.
+                  <br>
+                  <br>
+                  It is named the pomodoro technique after the round tomato timer he used during university, as Pomodoro means tomato in Italian.
+                </p>
+              </div>
             </div>
-            <img src="./assets/onboarding.svg" alt="" id="onboarding-progress">
+            <div id="o2" class="otext">
+              <img src="./assets/image1.png" alt="" id="onboarding-image1">
+              <img src="./assets/image1.png" alt="" id="onboarding-image2">
+              <div class="onboarding-text">
+                <h1>How to use our Pomodoro Timer</h1>
+                <p>We made this pomodoro timer to facilitate productivity.
+
+                  <br>
+                  <br>
+                  ...
+                </p>
+              </div>
+            </div>
+            <div id="o3" class="otext">
+              <img src="./assets/image1.png" alt="" id="onboarding-image1">
+              <img src="./assets/image1.png" alt="" id="onboarding-image2">
+              <div class="onboarding-text">
+                <h1>Step 1</h1>
+                <p>...</p>
+              </div>
+            </div>
+            <div id="o4" class="otext">
+              <img src="./assets/image1.png" alt="" id="onboarding-image1">
+              <img src="./assets/image1.png" alt="" id="onboarding-image2">
+              <div class="onboarding-text">
+                <h1>Step 2</h1>
+                <p>...</p>
+              </div>
+            </div>
+            <div id="o5" class="otext">
+              <img src="./assets/image1.png" alt="" id="onboarding-image1">
+              <img src="./assets/image1.png" alt="" id="onboarding-image2">
+              <div class="onboarding-text">
+                <h1>Step 3</h1>
+                <p>...</p>
+              </div>
+            </div>
+            <div id="o6" class="otext">
+              <img src="./assets/image1.png" alt="" id="onboarding-image1">
+              <img src="./assets/image1.png" alt="" id="onboarding-image2">
+              <div class="onboarding-text">
+                <h1>Start working!</h1>
+                <p>...</p>
+              </div>
+            </div>
+          </div>
+          <div id="onboarding-progress">
+            <img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">
+            <button id="onboarding-button">
+              <span id="onboarding-button-img"></span>
+            </button>
           </div>
         </div>
       </div>
-    </section>
-  </body>
+    </div>
+  </section>
+</body>
+
 </html>

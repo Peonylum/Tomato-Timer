@@ -1,10 +1,11 @@
+const myStorage = window.localStorage
 
 // Initialize all global variables.
 const pomoSession = {
   count: 0, /* 4 to a set */
   sets: 0, /* counts how many full pomo sets completed */
   state: 'work', /* can be work, shortBreak, or longBreak */
-  pomoLen: 0.5, /* these are all set low for testing */
+  pomoLen: 25, /* these are all set low for testing */
   shortBreakLen: 0.2,
   longBreakLen: 0.2,
   firstStart: true
@@ -21,7 +22,50 @@ let seconds
 document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('play').addEventListener('click', startSession)
   document.getElementById('stop').addEventListener('click', stopSession)
+  document.getElementById('settings').addEventListener('click', showSettings)
+  document.getElementById('close-settings').addEventListener('click', showSettings)
+  document.getElementById('pomo-time').addEventListener('input', settingsTime)
+  document.getElementById('volume-text').addEventListener('input', changeVolumeSlider)
+  document.getElementById('volume-slider').addEventListener('input', changeVolumeText)
+
+  // Update and display timer length
+  timerLen = updateTimerLen()
+  displayMinSecond()
 })
+
+function changeVolumeText () {
+  const slider = document.getElementById('volume-slider')
+  const number = document.getElementById('volume-text')
+
+  number.value = slider.value
+}
+
+function changeVolumeSlider () {
+  const slider = document.getElementById('volume-slider')
+  const number = document.getElementById('volume-text')
+
+  slider.value = (number.value) ? number.value : 0
+}
+
+function settingsTime () {
+  const adjustedTime = document.getElementById('pomo-time').value
+
+  pomoSession.pomoLen = adjustedTime
+  timerLen = updateTimerLen()
+  displayMinSecond()
+}
+
+function showSettings () {
+  // Settings button
+  const settingStatus = document.getElementById('settings-overlay')
+
+  // Show/hide settings overlay based on current display
+  if (settingStatus.style.display === 'none') {
+    settingStatus.style.display = 'block'
+  } else {
+    settingStatus.style.display = 'none'
+  }
+}
 
 function startSession () {
   // Change Start button to Stop button
@@ -296,3 +340,93 @@ module.exports = {
   completeTask,
   redrawList
 }
+
+// Onboarding
+// myStorage = window.localStorage
+// firstTime = true initially.
+const onboarding = document.getElementById('onboarding')
+const onboardingButton = document.getElementById('onboarding-button')
+let current = 1
+const textDivs = [...document.querySelectorAll('.otext')]
+console.log(textDivs)
+window.addEventListener('DOMContentLoaded', e => {
+  e.preventDefault()
+  console.log('DOMContentLoaded')
+  onboardingButton.addEventListener('click', onBoardingClick)
+  document.getElementById('onboarding-black').addEventListener('click', blackClicked)
+  restartSession()
+
+  document.getElementById('o1').addEventListener('animationend', e => {
+
+  })
+  if (myStorage.getItem('firstTime') === null) {
+    console.log('first time visiting')
+    myStorage.setItem('firstTime', false)
+    onboarding.setAttribute('class', 'active')
+    hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
+    return 1
+  } else {
+    console.log('not first time visiting')
+    myStorage.setItem('firstTime', false)
+    onboarding.setAttribute('class', 'in-active')
+  }
+  return 0
+})
+
+// function to cycle through onboarding pages
+const onBoardingClick = e => {
+  document.getElementById(`o${current}`).style.display = 'none'
+  current = current + 1
+  if (current > 6) {
+    onboarding.setAttribute('class', 'in-active')
+    return 'closed'
+  }
+  document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
+  document.getElementById(`o${current}`).style.display = 'block'
+  return 'continue'
+}
+
+function restartSession () {
+  document.getElementById('play-restart').addEventListener('click', function () {
+    hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
+    console.log('close')
+    onboarding.setAttribute('class', 'active')
+    current = 1
+    restartOnboarding()
+  })
+}
+
+const restartOnboarding = () => {
+  textDivs.forEach(item => item.style.display = 'none')
+  document.getElementById(`o${current}`).style.display = 'block'
+  document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${current}.svg`
+}
+
+const blackClicked = e => {
+  e.preventDefault()
+  console.log('clicked')
+}
+
+const showOnBoarding = () => {
+  onboarding.setAttribute('class', 'active')
+}
+// hides onboarding menu
+const hideOnClickOutside = (element, buttonId) => {
+  const outsideClickListener = e => {
+    if (e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target)) {
+      document.getElementById('onboarding').setAttribute('class', 'in-active')
+      removeClickListener()
+    }
+    console.log(element.contains(e.target))
+    console.log(e.target)
+  }
+  console.log('removed by outside window')
+  console.log(element)
+  const removeClickListener = () => {
+    document.removeEventListener('click', outsideClickListener)
+  }
+
+  setTimeout(document.addEventListener('click', outsideClickListener), 0)
+}
+
+// testing for click on onboarding-black
