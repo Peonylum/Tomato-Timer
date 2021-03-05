@@ -237,6 +237,7 @@ function buildNewTask () {
   compButton.setAttribute('class', 'complete-task-button')
   compButton.innerHTML = '<img src="assets/checkTask.svg" alt="complete task" id="complete-task-icon">'
   compButton.addEventListener('click', completeTask)
+  compButton.style.display = 'none'
   newTask.appendChild(compButton)
 
   taskInput.value = ''
@@ -262,6 +263,7 @@ function focusTask () {
   focusedTask[0].taskBody.setAttribute('class', 'focused-task')
   focusedTask[0].taskBody.children[0].disabled = true
   focusedTask[0].taskBody.children[0].innerHTML = '<img src="assets/focusTaskActive.svg" alt="focus task" id="focus-task-activeicon">'
+  focusedTask[0].taskBody.children[3].style.display = 'block'
 
   /* remove focused task from the list and if there was a previously
      focused task, add it back to the list */
@@ -271,6 +273,7 @@ function focusTask () {
     temp.taskBody.children[0].disabled = false
     temp.taskBody.children[0].innerHTML = '<img src="assets/focusTask.svg" alt="focus task" id="focus-task-icon">'
     temp.taskBody.children[0].setAttribute('src', 'assets/focusTask.svg')
+    temp.taskBody.children[3].style.display = 'none'
     masterList.splice(0, 0, temp)
   }
 
