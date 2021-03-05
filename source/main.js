@@ -27,29 +27,11 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
   document.getElementById('short-break-time').addEventListener('input', settingsTime)
   document.getElementById('long-break-time').addEventListener('input', settingsTime)
-  document.getElementById('volume-text').addEventListener('input', changeVolumeSlider)
-  document.getElementById('volume-slider').addEventListener('input', changeVolumeText)
 
   // Update and display timer length
   timer.timerLen = updateTimerLen()
   displayMinSecond(timer.timerLen)
 })
-
-function changeVolumeText () {
-  const slider = document.getElementById('volume-slider')
-  const number = document.getElementById('volume-text')
-
-  // Make volume slider and text adjustor the same value
-  number.value = slider.value
-}
-
-function changeVolumeSlider () {
-  const slider = document.getElementById('volume-slider')
-  const number = document.getElementById('volume-text')
-
-  // Set volume slider to be the same as text adjustor, 0 if empty text
-  slider.value = (number.value) ? number.value : 0
-}
 
 function settingsTime () {
   const adjustPomoTime = document.getElementById('pomo-time')
@@ -438,8 +420,9 @@ module.exports = {
   displayMinSecond: displayMinSecond,
   stateChange: stateChange,
   updateTimer: updateTimer,
-  changeVolumeText: changeVolumeText,
-  changeVolumeSlider: changeVolumeSlider,
+  settingsTime: settingsTime,
+  disableTime: disableTime,
+  showSettings: showSettings,
   addContent,
   onBoardingClick,
   onBoardingVars,
