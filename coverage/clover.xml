@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1614941162027" clover="3.2.0">
-  <project timestamp="1614941162027" name="All files">
-    <metrics statements="209" coveredstatements="198" conditionals="53" coveredconditionals="49" methods="24" coveredmethods="23" elements="286" coveredelements="270" complexity="0" loc="209" ncloc="209" packages="2" files="2" classes="2"/>
+<coverage generated="1615057579519" clover="3.2.0">
+  <project timestamp="1615057579519" name="All files">
+    <metrics statements="205" coveredstatements="196" conditionals="53" coveredconditionals="49" methods="23" coveredmethods="23" elements="281" coveredelements="268" complexity="0" loc="205" ncloc="205" packages="2" files="2" classes="2"/>
     <package name="js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="example.js" path="/Users/peonylum/Documents/CSE110/cse110-w21-group15/js/example.js">
+      <file name="example.js" path="C:\Users\George\Documents\Code\CSE110\cse110-w21-group15\js\example.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
       </file>
     </package>
     <package name="source">
-      <metrics statements="207" coveredstatements="196" conditionals="53" coveredconditionals="49" methods="23" coveredmethods="22"/>
-      <file name="main.js" path="/Users/peonylum/Documents/CSE110/cse110-w21-group15/source/main.js">
-        <metrics statements="207" coveredstatements="196" conditionals="53" coveredconditionals="49" methods="23" coveredmethods="22"/>
+      <metrics statements="203" coveredstatements="194" conditionals="53" coveredconditionals="49" methods="22" coveredmethods="22"/>
+      <file name="main.js" path="C:\Users\George\Documents\Code\CSE110\cse110-w21-group15\source\main.js">
+        <metrics statements="203" coveredstatements="194" conditionals="53" coveredconditionals="49" methods="22" coveredmethods="22"/>
         <line num="1" count="4" type="stmt"/>
         <line num="4" count="4" type="stmt"/>
         <line num="16" count="4" type="stmt"/>
@@ -175,52 +175,48 @@
         <line num="338" count="2" type="stmt"/>
         <line num="339" count="2" type="stmt"/>
         <line num="340" count="2" type="stmt"/>
-        <line num="341" count="2" type="stmt"/>
-        <line num="343" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="342" count="2" type="cond" truecount="1" falsecount="1"/>
+        <line num="343" count="2" type="stmt"/>
         <line num="344" count="2" type="stmt"/>
         <line num="345" count="2" type="stmt"/>
         <line num="346" count="2" type="stmt"/>
         <line num="347" count="2" type="stmt"/>
-        <line num="348" count="2" type="stmt"/>
+        <line num="349" count="0" type="stmt"/>
         <line num="350" count="0" type="stmt"/>
         <line num="351" count="0" type="stmt"/>
         <line num="352" count="0" type="stmt"/>
-        <line num="353" count="0" type="stmt"/>
-        <line num="357" count="4" type="stmt"/>
-        <line num="359" count="4" type="stmt"/>
+        <line num="356" count="4" type="stmt"/>
+        <line num="358" count="4" type="stmt"/>
+        <line num="359" count="17" type="stmt"/>
         <line num="360" count="17" type="stmt"/>
         <line num="361" count="17" type="stmt"/>
         <line num="362" count="17" type="stmt"/>
-        <line num="363" count="17" type="stmt"/>
-        <line num="364" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="363" count="17" type="cond" truecount="2" falsecount="0"/>
+        <line num="364" count="2" type="stmt"/>
         <line num="365" count="2" type="stmt"/>
-        <line num="366" count="2" type="stmt"/>
+        <line num="367" count="15" type="stmt"/>
         <line num="368" count="15" type="stmt"/>
         <line num="369" count="15" type="stmt"/>
-        <line num="370" count="15" type="stmt"/>
-        <line num="373" count="4" type="stmt"/>
+        <line num="372" count="4" type="stmt"/>
+        <line num="373" count="1" type="stmt"/>
         <line num="374" count="1" type="stmt"/>
         <line num="375" count="1" type="stmt"/>
         <line num="376" count="1" type="stmt"/>
-        <line num="377" count="1" type="stmt"/>
-        <line num="380" count="3" type="stmt"/>
-        <line num="383" count="4" type="stmt"/>
-        <line num="384" count="2" type="stmt"/>
-        <line num="385" count="6" type="stmt"/>
+        <line num="379" count="3" type="stmt"/>
+        <line num="382" count="4" type="stmt"/>
+        <line num="383" count="2" type="stmt"/>
+        <line num="384" count="6" type="stmt"/>
+        <line num="386" count="2" type="stmt"/>
         <line num="387" count="2" type="stmt"/>
-        <line num="388" count="2" type="stmt"/>
-        <line num="391" count="4" type="stmt"/>
-        <line num="392" count="0" type="stmt"/>
-        <line num="393" count="0" type="stmt"/>
-        <line num="400" count="4" type="stmt"/>
-        <line num="401" count="3" type="stmt"/>
-        <line num="402" count="2" type="cond" truecount="4" falsecount="1"/>
-        <line num="403" count="2" type="stmt"/>
-        <line num="404" count="2" type="stmt"/>
-        <line num="407" count="3" type="stmt"/>
-        <line num="408" count="2" type="stmt"/>
-        <line num="410" count="3" type="stmt"/>
-        <line num="413" count="4" type="stmt"/>
+        <line num="394" count="4" type="stmt"/>
+        <line num="395" count="4" type="stmt"/>
+        <line num="396" count="2" type="cond" truecount="4" falsecount="1"/>
+        <line num="397" count="2" type="stmt"/>
+        <line num="398" count="2" type="stmt"/>
+        <line num="401" count="4" type="stmt"/>
+        <line num="402" count="2" type="stmt"/>
+        <line num="404" count="4" type="stmt"/>
+        <line num="407" count="4" type="stmt"/>
       </file>
     </package>
   </project>

@@ -1,3 +1,4 @@
+const { hideOnClickOutside } = require('../source/main.js')
 const main = require('../source/main.js')
 describe ('onBoardingClick Functionality', () => {
   // const windowSpy = jest.spyOn(global, "window", "get").mockImplementation(() => ({
@@ -131,5 +132,47 @@ describe('restartSession, restartClick, restartOnBoarding functionality', () => 
     })
     expect(document.getElementById(`o${main.onBoardingVars.current}`).style.display = 'block')
     expect(document.getElementById('onboarding-progress-bar').src).toBe(`./assets/onboarding-${main.onBoardingVars.current}.svg`)
+  })
+})
+
+describe('hideOnClickOutside test', () => {
+  document.body.innerHTML = 
+  '<div class="active" id="onboarding">' +
+  '<div id="o1" class="otext">' +
+  'wow' + 
+  '</div>' +
+  '<div id="o2" class="otext">' +
+  'wow' + 
+  '</div>' +
+  '<div id="o3" class="otext">' +
+  'wow' + 
+  '</div>' +
+  '<div id="o4" class="otext">' +
+  'wow' + 
+  '</div>' +
+  '<div id="o5" class="otext">' +
+  'wow' + 
+  '</div>' +
+  '<div id="o6" class="otext">' +
+  'wow' + 
+  '</div>' +
+  '<div id="onboarding-progress">' +
+  '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">'+
+  '<button id="onboarding-button">' +
+  '<span id="onboarding-button-img">' + '</span>' +
+  '</button>' +
+  '</div>' +
+  '</div>' +
+  '<button id="play-restart">' +
+  '<span id="restart-button">' + '</span>' +
+  '</button>'
+  it('hideOnClickOutside adds eventlisteners and removes', () => {
+    const elementMock = { addEventListener: jest.fn()}
+    jest.spyOn(document,'getElementById').mockImplementation(() => elementMock)
+    jest.spyOn(elementMock, 'addEventListener')
+    jest.spyOn(document, 'addEventListener').mockImplementation(() => jest.fn())
+    hideOnClickOutside(document.getElementById('onboarding'),document.getElementById('play-restart'))
+
+    expect(document.addEventListener).toBeCalledWith('click', expect.any(Function))
   })
 })

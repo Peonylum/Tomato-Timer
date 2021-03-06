@@ -337,7 +337,6 @@ const onBoardingVars= {
 const addContent = e => {
   e.preventDefault()
   onBoardingVars.onboardingButton.addEventListener('click', onBoardingClick)
-  document.getElementById('onboarding-black').addEventListener('click', blackClicked)
   restartSession()
 
   if (myStorage.getItem('firstTime') === null) {
@@ -386,11 +385,6 @@ const restartOnboarding = () => {
   })
   document.getElementById(`o${onBoardingVars.current}`).style.display = 'block'
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${onBoardingVars.current}.svg`
-}
-
-const blackClicked = e => {
-  e.preventDefault()
-  console.log('clicked')
 }
 
 // const showOnBoarding = () => {
