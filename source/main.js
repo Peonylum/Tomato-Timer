@@ -152,7 +152,7 @@ function updateTimer () {
   timerLen -= 1000
 
   /* update the focused tasks time spent */
-  if (pomoSession.state === 'work') {
+  if (pomoSession.state === 'work' && focusedTask.length > 0) {
     focusedTask[0].time += 1000
   }
 }
