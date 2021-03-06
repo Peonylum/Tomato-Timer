@@ -392,6 +392,10 @@ const restartOnboarding = () => {
 // hides onboarding menu
 const hideOnClickOutside = (element, buttonId) => {
   const outsideClickListener = e => {
+    console.log(e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target))
+    console.log(e.target.id !== buttonId)
+    console.log(!element.contains(e.target))
+    console.log(!document.getElementById(buttonId).contains(e.target))
     if (e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target)) {
       document.getElementById('onboarding').setAttribute('class', 'in-active')
       removeClickListener()
@@ -423,5 +427,7 @@ module.exports = {
   hideOnClickOutside,
   restartClick,
   restartOnboarding,
-  myStorage
+  myStorage,
+  updateProgressBar,
+  updateSeedsImage,
 }

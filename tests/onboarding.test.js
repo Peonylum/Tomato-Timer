@@ -167,12 +167,20 @@ describe('hideOnClickOutside test', () => {
   '<span id="restart-button">' + '</span>' +
   '</button>'
   it('hideOnClickOutside adds eventlisteners and removes', () => {
-    const elementMock = { addEventListener: jest.fn()}
+    const elementMock = { addEventListener: jest.fn(), contains: jest.fn(), setAttribute: jest.fn(), contains: jest.fn().mockReturnValue(false)}
     jest.spyOn(document,'getElementById').mockImplementation(() => elementMock)
     jest.spyOn(elementMock, 'addEventListener')
     jest.spyOn(document, 'addEventListener').mockImplementation(() => jest.fn())
-    hideOnClickOutside(document.getElementById('onboarding'),document.getElementById('play-restart'))
-
+    let mockElement = document.createElement('div')
+    mockElement.setAttribute('id', 'onboarding')
+    mockElement.setAttribute('class','active')
+    mockElement = {...mockElement, contains: jest.fn().mockReturnValue(false)}
+    const mockedFormEvent = { target: { id: 'hello' } };
+    
+    hideOnClickOutside(document.getElementById('onboarding'),'play-restart')
+    const handler = document.addEventListener.mock.calls[0][1]
+    handler(mockedFormEvent)
+    expect(elementMock.setAttribute).toBeCalledWith('class','in-active')
     expect(document.addEventListener).toBeCalledWith('click', expect.any(Function))
   })
 })

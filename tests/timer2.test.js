@@ -13,6 +13,7 @@ document.body.innerHTML = '<div>' +
   '<svg id="filler-bar-1-svg" width="0" height="8">' +
   '<svg id="filler-bar-2-svg" width="0" height="8">'
 
+const { pomoSession } = require('../source/main')
 const main = require('../source/main')
 
 describe('runTimer', () => {
@@ -101,6 +102,17 @@ describe('updateTimer', () => {
     main.updateTimer()
     expect(clearInterval).toBeCalled()
     expect(main.timer.timerLen).toBe(59000)
+  })
+})
+
+describe('updateProgressBar, updateSeedsImage', () => { 
+  it('updateProgressBar', () => {
+    pomoSession.state = 'shortBreak'
+    main.updateProgressBar()
+    main.updateSeedsImage()
+    main.timer.timerLen = 0
+    console.log(document.getElementById('filler-bar-2-svg').getAttribute('width'))
+    expect(document.getElementById('filler-bar-2-svg').getAttribute('width')).toBe('27.45')//TODO
   })
 })
 
