@@ -335,7 +335,6 @@ const onBoardingVars= {
 // console.log(textDivs)
 
 const addContent = e => {
-  e.preventDefault()
   onBoardingVars.onboardingButton.addEventListener('click', onBoardingClick)
   restartSession()
 
@@ -423,5 +422,6 @@ module.exports = {
   restartSession,
   hideOnClickOutside,
   restartClick,
-  restartOnboarding
+  restartOnboarding,
+  myStorage
 }
