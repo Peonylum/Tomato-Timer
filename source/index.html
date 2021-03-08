@@ -1,35 +1,34 @@
 <!DOCTYPE html>
 <html>
-
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title> TOMATO TIMER </title>
-  <meta name="description" content="">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="index.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"
-    rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
-</head>
-
-<body>
-  <!-- <img id="main-background" src="./assets/background.svg" alt="main-background"> -->
-  <script src="./main.js" defer></script>
-  <!-- <script type="module" src="./settings.js" async defer></script> -->
-  <script src="./tasklist.js" defer></script>
-  <section id="nav-bar">
-    <div class="container">
-      <!--white rectangle behind -->
-      <a id="logo">
-        XVSoft
-        <img src="./assets/logo-image.svg" alt="" id="logo-image">
-      </a>
-      <div id="page-title">
-        <img src="./assets/title-image.svg" alt="" id="title-image">
-        TOMATO
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title> TOMATO TIMER </title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <!-- <img id="main-background" src="./assets/background.svg" alt="main-background"> -->
+    <script src="./main.js" defer></script>
+    <!-- <script type="module" src="./settings.js" async defer></script> -->
+    <!-- <script src="./tasklist.js" defer></script> -->
+    <section id="nav-bar">
+      <div class="container"> <!--white rectangle behind -->
+        <a id="logo">
+          XVSoft
+          <img src="./assets/logo-image.svg" alt="" id="logo-image">
+        </a>
+        <div id="page-title">
+          <img src="./assets/title-image.svg" alt="" id="title-image">
+          TOMATO
+        </div>
+        <button id="settings">
+          Settings
+        </button>
       </div>
       <button id="settings">
         Settings
@@ -105,55 +104,52 @@
 
     <div id="task-container">
       <div id="task-list">
-        <!-- change color of text during breaks(in CSS file)-->
-        <p>TASK LIST </p>
-        <!-- switch with collapsed arrow on click: src="./assets/collapsedArrow.svg" alt="Collapsed Arrow"-->
-        <img src="./assets/arrrowDropdown.svg" alt="Dropdown">
+	<!-- change color of text during breaks(in CSS file)-->
+	<p>TASK LIST </p>
+	<!-- switch with collapsed arrow on click: src="./assets/collapsedArrow.svg" alt="Collapsed Arrow"-->
+	<img src="./assets/arrrowDropdown.svg" alt="Dropdown">
       </div>
       <div id="empty-task-queue">
-        <div id="task-description">
-          <img id="task-icon" src="./assets/taskIcon.svg" alt="task icon">
-          <p>Add a new task and start working.</p>
-        </div>
-        <button id="task-add-button">
-          <img src="./assets/addButton.svg" alt="Plus Button" id="plus-image">
-          Add task
-        </button>
+	<div id="task-description">
+	  <img id="task-icon" src="./assets/taskIcon.svg" alt="task icon">
+	  <p>Add a new task and start working.</p>
+	</div>
+	<button id="task-add-button">
+	  <img src="./assets/addButton.svg" alt="Plus Button" id="plus-image">
+	  Add task
+	</button>
       </div>
       <!--Unhide when there are tasks-->
       <div id="task-queue" style="display: flex;">
-        <!-- <div id="task-queue-header">
-            <p id="pomo-task-header">POMOS</p>
-            <p id="task-header">TASK</p>
-          </div> -->
-        <!-- Append tasks to this task body-->
-        <div id="task-body">
-          <!-- Adding a task-->
-          <div id="adding-task-object">
-            <div id="task-flex">
-              <!-- <div id="input">
-                <p id="pomo-task-header">POMOS</p>
-                <input id="pomo-num" name="pomo-num" type="number" min="1" max="4" step="1">
-              </div> -->
-              <div id="task-input">
-                <p id="task-header">TASK</p>
-                <input id="pomo-task" name="pomo-task" type="text">
-              </div>
-            </div>
-            <button id="add-task">
-              <img src="assets/addButton.svg" alt="add task" id="add-task-icon">
-            </button>
-          </div>
-
-          <!-- Actual Object to be appended-->
-          <div id="tasks">
-          </div>
-        </div>
+	<!-- <div id="task-queue-header">
+	     <p id="pomo-task-header">POMOS</p>
+	     <p id="task-header">TASK</p>
+	</div> -->
+	<!-- Append tasks to this task body-->
+	<div id="task-body">
+	  <!-- Adding a task-->
+	  <div id="adding-task-object">
+	    <div id="task-flex">
+	      <div id="task-input">
+		<p id="task-header">TASK</p>
+		<input id="pomo-task" name="pomo-task" type="text">
+	      </div>
+	    </div>
+	    <button id="add-task">
+	      <img src="assets/addButton.svg" alt="add task" id="add-task-icon">
+	    </button>
+	  </div>
+	  
+	  <!-- Actual Object to be appended-->
+	  <div id="tasks">
+	  </div>
+	</div>
       </div>
     </div>
+
     <div id="restart-wrapper">
       <button id="play-restart">
-        <span id="restart-button"></span>
+	<span id="restart-button"></span>
       </button>
     </div>
 

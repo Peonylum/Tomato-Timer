@@ -1,5 +1,14 @@
 const myStorage = window.localStorage
 
+/********************************
+*  _____ _                      *
+* |_   _(_)_ __ ___   ___ _ __  *
+*   | | | | '_ ` _ \ / _ \ '__| *
+*   | | | | | | | | |  __/ |    *
+*   |_| |_|_| |_| |_|\___|_|    *
+*                               *
+*********************************/
+
 // Initialize all global variables.
 const pomoSession = {
   count: 0 /* 4 to a set */,
@@ -23,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('play').addEventListener('click', startSession)
   document.getElementById('stop').addEventListener('click', stopSession)
   document.getElementById('settings').addEventListener('click', showSettings)
-  document.getElementById('close-settings').addEventListener('click', showSettings)
+  // document.getElementById('close-settings').addEventListener('click', showSettings)
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
   document.getElementById('short-break-time').addEventListener('input', settingsTime)
   document.getElementById('long-break-time').addEventListener('input', settingsTime)
@@ -256,6 +265,7 @@ function displayMinSecond (timerLen) {
   }
   document.getElementById('time').innerHTML = mins + ':' + seconds
 }
+
 function updateTimer () {
   if (timer.timerLen <= 0) {
     clearInterval(timer.timerRef)
@@ -266,6 +276,11 @@ function updateTimer () {
   updateProgressBar()
   displayMinSecond(timer.timerLen)
   timer.timerLen -= 1000
+
+  /* update the focused tasks time spent */
+  if (pomoSession.state === 'work' && focusedTask.length > 0) {
+    focusedTask[0].time += 1000
+  }
 }
 
 /* this function does the actual changes to the document and our
@@ -318,6 +333,174 @@ function stateChange(runTimer, displayMinSecond) {
   }
   displayMinSecond(timer.timerLen)
 }
+
+/************************************
+ *  _____         _    _ _     _    *
+ * |_   _|_ _ ___| | _| (_)___| |_  *
+ *   | |/ _` / __| |/ / | / __| __| *
+ *   | | (_| \__ \   <| | \__ \ |_  *
+ *   |_|\__,_|___/_|\_\_|_|___/\__| *
+ *                                  *
+ ************************************/
+
+const focusedTask = []
+const masterList = []
+const completedList = []
+
+document.getElementById('add-task').addEventListener('click', addToList)
+
+const list = document.getElementById('tasks')
+
+function buildNewTask () {
+  const taskInput = document.getElementById('pomo-task')
+  const newTask = document.createElement('div')
+  newTask.setAttribute('class', 'task-object')
+  newTask.setAttribute('draggable', true)
+
+  /* fill task object with it's buttons and text elements */
+  const focusButton = document.createElement('button')
+  focusButton.setAttribute('class', 'focus-task-button')
+  focusButton.innerHTML = '<img src="assets/focusTask.svg" alt="focus task" id="focus-task-icon">'
+  focusButton.addEventListener('click', focusTask)
+  newTask.appendChild(focusButton)
+
+  const delButton = document.createElement('button')
+  delButton.setAttribute('class', 'delete-task-button')
+  delButton.innerHTML = '<img src="assets/minusSign.svg" alt="delete task" id="delete-task-icon">'
+  delButton.addEventListener('click', delFromList)
+  newTask.appendChild(delButton)
+
+  const taskText = document.createElement('p')
+  taskText.setAttribute('class', 'task-text')
+  taskText.innerHTML = taskInput.value
+  newTask.appendChild(taskText)
+
+  const compButton = document.createElement('button')
+  compButton.setAttribute('class', 'complete-task-button')
+  compButton.innerHTML = '<img src="assets/checkTask.svg" alt="complete task" id="complete-task-icon">'
+  compButton.addEventListener('click', completeTask)
+  compButton.style.display = 'none'
+  newTask.appendChild(compButton)
+
+  taskInput.value = ''
+
+  return newTask
+}
+
+function addToList () {
+  const newTask = buildNewTask()
+  const tmptask = {
+    taskBody: newTask,
+    time: 0
+  }
+  masterList.push(tmptask)
+
+  redrawList()
+}
+
+function focusTask () {
+  const temp = focusedTask.pop()
+  const index = masterList.findIndex(x => x.taskBody === this.parentElement)
+  focusedTask.push(masterList[index])
+  focusedTask[0].taskBody.setAttribute('class', 'focused-task')
+  focusedTask[0].taskBody.children[0].disabled = true
+  focusedTask[0].taskBody.children[0].innerHTML = '<img src="assets/focusTaskActive.svg" alt="focus task" id="focus-task-activeicon">'
+  focusedTask[0].taskBody.children[3].style.display = 'block'
+
+  /* remove focused task from the list and if there was a previously
+     focused task, add it back to the list */
+  masterList.splice(index, 1)
+  if (temp !== undefined) {
+    temp.taskBody.setAttribute('class', 'task-object')
+    temp.taskBody.children[0].disabled = false
+    temp.taskBody.children[0].innerHTML = '<img src="assets/focusTask.svg" alt="focus task" id="focus-task-icon">'
+    temp.taskBody.children[0].setAttribute('src', 'assets/focusTask.svg')
+    temp.taskBody.children[3].style.display = 'none'
+    masterList.splice(0, 0, temp)
+  }
+
+  redrawList()
+}
+
+/* removes an item from our task list */
+function delFromList () {
+  /* figure out where the task came from, then get rid of it */
+  if (focusedTask.length > 0 && this.parentElement === focusedTask[0].taskBody) {
+    focusedTask.pop()
+  } else {
+    const index = masterList.findIndex(x => x.taskBody === this.parentElement)
+    if (index === -1) {
+      completedList.splice(completedList.findIndex(x => x.taskBody === this.parentElement), 1)
+    } else {
+      masterList.splice(index, 1)
+    }
+  }
+
+  this.parentElement.remove()
+
+  redrawList()
+}
+
+function completeTask () {
+  let temp
+  if (focusedTask.length > 0 && this.parentElement === focusedTask[0].taskBody) {
+    temp = focusedTask.pop()
+  } else {
+    const index = masterList.findIndex(x => x.taskBody === this.parentElement)
+    temp = masterList[index]
+    masterList.splice(index, 1)
+  }
+  temp.taskBody.setAttribute('class', 'completed-task')
+  temp.taskBody.children[temp.taskBody.children.length - 1].remove()
+  temp.taskBody.children[0].remove()
+
+  const taskTime = document.createElement('p')
+  taskTime.setAttribute('class', 'task-time')
+  taskTime.innerHTML = 'Pomos: ' + (temp.time / (pomoSession.pomoLen * 60 * 1000)).toFixed(1)
+  temp.taskBody.appendChild(taskTime)
+
+  completedList.push(temp)
+
+  redrawList()
+}
+
+/* this deletes all of the children of the task list and repopulates them
+   using the arrays that represent their contents */
+function redrawList () {
+  while (list.firstChild) {
+    list.removeChild(list.firstChild)
+  }
+
+  if (focusedTask.length > 0) {
+    list.appendChild(focusedTask[0].taskBody)
+  }
+
+  for (let i = 0; i < masterList.length; i++) {
+    list.appendChild(masterList[i].taskBody)
+  }
+
+  for (let i = 0; i < completedList.length; i++) {
+    list.appendChild(completedList[i].taskBody)
+  }
+}
+
+module.exports = {
+  buildNewTask,
+  addToList,
+  focusTask,
+  delFromList,
+  completeTask,
+  redrawList
+}
+
+/**********************************************************
+*   ___        _                         _ _              *
+*  / _ \ _ __ | |__   ___   __ _ _ __ __| (_)_ __   __ _  *
+* | | | | '_ \| '_ \ / _ \ / _` | '__/ _` | | '_ \ / _` | *
+* | |_| | | | | |_) | (_) | (_| | | | (_| | | | | | (_| | *
+*  \___/|_| |_|_.__/ \___/ \__,_|_|  \__,_|_|_| |_|\__, | *
+*                                                  |___/  *
+***********************************************************/
 
 // Onboarding
 // myStorage = window.localStorage
@@ -389,6 +572,7 @@ const restartOnboarding = () => {
 // const showOnBoarding = () => {
 //   onboarding.setAttribute('class', 'active')
 // }
+
 // hides onboarding menu
 const hideOnClickOutside = (element, buttonId) => {
   const outsideClickListener = e => {
