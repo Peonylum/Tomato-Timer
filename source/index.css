@@ -275,12 +275,6 @@ button {
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2), inset 0 -2px 4px rgba(0, 0, 0, 0.1);
 }
 
-#task-list p {
-  margin-right: auto;
-  margin-left: 44%;
-  width: fit-content;
-}
-
 #task-description {
   display: flex;
   flex-direction: row;
@@ -565,7 +559,7 @@ button {
   padding-left: 15px;
 }
 
-#adjust-time label, 
+#adjust-time label,
 #adjust-volume label {
   margin-left: 0.46vw;
 }
@@ -835,7 +829,7 @@ body {
   height: 30px;
   position: relative;
   top: 0px;
-  z-index: +50;
+  z-index: 50;
 }
 
 #onboarding-button:hover {
@@ -859,7 +853,7 @@ body {
 #o3,
 #o4,
 #o5,
-#o6{
+#o6 {
   display: none;
 }
 
@@ -867,4 +861,10 @@ body {
   display: inherit;
   opacity: 1;
   animation: 0.5s ease-in fadeIn;
+}
+
+#task-list p {
+  margin-right: auto;
+  margin-left: 44%;
+  width: fit-content;
 }
