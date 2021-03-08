@@ -347,7 +347,7 @@ const focusedTask = []
 const masterList = []
 const completedList = []
 
-document.getElementById('add-task').addEventListener('click', addToList)
+// document.getElementById('add-task').addEventListener('click', addToList)
 
 const list = document.getElementById('tasks')
 

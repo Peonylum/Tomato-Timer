@@ -1,4 +1,3 @@
-
 document.body.innerHTML =
 '<div id="task-container">' +
 '  <div id="task-list">' +
