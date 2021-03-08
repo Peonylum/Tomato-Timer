@@ -30,11 +30,16 @@
           Settings
         </button>
       </div>
-    </section>
-    
-    <section id="main">
-      <div id="settings-overlay">
-        <div id="settings-header">
+      <button id="settings">
+        Settings
+      </button>
+    </div>
+  </section>
+
+  <section id="main">
+    <div id="settings-overlay" style="display: none;">
+      <div id="settings-header">
+        <button id="close-settings">
           <img id="settings-exit" src="assets/exitButton.svg" alt="exit">
         </button>
         <p>Settings</p>
@@ -42,38 +47,50 @@
       <hr>
       <p>Adjust Time</p>
       <div id="adjust-time">
-        <label for="pomo-time">Pomo Time:</label>
-        <input id="pomo-time" type="number" step="1" min="15" value="25" max="60">
-        <!-- TODO: add interval to make sure can only put whole numbers -->
-      </div>
-      <hr>
-      <p>Adjust Volume</p>
-      <div id="adjust-volume">
         <div>
-          <label for="volume-text">Volume:</label>
-          <input id="volume-text" name="volume-text" type="number" value="100" step="1" min="0" max="100">
+          <label for="pomo-time">Pomo Time:</label>
+          <input class="time-input" id="pomo-time" type="number" step="1" min="1" value="25" max="60">
         </div>
-        <input id="volume-slider" name="volume-slider" type="range" step="1" min="0" max="100" value="100">
+        <div>
+          <label for="short-break-time">Short Break Time:</label>
+          <input class="time-input" id="short-break-time" type="number" step="1" min="1" value="25" max="60">
+        </div>
+        <div>
+          <label for="long-break-time">Long Break Time:</label>
+          <input class="time-input" id="long-break-time" type="number" step="1" min="1" value="25" max="60">
+        </div>
+        <!-- TODO: add interval to make sure can only put whole numbers -->
       </div>
     </div>
     <div id="progress-bar">
       <div id="progress-background">
-        <div>
-          <img id="progress-tomato-1" src="./assets/progressBarTomato.svg" alt="progress bar work tomato">
-        </div>
-        <div>
-          <img id="progress-tomato-2" src="./assets/progressBarTomato.svg" alt="progress bar break tomato">
-        </div>
-        <div>
-          <img id="progress-tomato-3" src="./assets/progressBarTomato.svg" alt="progress bar next! tomato">
-        </div>
-        <img src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">
+        <img id="progress-bar-background" src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">
+      </div>
+      <div id="filler-bar-1">
+        <svg id="filler-bar-1-svg" width="0" height="8">
+          <rect width="100000" height="6" style="fill:red;" />
+        </svg>
+      </div>
+      <div id="filler-bar-2">
+        <svg id="filler-bar-2-svg" width="0" height="8">
+          <rect width="100000" height="6" style="fill:red;" />
+        </svg>
+      </div>
+
+      <div>
+        <img id="progress-tomato-1" src="./assets/progressBarTomato.svg" alt="progress bar work tomato">
+      </div>
+      <div>
+        <img id="progress-tomato-2" src="./assets/progressBarTomato.svg" alt="progress bar break tomato">
+      </div>
+      <div>
+        <img id="progress-tomato-3" src="./assets/progressBarTomato.svg" alt="progress bar next! tomato">
       </div>
     </div>
 
     <div id="timer">
       <div id="empty-seeds">
-        <img src="./assets/emptySeeds.svg" alt="plain seed">
+        <img id="seeds" src="./assets/emptySeeds.svg" alt="plain seed">
       </div>
       <img id="timer-background" src="./assets/timerBackground.svg" alt="Timer background">
       <button id="play">
@@ -141,19 +158,21 @@
       <div id="onboarding-background">
         <div id="wrapper">
           <!-- use arrow on leftto hide all this text -->
-          <div> 
+          <div>
             <div id="o1" class="otext">
               <img src="./assets/image1.png" alt="" id="onboarding-image1">
               <img src="./assets/image1.png" alt="" id="onboarding-image2">
               <div class="onboarding-text">
                 <h1>The Pomodoro Technique</h1>
-                <p>The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s. 
+                <p>The Pomodoro Technique is a time management method developed by Francesco Cirillo in the late 1980s.
                   <br>
                   <br>
-                  The technique uses a timer to break down work into intervals, traditionally 25 minutes in length, separated by short breaks.
+                  The technique uses a timer to break down work into intervals, traditionally 25 minutes in length,
+                  separated by short breaks.
                   <br>
                   <br>
-                  It is named the pomodoro technique after the round tomato timer he used during university, as Pomodoro means tomato in Italian.
+                  It is named the pomodoro technique after the round tomato timer he used during university, as Pomodoro
+                  means tomato in Italian.
                 </p>
               </div>
             </div>
