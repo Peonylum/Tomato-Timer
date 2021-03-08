@@ -32,7 +32,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('play').addEventListener('click', startSession)
   document.getElementById('stop').addEventListener('click', stopSession)
   document.getElementById('settings').addEventListener('click', showSettings)
-  // document.getElementById('close-settings').addEventListener('click', showSettings)
+  document.getElementById('close-settings').addEventListener('click', showSettings)
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
   document.getElementById('short-break-time').addEventListener('input', settingsTime)
   document.getElementById('long-break-time').addEventListener('input', settingsTime)
@@ -484,15 +484,6 @@ function redrawList () {
   }
 }
 
-module.exports = {
-  buildNewTask,
-  addToList,
-  focusTask,
-  delFromList,
-  completeTask,
-  redrawList
-}
-
 /**********************************************************
 *   ___        _                         _ _              *
 *  / _ \ _ __ | |__   ___   __ _ _ __ __| (_)_ __   __ _  *
@@ -614,4 +605,10 @@ module.exports = {
   myStorage,
   updateProgressBar,
   updateSeedsImage,
+  buildNewTask,
+  addToList,
+  focusTask,
+  delFromList,
+  completeTask,
+  redrawList
 }
