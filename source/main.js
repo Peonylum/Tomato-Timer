@@ -159,9 +159,9 @@ function runTimer (updateTimer) {
 
 function updateSeedsImage() {
   // set empty filename for later
-  let filename = '/source/assets/seeds-'
+  let filename = './assets/seeds-'
   const fileext = '.svg'
-  const emptySeedFileSrc = '/source/assets/emptySeeds.svg'
+  const emptySeedFileSrc = './assets/emptySeeds.svg'
   // get the original image source from html
   const seedsImage = document.getElementById('seeds')
   let seedNumber
