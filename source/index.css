@@ -373,7 +373,6 @@ button {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  
 }
 
 #tasks {
@@ -566,7 +565,8 @@ button {
   padding-left: 15px;
 }
 
-#adjust-time label, #adjust-volume label {
+#adjust-time label, 
+#adjust-volume label {
   margin-left: 0.46vw;
 }
 
@@ -629,17 +629,17 @@ body {
   overflow: auto;
 }
 
-
-/* bottom left restart button */
-/* animations */
+/* bottom left restart button animations */
 @keyframes rotate {
   from {
     transform: rotate(360deg);
   }
-  to { 
+
+  to {
     transform: rotate(0deg);
   }
 }
+
 #restart-button {
   position: absolute;
   background-repeat: no-repeat;
@@ -647,16 +647,15 @@ body {
   margin: auto;
   width: 40%;
   height: 40%;
-  top:20%;
-  bottom:0;
+  top: 20%;
+  bottom: 0;
   left: 0;
   right: 0;
-  /* left: 12%;
-  bottom: 20%; */
   z-index: 0;
   background-size: 100%;
   background-image: url('./assets/restart-button.svg');
 }
+
 #restart-button:hover {
   animation: rotate 3s infinite;
   transform: rotate(20deg);
@@ -672,38 +671,37 @@ body {
   height: 130px;
   transition: all ease-in 0.2s;
 }
-#play-restart:hover{
+
+#play-restart:hover {
   transform: scale(1.2);
   transition: all ease-in 0.2s;
 }
-#restart-wrapper{
+
+#restart-wrapper {
   position: absolute;
   bottom: 0;
 }
 
-/* #restart-button:hover {
-  animation-name: rotate; 
-  animation-duration: 3s; 
-  animation-iteration-count: 1;
-  animation-timing-function: linear;
-} */
-
-@keyframes fadeIn{
+@keyframes fadeIn {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
 }
-@keyframes fadeInLess{
+
+@keyframes fadeInLess {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 0.3;
   }
 }
+
 /* Onboarding */
 .in-active#onboarding {
   display: none;
@@ -738,7 +736,6 @@ body {
   right: 0;
   width: 50vw;
   height: 75vh;
-  opacity: 100;
   z-index: +20;
   opacity: 1;
   animation: 0.5s ease-in fadeIn;
@@ -819,7 +816,8 @@ body {
   bottom: 2%;
   transition: all ease-in 0.5s;
 }
-#onboarding-progress-bar{
+
+#onboarding-progress-bar {
   position: relative;
 }
 
@@ -828,15 +826,22 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   display: block;
-  /* bottom: 2%;
-  right: 3%;  */
   width: 30px;
   height: 30px;
 }
 
-#onboarding-button:hover{
+#onboarding-button {
+  width: 30px;
+  height: 30px;
+  position: relative;
+  top: 0px;
+  z-index: +50;
+}
+
+#onboarding-button:hover {
   transform: scale(1.3);
 }
+
 #onboarding-button-img:hover {
   background: url('./assets/onboarding-button-img-hover.svg');
   background-repeat: no-repeat;
@@ -844,27 +849,21 @@ body {
   transition: all ease 0.8s;
 }
 
-#onboarding-button{
-  /* position: absolute; */
-  width: 30px;
-  height: 30px;
-  position: relative;
-  top: 0px;
-  z-index: +50;
-  /* bottom: 2%;
-  right: 3%;
-  z-index: +20; */
-}
-
-#o1{
+#o1 {
   display: block;
   opacity: 0;
   animation: 0.75s ease-in forwards 0.5s fadeIn;
 }
-#o2, #o3, #o4, #o5, #o6{
+
+#o2,
+#o3,
+#o4,
+#o5,
+#o6{
   display: none;
 }
-#onboarding-text > p{
+
+#onboarding-text > p {
   display: inherit;
   opacity: 1;
   animation: 0.5s ease-in fadeIn;
