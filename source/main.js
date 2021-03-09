@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
   document.getElementById('short-break-time').addEventListener('input', settingsTime)
   document.getElementById('long-break-time').addEventListener('input', settingsTime)
+  document.getElementById('add-task').addEventListener('click', addToList)
 
   // Update and display timer length
   timer.timerLen = updateTimerLen()
@@ -346,8 +347,6 @@ function stateChange(runTimer, displayMinSecond) {
 const focusedTask = []
 const masterList = []
 const completedList = []
-
-// document.getElementById('add-task').addEventListener('click', addToList)
 
 const list = document.getElementById('tasks')
 
