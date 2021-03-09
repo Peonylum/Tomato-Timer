@@ -12,10 +12,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400&display=swap" rel="stylesheet">
   </head>
   <body>
-    <!-- <img id="main-background" src="./assets/background.svg" alt="main-background"> -->
     <script src="./main.js" defer></script>
-    <!-- <script type="module" src="./settings.js" async defer></script> -->
-    <!-- <script src="./tasklist.js" defer></script> -->
     <section id="nav-bar">
       <div class="container"> <!--white rectangle behind -->
         <a id="logo">
@@ -56,7 +53,6 @@
           <label for="long-break-time">Long Break Time:</label>
           <input class="time-input" id="long-break-time" type="number" step="1" min="1" value="25" max="60">
         </div>
-        <!-- TODO: add interval to make sure can only put whole numbers -->
       </div>
     </div>
     <div id="progress-bar">
@@ -101,9 +97,7 @@
 
     <div id="task-container">
       <div id="task-list">
-	<!-- change color of text during breaks(in CSS file)-->
 	<p>TASK LIST </p>
-	<!-- switch with collapsed arrow on click: src="./assets/collapsedArrow.svg" alt="Collapsed Arrow"-->
 	<img src="./assets/arrrowDropdown.svg" alt="Dropdown">
       </div>
       <div id="empty-task-queue">
@@ -116,13 +110,7 @@
 	  Add task
 	</button>
       </div>
-      <!--Unhide when there are tasks-->
       <div id="task-queue" style="display: flex;">
-	<!-- <div id="task-queue-header">
-	     <p id="pomo-task-header">POMOS</p>
-	     <p id="task-header">TASK</p>
-	</div> -->
-	<!-- Append tasks to this task body-->
 	<div id="task-body">
 	  <!-- Adding a task-->
 	  <div id="adding-task-object">

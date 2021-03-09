@@ -31,7 +31,10 @@ describe ('onBoardingClick Functionality', () => {
   '<span id="onboarding-button-img">' + '</span>' +
   '</button>' +
   '</div>' +
-  '</div>'
+  '</div>' +
+  '<button id="add-task">' +
+  '<img src="assets/addButton.svg" alt="add task" id="add-task-icon">' +
+  '</button>'
 
   for (let i = 1; i <= 6; i++) {
     it(`Correctly sets onboarding ${i} display to be none,`, () => {

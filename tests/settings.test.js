@@ -72,7 +72,10 @@ document.body.innerHTML =
   '<span id="onboarding-button-img">' + '</span>' +
   '</button>' +
   '</div>' +
-  '</div>'
+  '</div>' +
+  '<button id="add-task">' +
+  '<img src="assets/addButton.svg" alt="add task" id="add-task-icon">' +
+  '</button>'
 
 const settings = require('../source/main')
 

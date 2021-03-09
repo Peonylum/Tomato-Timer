@@ -15,10 +15,10 @@ const pomoSession = {
   pomoPerSet: 4 /* the number of pomos per pomo set, default 4 */,
   sets: 0 /* counts how many full pomo sets completed */,
   state: 'work' /* can be work, shortBreak, or longBreak */,
-  pomoLen: 1 /* these are all set low for testing */,
-  shortBreakLen: 2,
-  longBreakLen: 3,
-  firstStart: true,
+  pomoLen: 25 /* these are all set low for testing */,
+  shortBreakLen: 5,
+  longBreakLen: 15,
+  firstStart: true
 }
 
 // pomoSession.pomoLen = 0.5
@@ -36,6 +36,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('pomo-time').addEventListener('input', settingsTime)
   document.getElementById('short-break-time').addEventListener('input', settingsTime)
   document.getElementById('long-break-time').addEventListener('input', settingsTime)
+  document.getElementById('add-task').addEventListener('click', addToList)
 
   // Update and display timer length
   timer.timerLen = updateTimerLen()
@@ -51,7 +52,6 @@ function settingsTime () {
   if ((adjustPomoTime.value >= 1 && adjustPomoTime.value <= 99) &&
   (adjustSbTime.value >= 1 && adjustSbTime.value <= 99) &&
   (adjustLbTime.value >= 1 && adjustLbTime.value <= 99)) {
-
     pomoSession.pomoLen = adjustPomoTime.value
     pomoSession.shortBreakLen = adjustSbTime.value
     pomoSession.longBreakLen = adjustLbTime.value
@@ -92,15 +92,15 @@ function showSettings () {
   const adjustSbTime = document.getElementById('short-break-time')
   const adjustLbTime = document.getElementById('long-break-time')
 
-  if(adjustPomoTime.value != pomoSession.pomoLen) {
+  if (adjustPomoTime.value !== pomoSession.pomoLen) {
     adjustPomoTime.value = pomoSession.pomoLen
   }
 
-  if(adjustSbTime.value != pomoSession.shortBreakLen) {
+  if (adjustSbTime.value !== pomoSession.shortBreakLen) {
     adjustSbTime.value = pomoSession.shortBreakLen
   }
 
-  if(adjustLbTime.value != pomoSession.longBreakLen) {
+  if (adjustLbTime.value !== pomoSession.longBreakLen) {
     adjustLbTime.value = pomoSession.longBreakLen
   }
 
@@ -127,7 +127,7 @@ function startSession () {
   runTimer(updateTimer)
 }
 
-function stopSession() {
+function stopSession () {
   // Reset the pomoSession variable
   pomoSession.state = 'work'
   pomoSession.count = 0
@@ -157,7 +157,7 @@ function runTimer (updateTimer) {
   timer.timerRef = setInterval(updateTimer, 1000)
 }
 
-function updateSeedsImage() {
+function updateSeedsImage () {
   // set empty filename for later
   let filename = './assets/seeds-'
   const fileext = '.svg'
@@ -181,7 +181,7 @@ function updateSeedsImage() {
   }
   // get the correct seedNumber int (  (timerLen / pomoLen) * 25 )
   // console.log('seedNumber='+seedNumber)
-  if (parseInt(seedNumber) == 0) {
+  if (parseInt(seedNumber) === 0) {
     filename = emptySeedFileSrc
   } else {
     filename = filename + parseInt(seedNumber) + fileext
@@ -193,7 +193,7 @@ function updateSeedsImage() {
   seedsImage.setAttribute('src', filename) // FALLBACK SET SRC
 }
 
-function updateProgressBar() {
+function updateProgressBar () {
   // eyeballed svg width
   const fillerBar1MaxWidth = 249
   const fillerBar2MaxWidth = 54
@@ -236,7 +236,7 @@ function updateProgressBar() {
   }
 }
 
-function updateTimerLen() {
+function updateTimerLen () {
   let length
   // Set the timer length based on its state
   switch (pomoSession.state) {
@@ -285,7 +285,7 @@ function updateTimer () {
 
 /* this function does the actual changes to the document and our
    session object. it's a bit hefty right now */
-function stateChange(runTimer, displayMinSecond) {
+function stateChange (runTimer, displayMinSecond) {
   console.log('inStateChange')
   switch (pomoSession.state) {
     case 'work':
@@ -303,12 +303,12 @@ function stateChange(runTimer, displayMinSecond) {
       if (pomoSession.count === pomoSession.pomoPerSet) {
         document.getElementById('progress-bar-background').src =
           '/source/assets/progressBarLongBreak.svg'
-        //document.getElementById('progress-bar').setAttribute('bottom',24)
+        // document.getElementById('progress-bar').setAttribute('bottom',24)
         console.log('imageChangedToLongBreak')
       } else {
         document.getElementById('progress-bar-background').src =
           './assets/backgroundProgressBar.svg'
-        //document.getElementById('progress-bar').setAttribute('bottom','5')
+        // document.getElementById('progress-bar').setAttribute('bottom','5')
         console.log('imageChangedBack')
       }
       timer.timerLen = updateTimerLen()
@@ -346,8 +346,6 @@ function stateChange(runTimer, displayMinSecond) {
 const focusedTask = []
 const masterList = []
 const completedList = []
-
-// document.getElementById('add-task').addEventListener('click', addToList)
 
 const list = document.getElementById('tasks')
 
@@ -496,7 +494,7 @@ function redrawList () {
 // Onboarding
 // myStorage = window.localStorage
 // firstTime = true initially.
-const onBoardingVars= {
+const onBoardingVars = {
   onboarding: document.getElementById('onboarding'),
   onboardingButton: document.getElementById('onboarding-button'),
   current: 1,
@@ -526,13 +524,13 @@ const addContent = e => {
   }
 }
 
-window.addEventListener('DOMContentLoaded', addContent);
+window.addEventListener('DOMContentLoaded', addContent)
 // function to cycle through onboarding pages
 const onBoardingClick = e => {
   let current = onBoardingVars.current
   document.getElementById(`o${current}`).style.display = 'none'
   current = current + 1
-  onBoardingVars.current = current;
+  onBoardingVars.current = current
   if (current > 6) {
     document.getElementById('onboarding').setAttribute('class', 'in-active')
     return 'closed'

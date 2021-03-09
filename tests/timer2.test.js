@@ -11,7 +11,10 @@ document.body.innerHTML = '<div>' +
   '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
   '<img id="progress-bar-background" src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">' +
   '<svg id="filler-bar-1-svg" width="0" height="8">' +
-  '<svg id="filler-bar-2-svg" width="0" height="8">'
+  '<svg id="filler-bar-2-svg" width="0" height="8">' +
+  '<button id="add-task">' +
+  '<img src="assets/addButton.svg" alt="add task" id="add-task-icon">' +
+  '</button>'
 
 const { pomoSession } = require('../source/main')
 const main = require('../source/main')
