@@ -92,15 +92,15 @@ function showSettings () {
   const adjustSbTime = document.getElementById('short-break-time')
   const adjustLbTime = document.getElementById('long-break-time')
 
-  if (adjustPomoTime.value !== pomoSession.pomoLen) {
+  if (parseInt(adjustPomoTime.value) !== pomoSession.pomoLen) {
     adjustPomoTime.value = pomoSession.pomoLen
   }
 
-  if (adjustSbTime.value !== pomoSession.shortBreakLen) {
+  if (parseInt(adjustSbTime.value) !== pomoSession.shortBreakLen) {
     adjustSbTime.value = pomoSession.shortBreakLen
   }
 
-  if (adjustLbTime.value !== pomoSession.longBreakLen) {
+  if (parseInt(adjustLbTime.value) !== pomoSession.longBreakLen) {
     adjustLbTime.value = pomoSession.longBreakLen
   }
 
