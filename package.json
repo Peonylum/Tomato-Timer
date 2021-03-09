@@ -3,6 +3,7 @@
     "yarn": "^1.22.10"
   },
   "devDependencies": {
+    "cypress": "^6.6.0",
     "jest": "^26.6.3"
   },
   "scripts": {
