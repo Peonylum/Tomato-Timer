@@ -608,5 +608,6 @@ module.exports = {
   focusTask,
   delFromList,
   completeTask,
-  redrawList
+  redrawList,
+  focusedTask
 }
