@@ -18,6 +18,10 @@ header {
   vertical-align: baseline;
   background: transparent;
 }
+html {    
+    background: url('./assets/background.svg') no-repeat center fixed;     
+    background-size: cover;
+}
 
 button {
   background: none;
@@ -30,7 +34,7 @@ button {
   position: relative;
   top: 0;
   width: 100%;
-  height: 7vh;
+  height: min(7vh,7vw);
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -40,13 +44,13 @@ button {
 
 #page-title {
   position: relative;
-  height: 54px;
+  height: 10vh;
   top: 50%;
   transform: translateY(-50%);
   font-family: Nunito, serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 3em;
+  font-size: min(3vh, 3vw);
   line-height: 3em; /* or 100% */
   display: flex;
   align-items: center;
@@ -56,18 +60,22 @@ button {
   color: #f40000;
 }
 
+#title-image {
+  height: min(5vh, 5vw); 
+}
+
 #settings {
   position: relative;
-  height: 45px;
-  right: 20px;
+  height: 10vh;
+  right: 1vh;
   top: 50%;
   transform: translateY(-50%);
   font-family: Nunito, serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 25px;
-  line-height: 20px;
-  padding: 10px; /* or 80% */
+  font-size: min(3vh, 3vw);
+  line-height: 3vh;
+  padding: 1vh; /* or 80% */
   text-align: center;
   letter-spacing: 0.01em;
   font-feature-settings: 'pnum' on, 'lnum' on;
@@ -76,15 +84,14 @@ button {
 
 #logo {
   position: relative;
-  height: 55px;
+  height: inherit;
   top: 50%;
   transform: translateY(-50%);
   font-family: Nunito, serif;
   font-style: normal;
   font-weight: bold;
-  font-size: 25px;
-  line-height: 30px;
-  padding: 10px; /* or 120% */
+  font-size: min(3vh, 3vw);
+  padding: 1vh; /* or 120% */
   display: flex;
   align-items: center;
   text-align: center;
@@ -96,10 +103,12 @@ button {
 
 #logo:hover {
   color: green;
+  transition: all 0.3s ease-in; 
 }
 
 #logo-image {
-  padding: 5px;
+  padding: 1vh;
+  height: min(3vh, 3vw);
 }
 
 /* Main */
@@ -141,6 +150,13 @@ button {
   transform: translateX(-50%);
 }
 
+#flex-wrapper{
+  display: flex;
+  flex-direction: column;
+  height: 80vh;
+  justify-content: space-between
+  
+}
 /* I wasn't sure the best way to implement tomato seeds so i made the empty seeds a child of timer */
 #empty-seeds {
   margin: 0 auto;
@@ -165,7 +181,7 @@ button {
 #timer {
   top: 0;
   position: relative;
-  height: 500px;
+  height: 45vh;
 }
 
 #timer-background {
@@ -237,7 +253,6 @@ button {
   position: relative;
   width: 35vw;
   font-family: 'Montserrat', sans-serif;
-  margin-top: -8vh;
   left: 32%;
   padding-bottom: 2.5vh;
 }
@@ -617,7 +632,6 @@ button {
 }
 
 body {
-  background: url('./assets/background.svg') no-repeat;
   width: 100vw;
   height: 100vh;
   overflow: auto;
@@ -660,9 +674,9 @@ body {
   position: relative;
   background-image: url('./assets/restart-tomato.svg');
   background-size: 100%;
-  width: 120px;
+  width: 12vh;
   background-position: center;
-  height: 130px;
+  height: 13vh;
   transition: all ease-in 0.2s;
 }
 
@@ -673,7 +687,7 @@ body {
 
 #restart-wrapper {
   position: absolute;
-  bottom: 0;
+  bottom: 2vh;
 }
 
 @keyframes fadeIn {
