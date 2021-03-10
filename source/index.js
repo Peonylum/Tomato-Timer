@@ -15,7 +15,7 @@ const hideOnClickOutside = (element, buttonClass) => {
     }
   }
   const removeClickListener = () => {
-  document.removeEventListener('click', outsideClickListener)
+    document.removeEventListener('click', outsideClickListener)
   }
   setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
