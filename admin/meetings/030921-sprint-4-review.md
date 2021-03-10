@@ -37,8 +37,12 @@ Note-taker: Yuke
 * Unit testing
 
 ### Sam
-* CSS refinement
-* Unit testing
+* Resolved bugs in progress bar and seeds functions from merged branches
+* Polished CSS
+* Cleaned stray and leftover comments in main.js and index.js
+* Repo tidying
+* Attempted to fix some unit testing coverage issues but no luck :(
+
 
 ### Lufan
 * Manual troubleshooting of merge issues
