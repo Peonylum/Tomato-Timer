@@ -1,6 +1,6 @@
 # Sprint review meeting: 03/09/21
 Attendance: all execpt for Sam and Naht
-Speaker: George 
+Speaker: George
 Note-taker: Yuke
 
 ## Accomplishment
