@@ -9,25 +9,24 @@ const myStorage = window.localStorage
 *                               *
 *********************************/
 
-// Initialize all global variables.
+/* Initialize all global variables */
 const pomoSession = {
   count: 0 /* 4 to a set */,
-  pomoPerSet: 4 /* the number of pomos per pomo set, default 4 */,
-  sets: 0 /* counts how many full pomo sets completed */,
-  state: 'work' /* can be work, shortBreak, or longBreak */,
-  pomoLen: 25 /* these are all set low for testing */,
+  pomoPerSet: 4 /* The number of pomos per pomo set, default 4 */,
+  sets: 0 /* Counts how many full pomo sets completed */,
+  state: 'work' /* Can be work, shortBreak, or longBreak */,
+  pomoLen: 25 /* These are all set low for testing */,
   shortBreakLen: 5,
   longBreakLen: 15,
   firstStart: true
 }
 
-// pomoSession.pomoLen = 0.5
 const timer = {
   timerLen: 0,
   timerRef: 0
 }
 
-// Add all EventListener when the DOM Loaded
+/* Add all EventListener when the DOM Loaded */
 document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('play').addEventListener('click', startSession)
   document.getElementById('stop').addEventListener('click', stopSession)
@@ -38,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   document.getElementById('long-break-time').addEventListener('input', settingsTime)
   document.getElementById('add-task').addEventListener('click', addToList)
 
-  // Update and display timer length
+  /* Update and display timer length */
   timer.timerLen = updateTimerLen()
   displayMinSecond(timer.timerLen)
 })
@@ -48,7 +47,7 @@ function settingsTime () {
   const adjustSbTime = document.getElementById('short-break-time')
   const adjustLbTime = document.getElementById('long-break-time')
 
-  // Alter time based on setting inputs
+  /* Alter time based on setting inputs */
   if ((adjustPomoTime.value >= 1 && adjustPomoTime.value <= 99) &&
   (adjustSbTime.value >= 1 && adjustSbTime.value <= 99) &&
   (adjustLbTime.value >= 1 && adjustLbTime.value <= 99)) {
@@ -61,7 +60,7 @@ function settingsTime () {
     document.getElementById('play').disabled = false
     document.getElementById('close-settings').disabled = false
   } else {
-    // Out of range, disable play button and settings exit button
+    /* Out of range, disable play button and settings exit button */
     document.getElementById('play').disabled = true
     document.getElementById('close-settings').disabled = true
   }
@@ -73,7 +72,7 @@ function disableTime () {
   const adjustSbTime = document.getElementById('short-break-time')
   const adjustLbTime = document.getElementById('long-break-time')
 
-  // Disable/enable time adjustment based on running time
+  /* Disable/enable time adjustment based on running time */
   if (timeRunning.style.display === 'block') {
     adjustPomoTime.disabled = true
     adjustSbTime.disabled = true
@@ -104,10 +103,10 @@ function showSettings () {
     adjustLbTime.value = pomoSession.longBreakLen
   }
 
-  // disable time adjustment
+  /* Disable time adjustment */
   disableTime()
 
-  // Show/hide settings overlay based on current display
+  /* Show/hide settings overlay based on current display */
   if (settingStatus.style.display === 'none') {
     settingStatus.style.display = 'block'
   } else {
@@ -120,36 +119,35 @@ function startSession () {
   document.getElementById('play').style.display = 'none'
   document.getElementById('stop').style.display = 'block'
 
-  // disable time adjustment
+  /* Disable time adjustment */
   disableTime()
 
-  // Start the timer
+  /* Start the timer */
   runTimer(updateTimer)
 }
 
 function stopSession () {
-  // Reset the pomoSession variable
+  /* Reset the pomoSession variable */
   pomoSession.state = 'work'
   pomoSession.count = 0
   pomoSession.sets = 1
   pomoSession.firstStart = true
 
-  // Change Stop button to Start button
+  /* Change Stop button to Start button */
   document.getElementById('play').style.display = 'block'
   document.getElementById('stop').style.display = 'none'
-  // Display the timer in Pomotime
+  /* Display the timer in Pomotime */
   timer.timerLen = updateTimerLen()
   displayMinSecond(timer.timerLen)
-  // Stop the timer
+  /* Stop the timer */
   clearInterval(timer.timerRef)
-  // Enable time adjustment
+  /* Enable time adjustment */
   disableTime()
 }
 
 function runTimer (updateTimer) {
   timer.timerLen = updateTimerLen()
-  console.log(timer.timerLen)
-  // Special case for first time start a work state, we need to offet a delay when clicking start button
+  /* Special case for first time start a work state, we need to offet a delay when clicking start button */
   if (pomoSession.firstStart === true) {
     timer.timerLen -= 1000
     pomoSession.firstStart = false
@@ -158,16 +156,13 @@ function runTimer (updateTimer) {
 }
 
 function updateSeedsImage () {
-  // set empty filename for later
+  /* Set empty filename for later */
   let filename = './assets/seeds-'
   const fileext = '.svg'
   const emptySeedFileSrc = './assets/emptySeeds.svg'
-  // get the original image source from html
   const seedsImage = document.getElementById('seeds')
   let seedNumber
-  // get timerLen
-  // compare to either pomoLen, shortbreaklen, or longbreaklen
-  // NOTE THAT TIME IN POMOSESSION IS STORED IN MINUTES AND TIMERLEN IS IN MILLISECONDS
+  /* Compare to either pomoLen, shortbreaklen, or longbreaklen */
   switch (pomoSession.state) {
     case 'work':
       seedNumber = (1 - timer.timerLen / (pomoSession.pomoLen * 60000)) * 25
@@ -179,45 +174,40 @@ function updateSeedsImage () {
       seedNumber = (1 - timer.timerLen / (pomoSession.longBreakLen * 60000)) * 25
       break
   }
-  // get the correct seedNumber int (  (timerLen / pomoLen) * 25 )
-  // console.log('seedNumber='+seedNumber)
   if (parseInt(seedNumber) === 0) {
     filename = emptySeedFileSrc
   } else {
     filename = filename + parseInt(seedNumber) + fileext
   }
-
-  // console.log(filename)
-  // concatenate seedNumber to filename
+  /* Concatenate seedNumber to filename */
   seedsImage.src = filename
-  seedsImage.setAttribute('src', filename) // FALLBACK SET SRC
+  seedsImage.setAttribute('src', filename)
 }
 
 function updateProgressBar () {
-  // eyeballed svg width
+  /* Full progress bar width values */
   const fillerBar1MaxWidth = 249
   const fillerBar2MaxWidth = 54
-  // filler bar HTML elements
+  /* Filler bar HTML elements */
   const fillerBar1SvgId = 'filler-bar-1-svg'
   const fillerBar2SvgId = 'filler-bar-2-svg'
   const fillerBar1SvgElem = document.getElementById(fillerBar1SvgId)
   const fillerBar2SvgElem = document.getElementById(fillerBar2SvgId)
 
-  // check pomo session state
   switch (pomoSession.state) {
     case 'work':
-      // update bar 1 according to pomo progress
+      /* Update bar 1 according to pomo progress */
       fillerBar1SvgElem.setAttribute(
         'width',
         (1 - timer.timerLen / (pomoSession.pomoLen * 60000)) * fillerBar1MaxWidth
       )
-      // leave bar 2 empty
+      /* Leave bar 2 empty */
       fillerBar2SvgElem.setAttribute('width', 0)
       break
     case 'shortBreak':
-      // leave bar 1 full
+      /* Leave bar 1 full */
       fillerBar1SvgElem.setAttribute('width', fillerBar1MaxWidth)
-      // update bar 2 according to short break progress
+      /* Update bar 2 according to short break progress */
       fillerBar2SvgElem.setAttribute(
         'width',
         (1 - timer.timerLen / (pomoSession.shortBreakLen * 60000)) *
@@ -225,9 +215,9 @@ function updateProgressBar () {
       )
       break
     case 'longBreak':
-      // leave bar 1 full
+      /* Leave bar 1 full */
       fillerBar1SvgElem.setAttribute('width', fillerBar1MaxWidth)
-      // update bar 2 according to long break progress
+      /* Update bar 2 according to long break progress */
       fillerBar2SvgElem.setAttribute(
         'width',
         (1 - timer.timerLen / (pomoSession.longBreakLen * 60000)) * fillerBar2MaxWidth
@@ -238,7 +228,7 @@ function updateProgressBar () {
 
 function updateTimerLen () {
   let length
-  // Set the timer length based on its state
+  /* Set the timer length based on its state */
   switch (pomoSession.state) {
     case 'work':
       length = pomoSession.pomoLen
@@ -250,11 +240,11 @@ function updateTimerLen () {
       length = pomoSession.longBreakLen
       break
   }
-  return length * 60 * 1000 /* pomoLen in miliseconds */
+  /* Return length in milliseconds */
+  return length * 60 * 1000
 }
 
 function displayMinSecond (timerLen) {
-  // console.log(timerLen)
   let mins = Math.floor((timerLen / 1000) / 60)
   let seconds = (timerLen / 1000) % 60
   if (mins < 10) {
@@ -271,22 +261,19 @@ function updateTimer () {
     clearInterval(timer.timerRef)
     stateChange(runTimer, displayMinSecond)
   }
-  console.log(timer.timerLen)
   updateSeedsImage()
   updateProgressBar()
   displayMinSecond(timer.timerLen)
   timer.timerLen -= 1000
 
-  /* update the focused tasks time spent */
+  /* Update the focused tasks time spent */
   if (pomoSession.state === 'work' && focusedTask.length > 0) {
     focusedTask[0].time += 1000
   }
 }
 
-/* this function does the actual changes to the document and our
-   session object. it's a bit hefty right now */
+/* Function to change states between end of pomo or break */
 function stateChange (runTimer, displayMinSecond) {
-  console.log('inStateChange')
   switch (pomoSession.state) {
     case 'work':
       if (pomoSession.count === pomoSession.pomoPerSet) {
@@ -303,30 +290,25 @@ function stateChange (runTimer, displayMinSecond) {
       if (pomoSession.count === pomoSession.pomoPerSet) {
         document.getElementById('progress-bar-background').src =
           '/source/assets/progressBarLongBreak.svg'
-        // document.getElementById('progress-bar').setAttribute('bottom',24)
-        console.log('imageChangedToLongBreak')
       } else {
         document.getElementById('progress-bar-background').src =
           './assets/backgroundProgressBar.svg'
-        // document.getElementById('progress-bar').setAttribute('bottom','5')
-        console.log('imageChangedBack')
       }
       timer.timerLen = updateTimerLen()
-      // Change Stop button to Start button
+      /* Change Stop button to Start button */
       document.getElementById('play').style.display = 'block'
       document.getElementById('stop').style.display = 'none'
       break
     case 'longBreak':
-      // change progress bar background back to short break
+      /* Change progress bar background back to short break */
       document.getElementById('progress-bar-background').src =
         './assets/backgroundProgressBar.svg'
-      console.log('imageChangedBack')
       pomoSession.state = 'work'
       pomoSession.firstStart = true
       pomoSession.count = 0
       pomoSession.sets++
       timer.timerLen = updateTimerLen()
-      // Change Stop button to Start button
+      /* Change Stop button to Start button */
       document.getElementById('play').style.display = 'block'
       document.getElementById('stop').style.display = 'none'
       break
@@ -355,7 +337,7 @@ function buildNewTask () {
   newTask.setAttribute('class', 'task-object')
   newTask.setAttribute('draggable', true)
 
-  /* fill task object with it's buttons and text elements */
+  /* Fill task object with it's buttons and text elements */
   const focusButton = document.createElement('button')
   focusButton.setAttribute('class', 'focus-task-button')
   focusButton.innerHTML = '<img src="assets/focusTask.svg" alt="focus task" id="focus-task-icon">'
@@ -405,7 +387,7 @@ function focusTask () {
   focusedTask[0].taskBody.children[0].innerHTML = '<img src="assets/focusTaskActive.svg" alt="focus task" id="focus-task-activeicon">'
   focusedTask[0].taskBody.children[3].style.display = 'block'
 
-  /* remove focused task from the list and if there was a previously
+  /* Remove focused task from the list and if there was a previously
      focused task, add it back to the list */
   masterList.splice(index, 1)
   if (temp !== undefined) {
@@ -420,9 +402,9 @@ function focusTask () {
   redrawList()
 }
 
-/* removes an item from our task list */
+/* Removes an item from our task list */
 function delFromList () {
-  /* figure out where the task came from, then get rid of it */
+  /* Figure out where the task came from, then get rid of it */
   if (focusedTask.length > 0 && this.parentElement === focusedTask[0].taskBody) {
     focusedTask.pop()
   } else {
@@ -462,7 +444,7 @@ function completeTask () {
   redrawList()
 }
 
-/* this deletes all of the children of the task list and repopulates them
+/* Deletes all of the children of the task list and repopulates them
    using the arrays that represent their contents */
 function redrawList () {
   while (list.firstChild) {
@@ -491,33 +473,23 @@ function redrawList () {
 *                                                  |___/  *
 ***********************************************************/
 
-// Onboarding
-// myStorage = window.localStorage
-// firstTime = true initially.
 const onBoardingVars = {
   onboarding: document.getElementById('onboarding'),
   onboardingButton: document.getElementById('onboarding-button'),
   current: 1,
   textDivs: [...document.querySelectorAll('.otext')]
 }
-// const onboarding = document.getElementById('onboarding')
-// const onboardingButton = document.getElementById('onboarding-button')
-// let current = 1
-// const textDivs = [...document.querySelectorAll('.otext')]
-// console.log(textDivs)
 
 const addContent = e => {
   onBoardingVars.onboardingButton.addEventListener('click', onBoardingClick)
   restartSession()
 
   if (myStorage.getItem('firstTime') === null) {
-    console.log('first time visiting')
     myStorage.setItem('firstTime', false)
     onBoardingVars.onboarding.setAttribute('class', 'active')
     hideOnClickOutside(document.getElementById('onboarding-background'), 'play-restart')
     return 1
   } else {
-    console.log('not first time visiting')
     myStorage.setItem('firstTime', false)
     onBoardingVars.onboarding.setAttribute('class', 'in-active')
     return 0
@@ -525,7 +497,7 @@ const addContent = e => {
 }
 
 window.addEventListener('DOMContentLoaded', addContent)
-// function to cycle through onboarding pages
+/* Function to cycle through onboarding pages */
 const onBoardingClick = e => {
   let current = onBoardingVars.current
   document.getElementById(`o${current}`).style.display = 'none'
@@ -558,17 +530,9 @@ const restartOnboarding = () => {
   document.getElementById('onboarding-progress-bar').src = `./assets/onboarding-${onBoardingVars.current}.svg`
 }
 
-// const showOnBoarding = () => {
-//   onboarding.setAttribute('class', 'active')
-// }
-
-// hides onboarding menu
+/* Hides onboarding menu */
 const hideOnClickOutside = (element, buttonId) => {
   const outsideClickListener = e => {
-    console.log(e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target))
-    console.log(e.target.id !== buttonId)
-    console.log(!element.contains(e.target))
-    console.log(!document.getElementById(buttonId).contains(e.target))
     if (e.target.id !== buttonId && !element.contains(e.target) && !document.getElementById(buttonId).contains(e.target)) {
       document.getElementById('onboarding').setAttribute('class', 'in-active')
       removeClickListener()
