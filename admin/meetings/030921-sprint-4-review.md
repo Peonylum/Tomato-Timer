@@ -8,10 +8,15 @@ Note-taker: Yuke
 * Finished onboarding tests
   * Learned about mocking, spy, etc to test DOM minipulation
 * fixed merge conflicts
+* ![George's code](Images/george's%20work.png)
 
 ### Naht
-* E2E testing
-* Unit testing on main js
+* Finished timer tests
+  * Learned about using JSDOM to test DOM manipulation functions
+  * Jest can only manipulate an object variable
+* Working on an End to End test using Cypress:
+  * Finished: Onboarding -> Settings -> Timer -> Progress Status (Seeds and Bar)
+* ![Naht's code](Images/Naht's%20work.png)
 
 ### Peony
 * merge repos into main
@@ -19,10 +24,12 @@ Note-taker: Yuke
 * Cleared out commented out code in index.html
 * Setting test
 * Made sure unit testing is 100%
+* ![Peony's work](Images/Peony's%20work.png)
 
 ### Daylan
 * Unit testing
 * JS cleanup
+* ![Dylan's work](Images/Dylan's%20work.png)
 
 ### Yuke
 * Unit testing
@@ -32,7 +39,7 @@ Note-taker: Yuke
 * Unit testing
 
 ### Lufan
-* Unit testing
+* Manual troubleshooting of merge issues
 
 ### Hanna
 * Unit testing
@@ -41,3 +48,4 @@ Note-taker: Yuke
 * Cypress hooked up
 * Set up github aciton for cypress
 * Manul testing
+* ![Uday's work](Images/Uday's%20work.png)
