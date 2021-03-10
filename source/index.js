@@ -14,14 +14,13 @@ const hideOnClickOutside = (element, buttonClass) => {
       removeClickListener()
     }
   }
-   const removeClickListener = () => {
-    document.removeEventListener('click', outsideClickListener)
+  const removeClickListener = () => {
+  document.removeEventListener('click', outsideClickListener)
   }
-
   setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
 
-/* Adds checkmark */  
+/* Adds checkmark */
 document.querySelectorAll('.selectButton').forEach(selectButton => {
   selectButton.addEventListener('click', () => {
     selectButton.nextElementSibling.classList.toggle('active')
