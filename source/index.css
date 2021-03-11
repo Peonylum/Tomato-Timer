@@ -795,8 +795,7 @@ body {
   font-family: Nunito, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 40px;
-  line-height: 55px;
+  font-size: 4vh;
   height: 20%;
   overflow-y: hidden;
   text-align: center;
@@ -813,8 +812,7 @@ body {
   font-family: Nunito, sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 16px;
-  line-height: 22px;
+  font-size: 2vh;
   color: #513737;
 }
 
@@ -855,6 +853,18 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   transition: all ease 0.8s;
+}
+
+@media screen and (max-width: 1280px) {
+  #onboarding-image1, #onboarding-image2{
+    display: none;
+  }
+  .onboarding-text{
+    width: 90%;
+  }
+  #onboarding-background{
+    width: 70vw;
+  }
 }
 
 #o1 {
