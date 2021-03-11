@@ -3,7 +3,7 @@
 ## Observations Recorded By: Uday
 ## Used on: Chrome 16:9 1920x1080 window
 
-# Observations from Tester:
+## Observations from Tester
 -**Test 1: Pomodoro Timer Functionality**
     -Timer successfully counts down during pomo time.
     -Seeds around the counter and progress bar fill according to time.
