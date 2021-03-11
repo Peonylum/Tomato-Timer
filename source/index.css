@@ -114,34 +114,12 @@ button {
   transform: translateX(-50%);
 }
 
-#progress-tomato-1 {
-  margin: 0 auto;
-  text-align: center;
-  position: absolute;
-  left: 13px;
-}
-
-#progress-tomato-2 {
-  margin: 0 auto;
-  text-align: center;
-  position: absolute;
-  left: 315px;
-}
-
-#progress-tomato-3 {
-  margin: 0 auto;
-  text-align: center;
-  position: absolute;
-  left: 420px;
-}
-
 #progress-background {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
 }
 
-/* I wasn't sure the best way to implement tomato seeds so i made the empty seeds a child of timer */
 #empty-seeds {
   margin: 0 auto;
   text-align: center;
