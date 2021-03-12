@@ -18,9 +18,10 @@ header {
   vertical-align: baseline;
   background: transparent;
 }
-html {    
-    background: url('./assets/background.svg') no-repeat center fixed;     
-    background-size: cover;
+
+html {
+  background: url('./assets/background.svg') no-repeat center fixed;
+  background-size: cover;
 }
 
 button {
@@ -34,7 +35,7 @@ button {
   position: relative;
   top: 0;
   width: 100%;
-  height: min(7vh,7vw);
+  height: min(7vh, 7vw);
   background-color: white;
   display: flex;
   flex-direction: row;
@@ -61,7 +62,7 @@ button {
 }
 
 #title-image {
-  height: min(5vh, 5vw); 
+  height: min(5vh, 5vw);
 }
 
 #settings {
@@ -103,7 +104,7 @@ button {
 
 #logo:hover {
   color: green;
-  transition: all 0.3s ease-in; 
+  transition: all 0.3s ease-in;
 }
 
 #logo-image {
@@ -147,7 +148,7 @@ button {
   height: 100%;
 }
 
-#seeds{
+#seeds {
   width: 90%;
   height: 75%;
 }
@@ -199,8 +200,6 @@ button {
 }
 
 #play-button {
-  height: 5rem;
-  width: 5rem;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
@@ -214,8 +213,6 @@ button {
 }
 
 #stop-button {
-  height: 5rem;
-  width: 5rem;
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
