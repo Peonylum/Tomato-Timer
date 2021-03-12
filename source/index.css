@@ -130,19 +130,19 @@ button {
   transform: translateX(-50%);
 }
 
-#flex-wrapper{
+#flex-wrapper {
   display: flex;
   flex-direction: column;
   height: 80vh;
-  justify-content: space-between
-  
+  justify-content: space-between;
 }
+
 /* I wasn't sure the best way to implement tomato seeds so i made the empty seeds a child of timer */
 #empty-seeds {
   margin: 0 auto;
   text-align: center;
   position: relative;
-  right: 0vh;
+  right: 0;
   top: -1vh;
   width: 100%;
   height: 100%;
@@ -173,7 +173,7 @@ button {
 
 #timer-background {
   position: absolute;
-  top: 0vh;
+  top: 0;
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
@@ -203,8 +203,8 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  left: 0vh;
-  top: 0vh;
+  left: 0;
+  top: 0;
   z-index: 0;
   background-size: 100%;
   background-image: url('./assets/playButton.svg');
@@ -216,9 +216,9 @@ button {
   background-repeat: no-repeat;
   background-position: center;
   position: absolute;
-  left: 0vh;
-  top: 0vh;
-  z-index: 0vh;
+  left: 0;
+  top: 0;
+  z-index: 0;
   background-size: 100%;
   background-image: url('./assets/stop-button.svg');
   width: 100%;
@@ -845,13 +845,13 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
-  #onboarding-image1, #onboarding-image2{
+  #onboarding-image1, #onboarding-image2 {
     display: none;
   }
-  .onboarding-text{
+  .onboarding-text {
     width: 90%;
   }
-  #onboarding-background{
+  #onboarding-background {
     width: 70vw;
   }
 }
