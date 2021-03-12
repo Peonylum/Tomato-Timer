@@ -449,13 +449,15 @@ button {
   top: 13px;
   right: 10px;
   */
-  top: -1.5px;
   left: 0.5vw;
+  height: 28px;
+  width: 33px;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
-  margin-left: -29px;
+  margin-left: -33px;
   margin-right: 0px;
   background-color: #8d3434;
   border-radius: 8px;
+  font-size: 0px;
 }
 
 .complete-task-button {
