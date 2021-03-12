@@ -525,13 +525,13 @@ button {
   height: fit-content;
   text-align: center;
   color: #be1c12;
-  font-size: 2rem;
+  font-size: 2vw;
   font-family: 'Montserrat', sans-serif;
   padding-top: 0.5vh;
   padding-bottom: 2vh;
   background: #f8f0e9;
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-  border-radius: 9px;
+  border-radius: 1.5vh;
 }
 
 #settings-header {
@@ -542,7 +542,8 @@ button {
 }
 
 #settings-header img {
-  height: 1.5rem;
+  height: 5vh;
+  width: 1.5vw;
   margin-right: 5vw;
 }
 
@@ -557,38 +558,42 @@ button {
   display: flex;
   flex-direction: column;
   align-items: baseline;
-  margin-top: 0.5vh;
   color: #be1c12;
-  font-size: 1.6rem;
-  padding-left: 15px;
+  font-size: 1.5vw;
+}
+
+#adjust-time div{
+  margin: 1vh;
 }
 
 #adjust-time label,
 #adjust-volume label {
-  margin-left: 0.46vw;
+  padding-left: 0.46vw;
+  margin-top: 10vh;
 }
 
 .time-input {
-  margin-left: 0.5vw;
-  width: 4vw;
-  border: solid #f4bfbf 3px;
-  border-radius: 8px;
+  width: 3.5vw;
+  border: solid #f4bfbf 0.2vw;
+  border-radius: 0.4vw;
   background-color: whitesmoke;
   text-align: center;
   color: #be1c12;
-  margin-bottom: 1vh;
 }
 
 #pomo-time {
-  margin-left: 4.5vw;
+  position: absolute;
+  left: 15vw;
 }
 
 #short-break-time {
-  margin-left: 0.65vw;
+  position: absolute;
+  left: 15vw;
 }
 
 #long-break-time {
-  margin-left: 0.85vw;
+  position: absolute;
+  left: 15vw;
 }
 
 #adjust-volume {
@@ -845,12 +850,15 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
-  #onboarding-image1, #onboarding-image2 {
+  #onboarding-image1,
+  #onboarding-image2 {
     display: none;
   }
+
   .onboarding-text {
     width: 90%;
   }
+
   #onboarding-background {
     width: 70vw;
   }
