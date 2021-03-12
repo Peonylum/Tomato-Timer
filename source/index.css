@@ -82,6 +82,9 @@ button {
   color: #73b92d;
 }
 
+#settings:hover {
+  color: rgb(0, 129, 0);
+}
 #logo {
   position: relative;
   height: inherit;
