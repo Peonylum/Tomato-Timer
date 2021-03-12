@@ -180,26 +180,22 @@ button {
 }
 
 #play {
-  height: 5rem;
-  width: 5rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 30vh;
-  width: 5vw;
-  height: 5vh;
+  width: 10vh;
+  height: 10vh;
 }
 
 #stop {
-  height: 5rem;
-  width: 5rem;
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: 30vh;
   display: none;
-  width: 5vw;
-  height: 5vh;
+  width: 10vh;
+  height: 10vh;
 }
 
 #play-button {
