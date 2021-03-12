@@ -104,13 +104,13 @@ button {
 
 /* Main */
 #progress-bar {
-  padding: 50px;
+  padding: 2rem;
   position: relative;
   align-items: center;
-  width: 400px;
-  height: 100px;
+  width: 40rem;
+  height: 5rem;
   left: 50%;
-  bottom: 5px;
+  top: 5%;
   transform: translateX(-50%);
 }
 
@@ -130,14 +130,14 @@ button {
 
 #filler-bar-1 {
   position: absolute;
-  left: 73px;
-  top: 68px;
+  left: 11rem;
+  top: 3rem;
 }
 
 #filler-bar-2 {
   position: absolute;
-  left: 373px;
-  top: 68px;
+  left: 29.7rem;
+  top: 3rem;
 }
 
 #timer {
