@@ -309,13 +309,6 @@ button {
 }
 
 /* Here to fix descending specificity */
-
-#onboarding-text > p {
-  display: inherit;
-  opacity: 1;
-  animation: 0.5s ease-in fadeIn;
-}
-
 .onboarding-text p {
   overflow-y: auto;
   height: 80%;
@@ -328,6 +321,12 @@ button {
   font-weight: normal;
   font-size: 2vh;
   color: #513737;
+}
+
+#onboarding-text > p {
+  display: inherit;
+  opacity: 1;
+  animation: 0.5s ease-in fadeIn;
 }
 
 /* It's here to fix descendig specificity issue */
@@ -554,6 +553,7 @@ button {
   height: 1vh;
   width: auto;
 }
+
 .task-time {
   position: relative;
   color: rgba(156, 0, 0, 1);
@@ -567,7 +567,7 @@ button {
   align-items: center;
   padding: min(0.5vh, 0.5vw);
   border-radius: 50px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 /* Focused Task Object */
@@ -579,7 +579,7 @@ button {
   align-items: center;
   padding: 0.5rem;
   border-radius: 50px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25);
 }
 
 /* Completed Task Object */
@@ -673,7 +673,7 @@ button {
   align-items: center;
   padding-left: 0.46vw;
   width: fit-content;
-  height:fit-content;
+  height: fit-content;
 }
 
 #settings-header img {
