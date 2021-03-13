@@ -18,6 +18,7 @@ header {
   vertical-align: baseline;
   background: transparent;
 }
+
 html {
   background: url('./assets/background.svg') no-repeat center fixed;
   background-size: cover;
@@ -135,6 +136,7 @@ button {
   height: 80vh;
   justify-content: space-between;
 }
+
 /* I wasn't sure the best way to implement tomato seeds so i made the empty seeds a child of timer */
 #empty-seeds {
   margin: 0 auto;
@@ -277,13 +279,6 @@ button {
   margin-left: -24px;
 }
 
-#task-list div p {
-  position: relative;
-  right: 43px;
-  margin-right: -89px;
-  width: fit-content;
-}
-
 #task-description {
   display: flex;
   flex-direction: row;
@@ -418,6 +413,7 @@ button {
   background-color: whitesmoke;
   text-align: center;
 }
+
 #new-task-wrapper {
   max-width: 32.5vw;
   margin-left: 1.25vw;
@@ -435,11 +431,10 @@ button {
   border-radius: 8px;
   background-color: whitesmoke;
   text-align: left;
-  /*
-  margin-left: 1vw;
+
+  /*   margin-left: 1vw;
   margin-right: 5vw;
-  margin-bottom: 1vh;
-  */
+  margin-bottom: 1vh; */
   margin-right: 2vw;
 }
 
@@ -889,13 +884,16 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
+
   #onboarding-image1,
   #onboarding-image2 {
     display: none;
   }
+
   .onboarding-text {
     width: 90%;
   }
+  
   #onboarding-background {
     width: 70vw;
   }
@@ -919,4 +917,12 @@ body {
   display: inherit;
   opacity: 1;
   animation: 0.5s ease-in fadeIn;
+}
+
+/* It's here to fix descendig specificity issue */
+#task-list div p {
+  position: relative;
+  right: 43px;
+  margin-right: -89px;
+  width: fit-content;
 }
