@@ -117,11 +117,11 @@ button {
 
 /* Main */
 #progress-bar {
-  padding: 2rem;
+  
   position: relative;
   align-items: center;
-  width: 40rem;
-  height: 5rem;
+  width: 90vw;
+  height: 12vh;
   left: 50%;
   top: 5%;
   transform: translateX(-50%);
@@ -131,6 +131,11 @@ button {
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
+}
+
+#progress-bar-background {
+  width: 90vw;
+  height: 12vh;
 }
 
 #flex-wrapper {
@@ -157,9 +162,17 @@ button {
 }
 
 #filler-bar-1 {
-  position: absolute;
-  left: 11rem;
-  top: 3rem;
+  height:20vh;
+  position: relative;
+  left: 35vw;
+  top: 2.2vh;
+}
+#filler-bar-1-svg{
+  height:0.9vh;
+}
+
+#filler-bar-1-rect {
+  height:40vh;
 }
 
 #filler-bar-2 {
