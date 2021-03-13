@@ -440,19 +440,19 @@ button {
 
 #add-task {
   position: relative;
-  /*
-  top: 13px;
-  right: 10px;
-  */
+
+  /* top: 13px;
+  right: 10px; */
+
   left: 0.5vw;
   height: 28px;
   width: 33px;
   padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   margin-left: -33px;
-  margin-right: 0px;
+  margin-right: 0;
   background-color: #8d3434;
   border-radius: 8px;
-  font-size: 0px;
+  font-size: 0;
 }
 
 .complete-task-button {
@@ -537,7 +537,8 @@ button {
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
-  /*margin: 5px;*/
+
+  /* margin: 5px; */
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -884,7 +885,6 @@ body {
 }
 
 @media screen and (max-width: 1280px) {
-
   #onboarding-image1,
   #onboarding-image2 {
     display: none;
@@ -893,7 +893,7 @@ body {
   .onboarding-text {
     width: 90%;
   }
-  
+
   #onboarding-background {
     width: 70vw;
   }
