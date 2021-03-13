@@ -294,7 +294,7 @@ button {
   color: #b50000;
   height: 4vh;
   width: inherit;
-  border-radius: 8px;
+  border-radius: 0.75vw;
   font-size: large;
   padding-top: 0.75vh;
   padding-bottom: 0.75vh;
@@ -344,6 +344,8 @@ button {
   position: relative;
   width: inherit;
   height: fit-content;
+  border-bottom-left-radius: 1vw;
+  border-bottom-right-radius: 1vw;
 
   /*
     SHORT BREAK BG:
@@ -498,7 +500,7 @@ button {
   width: 6%;
   /* min-width: 8%;
   max-width: 8%; */
-  padding: 1% 2%;
+  padding: 0.5% 0;
   background-color: #8d3434;
   border-radius: 0.4rem;
 }
@@ -526,6 +528,7 @@ button {
 }
 .task-time {
   position: relative;
+  color:  rgba(156, 0, 0, 1);
 }
 
 /* Custom Task Object */
