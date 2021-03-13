@@ -287,6 +287,15 @@ button {
   margin-right: 17.5vw;
 }
 
+/* It's here to fix descendig specificity issue */
+#task-list div p {
+  position: relative;
+  right: 43px;
+  margin-right: -89px;
+  width: fit-content;
+}
+
+
 #task-list img {
   margin-left: -24px;
 }
@@ -934,12 +943,4 @@ body {
   display: inherit;
   opacity: 1;
   animation: 0.5s ease-in fadeIn;
-}
-
-/* It's here to fix descendig specificity issue */
-#task-list div p {
-  position: relative;
-  right: 43px;
-  margin-right: -89px;
-  width: fit-content;
 }
