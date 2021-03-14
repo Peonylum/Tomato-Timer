@@ -26,5 +26,3 @@ jobs:
       run: yarn
     - name: Run tests
       run: yarn test
-    - name: Cypress run
-      uses: cypress-io/github-action@v2
