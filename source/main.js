@@ -186,41 +186,43 @@ function updateSeedsImage () {
 
 function updateProgressBar () {
   /* Full progress bar width values */
-  const fillerBar1MaxWidth = 249
-  const fillerBar2MaxWidth = 54
+  const fillerBar1MaxWidth = 215
+  const fillerBar2MaxWidth = 44
   /* Filler bar HTML elements */
   const fillerBar1SvgId = 'filler-bar-1-svg'
   const fillerBar2SvgId = 'filler-bar-2-svg'
   const fillerBar1SvgElem = document.getElementById(fillerBar1SvgId)
   const fillerBar2SvgElem = document.getElementById(fillerBar2SvgId)
-
+  const fillerBarMaxWidth = 420
+  let fillerBarCurrentWidth = document.getElementById('progress-background').clientWidth
+  let screenMultiplier = fillerBarCurrentWidth/fillerBarMaxWidth
   switch (pomoSession.state) {
     case 'work':
       /* Update bar 1 according to pomo progress */
       fillerBar1SvgElem.setAttribute(
         'width',
-        (1 - timer.timerLen / (pomoSession.pomoLen * 60000)) * fillerBar1MaxWidth
+        ((1 - timer.timerLen / (pomoSession.pomoLen * 60000)) * fillerBar1MaxWidth) * screenMultiplier
       )
       /* Leave bar 2 empty */
       fillerBar2SvgElem.setAttribute('width', 0)
       break
     case 'shortBreak':
       /* Leave bar 1 full */
-      fillerBar1SvgElem.setAttribute('width', fillerBar1MaxWidth)
+      fillerBar1SvgElem.setAttribute('width', fillerBar1MaxWidth * screenMultiplier)
       /* Update bar 2 according to short break progress */
       fillerBar2SvgElem.setAttribute(
         'width',
-        (1 - timer.timerLen / (pomoSession.shortBreakLen * 60000)) *
-          fillerBar2MaxWidth
+        ((1 - timer.timerLen / (pomoSession.shortBreakLen * 60000)) *
+          fillerBar2MaxWidth) * screenMultiplier
       )
       break
     case 'longBreak':
       /* Leave bar 1 full */
-      fillerBar1SvgElem.setAttribute('width', fillerBar1MaxWidth)
+      fillerBar1SvgElem.setAttribute('width', fillerBar1MaxWidth * screenMultiplier)
       /* Update bar 2 according to long break progress */
       fillerBar2SvgElem.setAttribute(
         'width',
-        (1 - timer.timerLen / (pomoSession.longBreakLen * 60000)) * fillerBar2MaxWidth
+        ((1 - timer.timerLen / (pomoSession.longBreakLen * 60000)) * fillerBar2MaxWidth) * screenMultiplier
       )
       break
   }
