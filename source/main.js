@@ -547,35 +547,38 @@ const hideOnClickOutside = (element, buttonId) => {
   }
   setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
-
-module.exports = {
-  pomoSession: pomoSession,
-  timer: timer,
-  startSession: startSession,
-  stopSession: stopSession,
-  runTimer: runTimer,
-  updateTimerLen: updateTimerLen,
-  displayMinSecond: displayMinSecond,
-  stateChange: stateChange,
-  updateTimer: updateTimer,
-  settingsTime: settingsTime,
-  disableTime: disableTime,
-  showSettings: showSettings,
-  addContent,
-  onBoardingClick,
-  onBoardingVars,
-  restartSession,
-  hideOnClickOutside,
-  restartClick,
-  restartOnboarding,
-  myStorage,
-  updateProgressBar,
-  updateSeedsImage,
-  buildNewTask,
-  addToList,
-  focusTask,
-  delFromList,
-  completeTask,
-  redrawList,
-  focusedTask
+try{
+  module.exports = {
+    pomoSession: pomoSession,
+    timer: timer,
+    startSession: startSession,
+    stopSession: stopSession,
+    runTimer: runTimer,
+    updateTimerLen: updateTimerLen,
+    displayMinSecond: displayMinSecond,
+    stateChange: stateChange,
+    updateTimer: updateTimer,
+    settingsTime: settingsTime,
+    disableTime: disableTime,
+    showSettings: showSettings,
+    addContent,
+    onBoardingClick,
+    onBoardingVars,
+    restartSession,
+    hideOnClickOutside,
+    restartClick,
+    restartOnboarding,
+    myStorage,
+    updateProgressBar,
+    updateSeedsImage,
+    buildNewTask,
+    addToList,
+    focusTask,
+    delFromList,
+    completeTask,
+    redrawList,
+    focusedTask
+  }
+} catch (e) {
+  console.log("Browser Mode")
 }
