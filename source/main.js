@@ -59,10 +59,12 @@ function settingsTime () {
 
     document.getElementById('play').disabled = false
     document.getElementById('close-settings').disabled = false
+    document.getElementById('settings').disabled = false
   } else {
     /* Out of range, disable play button and settings exit button */
     document.getElementById('play').disabled = true
     document.getElementById('close-settings').disabled = true
+    document.getElementById('settings').disabled = true
   }
 }
 
