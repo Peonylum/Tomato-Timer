@@ -168,7 +168,7 @@ describe('stateChange', () => {
     expect(main.pomoSession.count).toBe(2)
     expect(main.pomoSession.firstStart).toBe(true)
 
-    expect((progressBar).getAttribute('src')).toBe('/source/assets/progressBarLongBreak.svg')
+    expect((progressBar).getAttribute('src')).toBe('./assets/progressBarLongBreak.svg')
 
     // expect(document.getElementById('time').innerHTML).toBe('05:00')
     expect(playBtn.style.display).toBe('block')
