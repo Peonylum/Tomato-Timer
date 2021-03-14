@@ -580,5 +580,5 @@ try{
     focusedTask
   }
 } catch (e) {
-  console.log("Browser Mode")
+  // Browsers need not set module exports.
 }
