@@ -6,7 +6,7 @@ document.body.innerHTML = '<div>' +
   '<span id="stop-button"></span>' +
   '</button>' +
   '<p id="time">25:00</p>' +
-  '</div>' + 
+  '</div>' +
   '<img id="seeds" src="./assets/emptySeeds.svg" alt="plain seed">' +
   '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
   '<div id="progress-background">' +
@@ -111,7 +111,7 @@ describe('updateTimer', () => {
   })
 })
 
-describe('updateProgressBar, updateSeedsImage', () => { 
+describe('updateProgressBar, updateSeedsImage', () => {
   it('updateProgressBar', () => {
     pomoSession.state = 'shortBreak'
     main.updateProgressBar()
@@ -198,7 +198,6 @@ describe('stateChange', () => {
 
     expect((progressBar).getAttribute('src')).toBe('./assets/backgroundProgressBar.svg')
 
-    // expect(document.getElementById('time').innerHTML).toBe('05:00')
     expect(playBtn.style.display).toBe('block')
     expect(stopBtn.style.display).toBe('none')
     expect(main.timer.timerLen).toBe(300000)
@@ -211,7 +210,6 @@ describe('stateChange', () => {
     const callback2 = jest.fn()
     const playBtn = document.getElementById('play')
     const stopBtn = document.getElementById('stop')
-    const progressBar = document.getElementById('progress-bar-background')
     main.pomoSession.state = 'longBreak'
     main.pomoSession.pomoLen = 3
     main.pomoSession.count = 1
@@ -228,7 +226,6 @@ describe('stateChange', () => {
     expect(main.timer.timerLen).toBe(180000)
     expect(playBtn.style.display).toBe('block')
     expect(stopBtn.style.display).toBe('none')
-    
     expect(callback1).toHaveBeenCalledTimes(0)
     expect(callback2).toHaveBeenCalledTimes(1)
   })
