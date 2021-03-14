@@ -9,8 +9,11 @@ document.body.innerHTML = '<div>' +
   '</div>' +
   '<img id="seeds" src="./assets/emptySeeds.svg" alt="plain seed">' +
   '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
+  '<div id="progress-background">' +
   '<img id="progress-bar-background" src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">' +
   '<svg id="filler-bar-1-svg" width="0" height="8">' +
+  '<svg id="filler-bar-2-svg" width="0" height="8">' +
+  '</div>' +
   '<svg id="filler-bar-2-svg" width="0" height="8">' +
   '<button id="add-task">' +
   '<img src="assets/addButton.svg" alt="add task" id="add-task-icon">' +
@@ -108,14 +111,14 @@ describe('updateTimer', () => {
   })
 })
 
-describe('updateProgressBar, updateSeedsImage', () => { 
+describe('updateProgressBar, updateSeedsImage', () => {
   it('updateProgressBar', () => {
     pomoSession.state = 'shortBreak'
     main.updateProgressBar()
     main.updateSeedsImage()
     main.timer.timerLen = 0
     console.log(document.getElementById('filler-bar-2-svg').getAttribute('width'))
-    expect(document.getElementById('filler-bar-2-svg').getAttribute('width')).toBe('27.45')//TODO
+    expect(document.getElementById('filler-bar-2-svg').getAttribute('width')).toBe('0')
   })
 })
 
@@ -195,7 +198,6 @@ describe('stateChange', () => {
 
     expect((progressBar).getAttribute('src')).toBe('./assets/backgroundProgressBar.svg')
 
-    // expect(document.getElementById('time').innerHTML).toBe('05:00')
     expect(playBtn.style.display).toBe('block')
     expect(stopBtn.style.display).toBe('none')
     expect(main.timer.timerLen).toBe(300000)
@@ -208,7 +210,6 @@ describe('stateChange', () => {
     const callback2 = jest.fn()
     const playBtn = document.getElementById('play')
     const stopBtn = document.getElementById('stop')
-    const progressBar = document.getElementById('progress-bar-background')
     main.pomoSession.state = 'longBreak'
     main.pomoSession.pomoLen = 3
     main.pomoSession.count = 1
@@ -225,7 +226,6 @@ describe('stateChange', () => {
     expect(main.timer.timerLen).toBe(180000)
     expect(playBtn.style.display).toBe('block')
     expect(stopBtn.style.display).toBe('none')
-    
     expect(callback1).toHaveBeenCalledTimes(0)
     expect(callback2).toHaveBeenCalledTimes(1)
   })
