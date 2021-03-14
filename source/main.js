@@ -194,8 +194,8 @@ function updateProgressBar () {
   const fillerBar1SvgElem = document.getElementById(fillerBar1SvgId)
   const fillerBar2SvgElem = document.getElementById(fillerBar2SvgId)
   const fillerBarMaxWidth = 420
-  let fillerBarCurrentWidth = document.getElementById('progress-background').clientWidth
-  let screenMultiplier = fillerBarCurrentWidth/fillerBarMaxWidth
+  const fillerBarCurrentWidth = document.getElementById('progress-background').clientWidth
+  const screenMultiplier = fillerBarCurrentWidth / fillerBarMaxWidth
   switch (pomoSession.state) {
     case 'work':
       /* Update bar 1 according to pomo progress */

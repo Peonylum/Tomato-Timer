@@ -6,11 +6,14 @@ document.body.innerHTML = '<div>' +
   '<span id="stop-button"></span>' +
   '</button>' +
   '<p id="time">25:00</p>' +
-  '</div>' +
+  '</div>' + 
   '<img id="seeds" src="./assets/emptySeeds.svg" alt="plain seed">' +
   '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
+  '<div id="progress-background">' +
   '<img id="progress-bar-background" src="./assets/backgroundProgressBar.svg" alt="Progress Bar Background">' +
   '<svg id="filler-bar-1-svg" width="0" height="8">' +
+  '<svg id="filler-bar-2-svg" width="0" height="8">' +
+  '</div>' +
   '<svg id="filler-bar-2-svg" width="0" height="8">' +
   '<button id="add-task">' +
   '<img src="assets/addButton.svg" alt="add task" id="add-task-icon">' +
@@ -115,7 +118,7 @@ describe('updateProgressBar, updateSeedsImage', () => {
     main.updateSeedsImage()
     main.timer.timerLen = 0
     console.log(document.getElementById('filler-bar-2-svg').getAttribute('width'))
-    expect(document.getElementById('filler-bar-2-svg').getAttribute('width')).toBe('27.45')//TODO
+    expect(document.getElementById('filler-bar-2-svg').getAttribute('width')).toBe('0')
   })
 })
 
