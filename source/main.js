@@ -293,7 +293,7 @@ function stateChange (runTimer, displayMinSecond) {
       pomoSession.count++
       if (pomoSession.count === pomoSession.pomoPerSet) {
         document.getElementById('progress-bar-background').src =
-          '/source/assets/progressBarLongBreak.svg'
+          './assets/progressBarLongBreak.svg'
       } else {
         document.getElementById('progress-bar-background').src =
           './assets/backgroundProgressBar.svg'
