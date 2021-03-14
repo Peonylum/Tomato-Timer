@@ -183,7 +183,7 @@ describe('Pomo Timer', () => {
 
   it('Check task list', () => {
     // Go over onboarding slides at the first time
-    let loop1 = Array.from({ length: 6 }, (v, k) => k + 1)
+    const loop1 = Array.from({ length: 6 }, (v, k) => k + 1)
     cy.wrap(loop1).each(() => {
       cy.get('#onboarding-button-img').click()
     })
