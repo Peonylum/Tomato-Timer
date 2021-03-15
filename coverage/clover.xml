@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1615713718495" clover="3.2.0">
-  <project timestamp="1615713718495" name="All files">
-    <metrics statements="284" coveredstatements="284" conditionals="71" coveredconditionals="70" methods="33" coveredmethods="33" elements="388" coveredelements="387" complexity="0" loc="284" ncloc="284" packages="2" files="2" classes="2"/>
+<coverage generated="1615758815701" clover="3.2.0">
+  <project timestamp="1615758815701" name="All files">
+    <metrics statements="285" coveredstatements="285" conditionals="71" coveredconditionals="70" methods="33" coveredmethods="33" elements="389" coveredelements="388" complexity="0" loc="285" ncloc="285" packages="2" files="2" classes="2"/>
     <package name="js">
       <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
-      <file name="example.js" path="/Users/peonylum/Documents/CSE110/cse110-w21-group15/js/example.js">
+      <file name="example.js" path="/home/udaykalra/cse110-w21-group15/js/example.js">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="3" count="1" type="stmt"/>
         <line num="5" count="1" type="stmt"/>
       </file>
     </package>
     <package name="source">
-      <metrics statements="282" coveredstatements="282" conditionals="71" coveredconditionals="70" methods="32" coveredmethods="32"/>
-      <file name="main.js" path="/Users/peonylum/Documents/CSE110/cse110-w21-group15/source/main.js">
-        <metrics statements="282" coveredstatements="282" conditionals="71" coveredconditionals="70" methods="32" coveredmethods="32"/>
+      <metrics statements="283" coveredstatements="283" conditionals="71" coveredconditionals="70" methods="32" coveredmethods="32"/>
+      <file name="main.js" path="/home/udaykalra/cse110-w21-group15/source/main.js">
+        <metrics statements="283" coveredstatements="283" conditionals="71" coveredconditionals="70" methods="32" coveredmethods="32"/>
         <line num="1" count="5" type="stmt"/>
         <line num="13" count="5" type="stmt"/>
         <line num="24" count="5" type="stmt"/>
@@ -295,6 +295,7 @@
         <line num="545" count="4" type="stmt"/>
         <line num="546" count="3" type="stmt"/>
         <line num="548" count="4" type="stmt"/>
+        <line num="550" count="5" type="stmt"/>
         <line num="551" count="5" type="stmt"/>
       </file>
     </package>

@@ -446,8 +446,7 @@ button {
 }
 
 #tasks {
-  display: flex;
-  flex-direction: column;
+  display: block;
   overflow-y: scroll;
   max-height: 11.5vh;
   width: 95%;
