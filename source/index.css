@@ -180,7 +180,7 @@ button {
   position: absolute;
   left: 43.7vmin;
   top: 2.9vmin;
-  height:0.9vh;
+  height: 0.9vh;
   width: 50vmin;
 }
 
@@ -327,6 +327,13 @@ button {
   display: inherit;
   opacity: 1;
   animation: 0.5s ease-in fadeIn;
+}
+
+/* It's here to fix descendig specificity issue */
+#settings-header p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 /* It's here to fix descendig specificity issue */
@@ -681,12 +688,6 @@ button {
   margin-right: 5vw;
 }
 
-#settings-header p {
-  position: absolute;
-  text-align: center;
-  width: 100%;
-}
-
 #settings-overlay hr {
   margin: 1vh 0 0.5vh 0.46vw;
   width: 95%;
@@ -710,7 +711,7 @@ button {
 #adjust-time label,
 #adjust-volume label {
   position: absolute;
-  left:1vw;
+  left: 1vw;
 }
 
 .time-input {
@@ -997,7 +998,7 @@ body {
     top: 40vh;
     width: 93vw;
     height: fit-content;
-    font-size:4vw;
+    font-size: 4vw;
   }
 
   #adjust-time label {
@@ -1012,21 +1013,21 @@ body {
 
   #pomo-time {
     font-size: 3vw;
-    width:5vw;
+    width: 5vw;
     height: 3vh;
     right: 2vw;
   }
-  
+
   #short-break-time {
     font-size: 3vw;
-    width:5vw;
+    width: 5vw;
     height: 3vh;
     right: 2vw;
   }
-  
+
   #long-break-time {
     font-size: 3vw;
-    width:5vw;
+    width: 5vw;
     height: 3vh;
     right: 2vw;
   }
