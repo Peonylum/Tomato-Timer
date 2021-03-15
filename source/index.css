@@ -672,7 +672,7 @@ button {
   flex-direction: row;
   align-items: center;
   padding-left: 0.46vw;
-  width: fit-content;
+  width: 100%;
   height: fit-content;
 }
 
@@ -680,6 +680,12 @@ button {
   height: 2vh;
   width: 1.5vw;
   margin-right: 5vw;
+}
+
+#settings-header p {
+  position: absolute;
+  text-align: center;
+  width: 100%;
 }
 
 #settings-overlay hr {
@@ -698,12 +704,14 @@ button {
 }
 
 #adjust-time div {
-  margin: 1vh;
+  margin-bottom: 4.5vh;
+  width: 100%;
 }
 
 #adjust-time label,
 #adjust-volume label {
-  margin-top: 10vh;
+  position: absolute;
+  left:1vw;
 }
 
 .time-input {
@@ -717,17 +725,17 @@ button {
 
 #pomo-time {
   position: absolute;
-  left: 15.3vw;
+  right: 1vw;
 }
 
 #short-break-time {
   position: absolute;
-  left: 15.3vw;
+  right: 1vw;
 }
 
 #long-break-time {
   position: absolute;
-  left: 15.3vw;
+  right: 1vw;
 }
 
 #adjust-volume {
@@ -981,6 +989,47 @@ body {
 
   #onboarding-background {
     width: 70vw;
+  }
+}
+
+@media screen and (max-width: 25cm) {
+  #settings-overlay {
+    left: 1.5vw;
+    top: 40vh;
+    width: 93vw;
+    height: fit-content;
+    font-size:4vw;
+  }
+
+  #adjust-time label {
+    font-size: 3vw;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  #pomo-time {
+    font-size: 3vw;
+    width:5vw;
+    height: 3vh;
+    right: 2vw;
+  }
+  
+  #short-break-time {
+    font-size: 3vw;
+    width:5vw;
+    height: 3vh;
+    right: 2vw;
+  }
+  
+  #long-break-time {
+    font-size: 3vw;
+    width:5vw;
+    height: 3vh;
+    right: 2vw;
   }
 }
 
