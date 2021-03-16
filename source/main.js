@@ -547,6 +547,7 @@ const hideOnClickOutside = (element, buttonId) => {
   }
   setTimeout(document.addEventListener('click', outsideClickListener), 0)
 }
+
 try {
   module.exports = {
     pomoSession: pomoSession,
