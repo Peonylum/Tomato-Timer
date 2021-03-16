@@ -210,7 +210,7 @@ describe('create a new task', () => {
 
     expect(elem.className).toBe('task-object')
 
-    /* check that each child of the task object is properly set */
+    /* Check that each child of the task object is properly set */
     expect(elem.children[0].className).toBe('focus-task-button')
     expect(elem.children[1].className).toBe('delete-task-button')
     expect(elem.children[2].className).toBe('task-text')
@@ -221,7 +221,7 @@ describe('create a new task', () => {
   })
 
   test('adding the task to default list', () => {
-    /* create two tasks and add them to the task list */
+    /* Create two tasks and add them to the task list */
     const task_input = document.getElementById('pomo-task')
     task_input.value = 'test text for our task!'
     main.addToList()
@@ -273,11 +273,11 @@ describe('moving tasks between lists', () => {
     task_input.value = 'task 2'
     main.addToList()
     let list = document.getElementsByClassName('task-object')
-    /* focus top task then the remaining one */
+    /* Focus top task then the remaining one */
     list[0].children[0].click()
     list[0].children[0].click()
     expect(list.length).toBe(1)
-    /* task 2 should now be the focused one */
+    /* Task 2 should now be the focused one */
     let focused = document.getElementsByClassName('focused-task')
 
     expect(list[0].children[2].innerHTML).toBe('task 1')
@@ -310,7 +310,7 @@ describe('moving tasks between lists', () => {
     main.addToList()
     let list = document.getElementsByClassName('task-object')
 
-    /* focus then complete task */
+    /* Focus then complete task */
     list[0].children[0].click()
     let focused = document.getElementsByClassName('focused-task')
     focused[0].children[3].click()
@@ -348,7 +348,7 @@ describe('deleting tasks', () => {
     let list = document.getElementsByClassName('task-object')
 
     expect(list.length).toBe(3)
-    /* delete middle task */
+    /* Delete middle task */
     list[1].children[1].click()
     expect(list.length).toBe(2)
     expect(list[0].children[2].innerHTML).toBe('task 1')

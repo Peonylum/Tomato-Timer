@@ -42,6 +42,13 @@ document.addEventListener('DOMContentLoaded', function (event) {
   displayMinSecond(timer.timerLen)
 })
 
+/*
+Function: settingsTime()
+Description: Updates the timer to what is set by settings.
+Input: None.
+Output: None.
+Result: Pomo length and break length adjusted to what's set in settings.
+*/
 function settingsTime () {
   const adjustPomoTime = document.getElementById('pomo-time')
   const adjustSbTime = document.getElementById('short-break-time')
@@ -68,6 +75,13 @@ function settingsTime () {
   }
 }
 
+/*
+Function: disableTime()
+Description: Toggles whether settings can be adjusted while time is running.
+Input: None.
+Output: None.
+Result: Settings changes disabled or enabled.
+*/
 function disableTime () {
   const timeRunning = document.getElementById('stop')
   const adjustPomoTime = document.getElementById('pomo-time')
@@ -86,8 +100,15 @@ function disableTime () {
   }
 }
 
+/*
+Function: showSettings()
+Description: Shows the settings.
+Input: None.
+Output: None.
+Result: Settings enabled.
+*/
 function showSettings () {
-  // Settings button
+  /* Settings button */
   const settingStatus = document.getElementById('settings-overlay')
   const adjustPomoTime = document.getElementById('pomo-time')
   const adjustSbTime = document.getElementById('short-break-time')
@@ -116,8 +137,15 @@ function showSettings () {
   }
 }
 
+/*
+Function: startSession()
+Description: Starts the timer, updates button, and disables settings changes.
+Input: None.
+Output: None.
+Result: Timer is running.
+*/
 function startSession () {
-  // Change Start button to Stop button
+  /* Change Start button to Stop button */
   document.getElementById('play').style.display = 'none'
   document.getElementById('stop').style.display = 'block'
 
@@ -128,6 +156,13 @@ function startSession () {
   runTimer(updateTimer)
 }
 
+/*
+Function: stopSession()
+Description: Hard stops the pomodoro session and resets all values.
+Input: None.
+Output: None.
+Result: Settings changes disabled or enabled depending on if time is running.
+*/
 function stopSession () {
   /* Reset the pomoSession variable */
   pomoSession.state = 'work'
@@ -147,6 +182,13 @@ function stopSession () {
   disableTime()
 }
 
+/**
+Function: runTimer()
+Description: Runs the timer every second. 
+Input: updateTimer.
+Output: None.
+Result: A second of timer functionality passes.
+*/
 function runTimer (updateTimer) {
   timer.timerLen = updateTimerLen()
   /* Special case for first time start a work state, we need to offet a delay when clicking start button */
@@ -157,6 +199,13 @@ function runTimer (updateTimer) {
   timer.timerRef = setInterval(updateTimer, 1000)
 }
 
+/**
+Function: updateSeedsImage()
+Description: Checks the current proportion of time and updates seeds filename.
+Input: None.
+Output: None.
+Result: Updates the seeds image to the correct value.
+*/
 function updateSeedsImage () {
   /* Set empty filename for later */
   let filename = './assets/seeds-'
@@ -186,6 +235,13 @@ function updateSeedsImage () {
   seedsImage.setAttribute('src', filename)
 }
 
+/**
+Function: updateProgressBar()
+Description: Checks the current proportion of time and updates progress bars svg width.
+Input: None.
+Output: None.
+Result: Updates the progress bars to correct length.
+*/
 function updateProgressBar () {
   /* Full progress bar width values */
   const fillerBar1MaxWidth = 215
@@ -230,6 +286,13 @@ function updateProgressBar () {
   }
 }
 
+/**
+Function: updateTimerLen()
+Description: Sets the timer length based on the state.
+Input: None.
+Output: length in milliseconds.
+Result: Timer length returned and updated.
+*/
 function updateTimerLen () {
   let length
   /* Set the timer length based on its state */
@@ -248,6 +311,13 @@ function updateTimerLen () {
   return length * 60 * 1000
 }
 
+/**
+Function: displayMinSecond()
+Description: Updates the html to show the correct time.
+Input: None.
+Output: None.
+Result: The display has the properly formatted time shown.
+*/
 function displayMinSecond (timerLen) {
   let mins = Math.floor((timerLen / 1000) / 60)
   let seconds = (timerLen / 1000) % 60
@@ -260,6 +330,13 @@ function displayMinSecond (timerLen) {
   document.getElementById('time').innerHTML = mins + ':' + seconds
 }
 
+/**
+Function: updateTimer()
+Description: Calls necessary functions every second, reduces timer length, updates time spent.
+Input: None.
+Output: None.
+Result: State is changed if necessary, seeds and progress bars updated, and time updated.
+*/
 function updateTimer () {
   if (timer.timerLen <= 0) {
     clearInterval(timer.timerRef)
@@ -276,7 +353,13 @@ function updateTimer () {
   }
 }
 
-/* Function to change states between end of pomo or break */
+/**
+Function: stateChange (runTimer, displayMinSecond)
+Description: State is changed, pomo count is updated, progress bar changed.
+Input: runTimer, displayMinSecond
+Output: None.
+Result: State is changed to work, short, or long break.
+*/
 function stateChange (runTimer, displayMinSecond) {
   switch (pomoSession.state) {
     case 'work':
@@ -335,6 +418,13 @@ const completedList = []
 
 const list = document.getElementById('tasks')
 
+/**
+Function: buildNewTask()
+Description: A new task object is created with all necessary buttons.
+Input: None.
+Output: newTask.
+Result: New task created.
+*/
 function buildNewTask () {
   const taskInput = document.getElementById('pomo-task')
   const newTask = document.createElement('div')
@@ -371,6 +461,13 @@ function buildNewTask () {
   return newTask
 }
 
+/**
+Function: addToList()
+Description: buildNewTask is called; task is initialized with correct values, and added to task list.
+Input: None.
+Output: None.
+Result: New task is built, initialized, and added to task list.
+*/
 function addToList () {
   const newTask = buildNewTask()
   const tmptask = {
@@ -382,6 +479,13 @@ function addToList () {
   redrawList()
 }
 
+/**
+Function: focusTask()
+Description: desired task is popped, moved to front of list, and set to being focused, then list is redrawn
+Input: None.
+Output: None.
+Result: desired task is moved to the top of the list and "focused"
+*/
 function focusTask () {
   const temp = focusedTask.pop()
   const index = masterList.findIndex(x => x.taskBody === this.parentElement)
@@ -406,7 +510,13 @@ function focusTask () {
   redrawList()
 }
 
-/* Removes an item from our task list */
+/**
+Function: delFromList()
+Description: the focused task is removed and the list is updated.
+Input: None.
+Output: None.
+Result: Item is removed from task list.
+*/
 function delFromList () {
   /* Figure out where the task came from, then get rid of it */
   if (focusedTask.length > 0 && this.parentElement === focusedTask[0].taskBody) {
@@ -425,6 +535,13 @@ function delFromList () {
   redrawList()
 }
 
+/**
+Function: completeTask()
+Description: Task is popped from list, a child html element is created to show the time taken on the task.
+Input: None.
+Output: None.
+Result: Completed task is removed and page is updated to show time taken on task.
+*/
 function completeTask () {
   let temp
   if (focusedTask.length > 0 && this.parentElement === focusedTask[0].taskBody) {
@@ -448,8 +565,13 @@ function completeTask () {
   redrawList()
 }
 
-/* Deletes all of the children of the task list and repopulates them
-   using the arrays that represent their contents */
+/**
+Function: redrawList()
+Description: Deletes all children of task list and repopulates with the arrays that represent their contents.
+Input: None.
+Output: None.
+Result: List is redrawn.
+*/
 function redrawList () {
   while (list.firstChild) {
     list.removeChild(list.firstChild)
@@ -522,6 +644,13 @@ const restartClick = function (e) {
   onBoardingVars.current = 1
   restartOnboarding()
 }
+/**
+Function: restartSession()
+Description: Resets session to original.
+Input: None.
+Output: None.
+Result: Session is restarted.
+*/
 function restartSession () {
   document.getElementById('play-restart').addEventListener('click', restartClick)
 }
@@ -581,5 +710,5 @@ try {
     focusedTask
   }
 } catch (e) {
-  // Browsers need not set module exports.
+  /* Browsers need not set module exports. */
 }

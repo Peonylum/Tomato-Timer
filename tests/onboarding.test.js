@@ -1,9 +1,6 @@
 const { hideOnClickOutside, addContent, onBoardingVars } = require('../source/main.js')
 const main = require('../source/main.js')
 describe ('onBoardingClick Functionality', () => {
-  // const windowSpy = jest.spyOn(global, "window", "get").mockImplementation(() => ({
-  //   current: 6
-  // }));
 
   document.body.innerHTML = 
   '<div class="active" id="onboarding">' +
@@ -120,7 +117,6 @@ describe('restartSession, restartClick, restartOnBoarding functionality', () => 
       mockElement.setAttribute('class','active')
       jest.spyOn(document,'getElementById').mockImplementation(() => mockElement)
 
-      // onBoardingVars.onboarding = document.getElementById('onboarding')
       main.restartClick()
       expect(mockElement.getAttribute('class')).toBe('active')
       expect(main.onBoardingVars.current).toBe(1)
