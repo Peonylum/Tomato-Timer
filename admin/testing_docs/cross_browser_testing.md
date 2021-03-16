@@ -1,7 +1,7 @@
 # Browser Diversity Report
 
 ## Methods
-We conducted cross browser testing by first inputting our files into a browser compatibility tester and checking the results generated. We then performed multiple rounds of manual testing through different browsers. 
+We conducted cross browser testing by first inputting our files into a browser compatibility tester and checking the results generated. We then performed multiple rounds of manual testing through different browsers.
 
 ## Tools
 * [PowerMapper](https://www.powermapper.com/)
@@ -14,10 +14,10 @@ We conducted cross browser testing by first inputting our files into a browser c
 
 ## Results
 * Initially there was an issue regarding the `display: flex` and `overflow-y: scroll` attributes for our task list, causing Safari to improperly render the task list. However, this issue has been fixed.
-* There is currently an issue when trying to run our site with Internet Explorer 11. For this browser, the onboarding screen arrows do not work properly and causes the screen to be stuck on the onboarding process.
+* Through manual testing, we have found that Internet Explorer is not compatible with our application. Because of this reason, we have decided to have our web application **NOT** support Internet Explorer, as it is deprecated and not up to current browser standards.
 
-### Testing Results on Browser Compatibility from PowerMapper:
+### Testing Results on Browser Compatibility from PowerMapper
 ![Browser Compatibility Results](../images/browserCompatibility.png)
 
-### Browsers Used for Manual Testing:
+### Browsers Used for Manual Testing
 ![Different Browsers Used for Manual Testing](../images/browserDiversity.png)
