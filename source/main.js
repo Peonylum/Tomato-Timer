@@ -102,10 +102,10 @@ function disableTime () {
 
 /*
 Function: showSettings()
-Description: Shows the settings.
+Description: Display settings menu when 'settings' button is clicked.
 Input: None.
 Output: None.
-Result: Settings enabled.
+Result: Settings displayed/hidden.
 */
 function showSettings () {
   /* Settings button */
