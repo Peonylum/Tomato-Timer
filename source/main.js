@@ -184,7 +184,7 @@ function stopSession () {
 
 /**
 Function: runTimer()
-Description: Runs the timer every second. 
+Description: Runs the timer every second.
 Input: updateTimer.
 Output: None.
 Result: A second of timer functionality passes.
