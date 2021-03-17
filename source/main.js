@@ -420,10 +420,11 @@ const list = document.getElementById('tasks')
 
 /**
 Function: buildNewTask()
-Description: A new task object is created with all necessary buttons.
+Description: A new task object is created as a div, then it's buttons and text are
+appended to it.
 Input: None.
 Output: newTask.
-Result: New task created.
+Result: New task DOM is created and returned to calling function
 */
 function buildNewTask () {
   const taskInput = document.getElementById('pomo-task')
@@ -481,7 +482,9 @@ function addToList () {
 
 /**
 Function: focusTask()
-Description: desired task is popped, moved to front of list, and set to being focused, then list is redrawn
+Description: desired task is popped, moved to front of list, and set to being focused, then list is redrawn.
+If there is already a focused task then it is moved to the general task list. A focused task has its focus
+button disabled.
 Input: None.
 Output: None.
 Result: desired task is moved to the top of the list and "focused"
