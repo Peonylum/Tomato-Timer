@@ -1,36 +1,37 @@
 const { hideOnClickOutside, addContent, onBoardingVars } = require('../source/main.js')
 const main = require('../source/main.js')
+const innerHTML =   '<div class="active" id="onboarding">' +
+'<div id="o1" class="otext">' +
+'wow' +
+'</div>' +
+'<div id="o2" class="otext">' +
+'wow' +
+'</div>' +
+'<div id="o3" class="otext">' +
+'wow' +
+'</div>' +
+'<div id="o4" class="otext">' +
+'wow' +
+'</div>' +
+'<div id="o5" class="otext">' +
+'wow' +
+'</div>' +
+'<div id="o6" class="otext">' +
+'wow' +
+'</div>' +
+'<div id="onboarding-progress">' +
+'<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
+'<button id="onboarding-button">' +
+'<span id="onboarding-button-img">' + '</span>' +
+'</button>' +
+'</div>' +
+'</div>' +
+'<button id="add-task">' +
+'<img src="assets/addButton.svg" alt="add task" id="add-task-icon">' +
+'</button>'
+
 describe('onBoardingClick Functionality', () => {
-  document.body.innerHTML =
-  '<div class="active" id="onboarding">' +
-  '<div id="o1" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o2" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o3" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o4" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o5" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o6" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="onboarding-progress">' +
-  '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
-  '<button id="onboarding-button">' +
-  '<span id="onboarding-button-img">' + '</span>' +
-  '</button>' +
-  '</div>' +
-  '</div>' +
-  '<button id="add-task">' +
-  '<img src="assets/addButton.svg" alt="add task" id="add-task-icon">' +
-  '</button>'
+  document.body.innerHTML = innerHTML
 
   for (let i = 1; i <= 6; i++) {
     it(`Correctly sets onboarding ${i} display to be none,`, () => {
@@ -66,42 +67,7 @@ describe('onBoardingClick Functionality', () => {
 })
 
 describe('restartSession, restartClick, restartOnBoarding functionality', () => {
-  beforeEach(() => {
-    windowSpy = jest.spyOn(window, 'window', 'get')
-  })
-  afterEach(() => {
-    windowSpy.mockRestore()
-  })
-  document.body.innerHTML =
-  '<div class="active" id="onboarding">' +
-  '<div id="o1" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o2" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o3" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o4" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o5" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o6" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="onboarding-progress">' +
-  '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
-  '<button id="onboarding-button">' +
-  '<span id="onboarding-button-img">' + '</span>' +
-  '</button>' +
-  '</div>' +
-  '</div>' +
-  '<button id="play-restart">' +
-  '<span id="restart-button">' + '</span>' +
-  '</button>'
+  document.body.innerHTML = innerHTML
   it('Once function is called, adds eventListener', () => {
     const elementMock = { addEventListener: jest.fn() }
     jest.spyOn(document, 'getElementById').mockImplementation(() => elementMock)
@@ -135,36 +101,7 @@ describe('restartSession, restartClick, restartOnBoarding functionality', () => 
 })
 
 describe('hideOnClickOutside test', () => {
-  document.body.innerHTML =
-  '<div class="active" id="onboarding">' +
-  '<div id="o1" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o2" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o3" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o4" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o5" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o6" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="onboarding-progress">' +
-  '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
-  '<button id="onboarding-button">' +
-  '<span id="onboarding-button-img">' + '</span>' +
-  '</button>' +
-  '</div>' +
-  '</div>' +
-  '<button id="play-restart">' +
-  '<span id="restart-button">' + '</span>' +
-  '</button>'
+  document.body.innerHTML = innerHTML
   it('hideOnClickOutside adds eventlisteners and removes', () => {
     const elementMock = { addEventListener: jest.fn(), contains: jest.fn(), setAttribute: jest.fn(), contains: jest.fn().mockReturnValue(false) }
     jest.spyOn(document, 'getElementById').mockImplementation(() => elementMock)
@@ -185,36 +122,7 @@ describe('hideOnClickOutside test', () => {
 })
 
 describe('addContent', () => {
-  document.body.innerHTML =
-  '<div class="active" id="onboarding">' +
-  '<div id="o1" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o2" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o3" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o4" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o5" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="o6" class="otext">' +
-  'wow' +
-  '</div>' +
-  '<div id="onboarding-progress">' +
-  '<img src="./assets/onboarding.svg" alt="" id="onboarding-progress-bar">' +
-  '<button id="onboarding-button">' +
-  '<span id="onboarding-button-img">' + '</span>' +
-  '</button>' +
-  '</div>' +
-  '</div>' +
-  '<button id="play-restart">' +
-  '<span id="restart-button">' + '</span>' +
-  '</button>'
+  document.body.innerHTML = innerHTML
   onBoardingVars.onboardingButton = document.getElementById('onboarding-button')
   onBoardingVars.onboarding = document.getElementById('onboarding')
   it('addContent false test', () => {
