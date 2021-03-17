@@ -90,7 +90,7 @@ describe('restartSession, restartClick, restartOnBoarding functionality', () => 
   it('restartOnboarding correctly sets viewstyles to be none and has current as block', () => {
     main.onBoardingVars.current = 1
     main.onBoardingVars.textDivs = [...document.querySelectorAll('.otext')]
-    main.onBoardingVars.textDivs.forEach(item => {item.style.display = 'block'})
+    main.onBoardingVars.textDivs.forEach(item => { item.style.display = 'block' })
     main.restartOnboarding()
     main.onBoardingVars.textDivs.forEach(item => {
       expect(item.style.display).toBe('none')
