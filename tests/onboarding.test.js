@@ -1,6 +1,6 @@
 const { hideOnClickOutside, addContent, onBoardingVars } = require('../source/main.js')
 const main = require('../source/main.js')
-const innerHTML =   '<div class="active" id="onboarding">' +
+const innerHTML = '<div class="active" id="onboarding">' +
 '<div id="o1" class="otext">' +
 'wow' +
 '</div>' +
@@ -90,7 +90,7 @@ describe('restartSession, restartClick, restartOnBoarding functionality', () => 
   it('restartOnboarding correctly sets viewstyles to be none and has current as block', () => {
     main.onBoardingVars.current = 1
     main.onBoardingVars.textDivs = [...document.querySelectorAll('.otext')]
-    main.onBoardingVars.textDivs.forEach(item => item.style.display = 'block')
+    main.onBoardingVars.textDivs.forEach(item => {item.style.display = 'block'})
     main.restartOnboarding()
     main.onBoardingVars.textDivs.forEach(item => {
       expect(item.style.display).toBe('none')
@@ -103,7 +103,7 @@ describe('restartSession, restartClick, restartOnBoarding functionality', () => 
 describe('hideOnClickOutside test', () => {
   document.body.innerHTML = innerHTML
   it('hideOnClickOutside adds eventlisteners and removes', () => {
-    const elementMock = { addEventListener: jest.fn(), contains: jest.fn(), setAttribute: jest.fn(), contains: jest.fn().mockReturnValue(false) }
+    const elementMock = { addEventListener: jest.fn(), contains: jest.fn().mockReturnValue(false), setAttribute: jest.fn() }
     jest.spyOn(document, 'getElementById').mockImplementation(() => elementMock)
     jest.spyOn(elementMock, 'addEventListener')
     jest.spyOn(document, 'addEventListener').mockImplementation(() => jest.fn())
