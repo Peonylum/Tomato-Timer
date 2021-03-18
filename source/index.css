@@ -1,4 +1,4 @@
-/* default */
+/* Default */
 div {
   margin: 0;
 }
@@ -333,14 +333,14 @@ button {
   animation: 0.5s ease-in fadeIn;
 }
 
-/* It's here to fix descendig specificity issue */
+/* It's here to fix descending specificity issue */
 #settings-header p {
   position: absolute;
   text-align: center;
   width: 100%;
 }
 
-/* It's here to fix descendig specificity issue */
+/* It's here to fix descending specificity issue */
 #task-list div p {
   position: relative;
   margin: auto;
@@ -510,10 +510,6 @@ button {
   position: absolute;
   top: 0;
   left: 0;
-
-  /*   margin-left: 1vw;
-  margin-right: 5vw;
-  margin-bottom: 1vh; */
 }
 
 #add-task {
@@ -522,17 +518,8 @@ button {
   font-size: 0;
   top: 50%;
   transform: translateY(-50%);
-
-  /* top: 13px;
-  right: 10px; */
   height: 100%;
-
-  /* min-height: 3%;
-  max-height: 3%; */
   width: 6%;
-
-  /* min-width: 8%;
-  max-width: 8%; */
   padding: 0.5% 0;
   background-color: #8d3434;
   border-radius: 0.4rem;
@@ -640,8 +627,6 @@ button {
   font-style: normal;
   font-weight: normal;
   font-size: 15px;
-
-  /* margin: 5px; */
   margin-top: 5px;
   margin-bottom: 5px;
 }
@@ -659,8 +644,6 @@ button {
 #settings-overlay {
   display: none;
   position: absolute;
-
-  /* background-color: #F8F0E9; */
   z-index: 1;
   left: 79.5%;
   top: 8vh;
@@ -777,7 +760,7 @@ body {
   overflow: auto;
 }
 
-/* bottom left restart button animations */
+/* Bottom left restart button animations */
 @keyframes rotate {
   from {
     transform: rotate(360deg);

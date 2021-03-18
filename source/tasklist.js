@@ -1,9 +1,9 @@
-/* script for modifying the task list via drag-and-drop
- * this file may later absorb all of the task list functionality */
-
-/* TODO:
-   create event listeners and functions for each of the buttons here
-   modify delfromList to work with new modifications
+/**
+Function: tasklist()
+Description: Tasklist function.
+Input: None.
+Output: None.
+Result: All tasklist functionality.
 */
 function tasklist () {
   const focusedTask = []
@@ -19,12 +19,20 @@ function tasklist () {
   const dropZones = []
   let curr
 
+  /**
+  Function: buildNewTask()
+  Description: A new task object is created as a div, then it's buttons and text are
+  appended to it.
+  Input: None.
+  Output: newTask.
+  Result: New task DOM is created and returned to calling function
+  */
   function buildNewTask () {
     const taskInput = document.getElementById('pomo-task')
     const newTask = document.createElement('div')
     newTask.setAttribute('class', 'task-object')
 
-    /* fill task object with it's buttons and text elements */
+    /* Fill task object with it's buttons and text elements */
     const focusButton = document.createElement('button')
     focusButton.setAttribute('class', 'focus-task-button')
     focusButton.innerHTML = '<img src="assets/focusTask.svg" alt="focus task" id="focus-task-icon">'
@@ -36,11 +44,6 @@ function tasklist () {
     delButton.innerHTML = '<img src="assets/minusSign.svg" alt="delete task" id="delete-task-icon">'
     delButton.addEventListener('click', delFromList)
     newTask.appendChild(delButton)
-
-    /* const pomoNum = document.createElement('p')
-       pomoNum.setAttribute('class', 'task-pomo-num')
-       pomoNum.innerHTML = '0'
-       newTask.appendChild(pomoNum) */
 
     const taskText = document.createElement('p')
     taskText.setAttribute('class', 'task-text')
@@ -58,6 +61,13 @@ function tasklist () {
     return newTask
   }
 
+  /**
+  Function: addToList()
+  Description: buildNewTask is called; task is initialized with correct values, and added to task list.
+  Input: None.
+  Output: None.
+  Result: New task is built, initialized, and added to task list.
+  */
   function addToList () {
     const newTask = buildNewTask()
     const tmptask = {
@@ -69,7 +79,7 @@ function tasklist () {
     const dropZone = document.createElement('div')
     dropZone.setAttribute('id', 'drop-zone')
 
-    /* this sets listeners for our drop areas to let us drop tasks into other spots */
+    /* This sets listeners for our drop areas to let us drop tasks into other spots */
     /* dragenter: when mouse enters boundary of drop area
        dragleave: when mouse leaves boundary of drop area
        dragover:  when element is being dragged over another
@@ -82,7 +92,7 @@ function tasklist () {
       dropZones[i].addEventListener('drop', function (event) { dropMove(event, this) })
     }
 
-    /* these are listeners for when we drag a task item */
+    /* These are listeners for when we drag a task item */
     /* dragstart: mouse is held and moved
        dragend:   when drag stops (seems similar to drop but follows the element
        being dragged instead of the drop zone) */
@@ -92,6 +102,15 @@ function tasklist () {
     redrawList()
   }
 
+  /**
+  Function: focusTask()
+  Description: desired task is popped, moved to front of list, and set to being focused, then list is redrawn.
+  If there is already a focused task then it is moved to the general task list. A focused task has its focus
+  button disabled.
+  Input: None.
+  Output: None.
+  Result: desired task is moved to the top of the list and "focused"
+  */
   function focusTask () {
     const temp = focusedTask.pop()
     const index = masterList.findIndex(x => x.taskBody === this.parentElement)
@@ -103,7 +122,7 @@ function tasklist () {
     clearInterval(timeTrackRef)
     timeTrackRef = setInterval(trackTime, 1000)
 
-    /* remove focused task from the list and if there was a previously
+    /* Remove focused task from the list and if there was a previously
        focused task, add it back to the list */
     masterList.splice(index, 1)
     if (temp !== undefined) {
@@ -114,13 +133,17 @@ function tasklist () {
       masterList.splice(0, 0, temp)
     }
 
-    /* also get rid of the drop zone below the element being deleted */
-    // dropZones.splice(delBtns.indexOf(this), 1)
-
+    /* Also get rid of the drop zone below the element being deleted */
     redrawList()
   }
 
-  /* removes an item from our task list */
+  /**
+  Function: delFromList()
+  Description: the focused task is removed and the list is updated.
+  Input: None.
+  Output: None.
+  Result: Item is removed from task list.
+  */
   function delFromList () {
     if (focusedTask.length > 0) {
       if (this.parentElement === focusedTask[0].taskBody) {
@@ -137,12 +160,18 @@ function tasklist () {
     }
     clearInterval(timeTrackRef)
 
-    /* also get rid of the drop zone below the element being deleted */
-    // dropZones.splice(delBtns.indexOf(this), 1)
+    /* Also get rid of the drop zone below the element being deleted */
 
     redrawList()
   }
 
+  /**
+  Function: completeTask()
+  Description: Task is popped from list, a child html element is created to show the time taken on the task.
+  Input: None.
+  Output: None.
+  Result: Completed task is removed and page is updated to show time taken on task.
+  */
   function completeTask () {
     let temp
     if (focusedTask.length > 0) {
@@ -166,38 +195,63 @@ function tasklist () {
     completedList.push(temp)
     clearInterval(timeTrackRef)
 
-    /* also get rid of the drop zone below the element being deleted */
-    // dropZones.splice(delBtns.indexOf(this), 1)
+    /* Also get rid of the drop zone below the element being deleted */
 
     redrawList()
   }
 
-  /* highlights valid drop zones when the dragged item moves over them */
+  /**
+  Function: dragIn()
+  Description: Highlights items for drag and drop.
+  Input: None.
+  Output: None.
+  Result: Highlights valid drop zones when the dragged item moves over them.
+  */
   function dragIn (zone) {
     zone.setAttribute('class', 'active')
   }
 
-  /* removes highlight on drop zones when dragged item leaves */
+  /**
+  Function: dragOut()
+  Description: Removes highlights on items for drag and drop.
+  Input: None.
+  Output: None.
+  Result: Removes highlight on drop zones when dragged item leaves
+  */
   function dragOut (zone) {
     zone.setAttribute('class', '')
   }
 
-  /* dragover default needs to be overridden for proper dropping */
+  /**
+  Function: dragOn()
+  Description: Overrides dragover default for proper dropping
+  Input: None.
+  Output: None.
+  Result: Dragover default needs to be overridden for proper dropping
+  */
   function dragOn (event) {
     event.preventDefault()
   }
 
-  /* this just helps us keep track of which bullet point is being moved */
+  /**
+  Function: dragTask()
+  Description: Sets current to item
+  Input: item.
+  Output: None.
+  Result: This just helps us keep track of which bullet point is being moved
+  */
   function dragTask (item) {
     curr = item
   }
 
-  /* rearranges the list when an item is dropped */
+  /**
+  Function: dropMove()
+  Description: rearranges and redraws the list, and drops the end
+  Input: item.
+  Output: None.
+  Result: Rearranges the list when an item is dropped
+  */
   function dropMove (event, item) {
-    /* NOTE: there is definitely a more clever way of doing this
-       involving the indexOf function
-       these weird for loops basically find out where the item
-       and dropzone is in their respective arrays */
     let bulletIndex
     let dropIndex
     event.preventDefault()
@@ -213,28 +267,38 @@ function tasklist () {
       }
     }
 
-    /* then we rearrange their array positions and re-draw the task list */
+    /* Then we rearrange their array positions and re-draw the task list */
     movePos(bulletIndex, dropIndex)
     redrawList()
 
     dropEnd()
   }
 
-  /* this is for manually removing the highlights, similar to dragOut function
-     but when we rearrange it only fires a dragend event and not
-     a dragleave so the highlight stays haha */
+  /**
+  Function: dropEnd()
+  Description: Removes the highlights but doesn't trigger dragLeave
+  Input: item.
+  Output: None.
+  Result: Removed highlights, similar to dragOut function but it only fires a dragEnd event
+  */
   function dropEnd () {
     for (const i of dropZones) {
       i.setAttribute('class', '')
     }
   }
 
-  /* take our bullet point and drop zone and use them to rewrite the array */
+  /**
+  Function: movePos()
+  Description: Deletes the old bullet and moves it down, places current in drop zone
+  Input: bullet, drop.
+  Output: None.
+  Result: Places the item in the new drop zone
+  */
   function movePos (bullet, drop) {
     const tmpB = listItems[bullet]
     const tmpD = delBtns[bullet]
 
-    /* delete old bullet then put it in new spot in array */
+    /* Delete old bullet then put it in new spot in array */
     listItems.splice(bullet, 1)
     delBtns.splice(bullet, 1)
     if (drop === 0) {
@@ -246,23 +310,17 @@ function tasklist () {
     }
   }
 
-  /* this deletes all of the children of the task list and repopulates them
-     using the arrays that represent their contents */
+  /**
+  Function: redrawList()
+  Description: Deletes all children of task list and repopulates with the arrays that represent their contents.
+  Input: None.
+  Output: None.
+  Result: List is redrawn.
+  */
   function redrawList () {
     while (list.firstChild) {
       list.removeChild(list.firstChild)
     }
-
-    /* this is the first dropZone, then every bullet point also has an
-       associated dropZone below it so we have coverage above and below
-       every bullet */
-    // list.appendChild(dropZones[0])
-
-    /* for (let i = 1; i < dropZones.length; i++) {
-       list.appendChild(listItems[i - 1])
-       list.appendChild(dropZones[i])
-       } */
-
     if (focusedTask.length > 0) {
       list.appendChild(focusedTask[0].taskBody)
     }
@@ -276,6 +334,13 @@ function tasklist () {
     }
   }
 
+  /**
+  Function: trackTime()
+  Description: Updates time.
+  Input: None.
+  Output: None.
+  Result: Time updates.
+  */
   function trackTime () {
     focusedTask[0].time += 1000
   }

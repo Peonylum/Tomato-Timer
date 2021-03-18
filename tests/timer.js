@@ -1,4 +1,3 @@
-// const main = require('../source/main')
 
 document.head.innerHTML = '<style>' +
     '.in-active#onboarding {' +

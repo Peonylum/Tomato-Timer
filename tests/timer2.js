@@ -164,7 +164,6 @@ describe('stateChange', () => {
 
     expect((progressBar).getAttribute('src')).toBe('/source/assets/progressBarLongBreak.svg')
 
-    // expect(document.getElementById('time').innerHTML).toBe('05:00')
     expect(playBtn.style.display).toBe('block')
     expect(stopBtn.style.display).toBe('none')
     expect(main.timer.timerLen).toBe(300000)
@@ -192,7 +191,6 @@ describe('stateChange', () => {
 
     expect((progressBar).getAttribute('src')).toBe('./assets/backgroundProgressBar.svg')
 
-    // expect(document.getElementById('time').innerHTML).toBe('05:00')
     expect(playBtn.style.display).toBe('block')
     expect(stopBtn.style.display).toBe('none')
     expect(main.timer.timerLen).toBe(300000)
