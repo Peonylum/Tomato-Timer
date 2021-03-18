@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', function (event) {
   displayMinSecond(timer.timerLen)
 })
 
-/*
+/**
 Function: settingsTime()
 Description: Updates the timer to what is set by settings.
 Input: None.
@@ -75,7 +75,7 @@ function settingsTime () {
   }
 }
 
-/*
+/**
 Function: disableTime()
 Description: Toggles whether settings can be adjusted while time is running.
 Input: None.
@@ -100,7 +100,7 @@ function disableTime () {
   }
 }
 
-/*
+/**
 Function: showSettings()
 Description: Display settings menu when 'settings' button is clicked.
 Input: None.
@@ -137,7 +137,7 @@ function showSettings () {
   }
 }
 
-/*
+/**
 Function: startSession()
 Description: Starts the timer, updates button, and disables settings changes.
 Input: None.
@@ -156,12 +156,12 @@ function startSession () {
   runTimer(updateTimer)
 }
 
-/*
+/**
 Function: stopSession()
 Description: Hard stops the pomodoro session and resets all values.
 Input: None.
 Output: None.
-Result: Settings changes disabled or enabled depending on if time is running.
+Result: Session stopped.
 */
 function stopSession () {
   /* Reset the pomoSession variable */

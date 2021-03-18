@@ -1,4 +1,10 @@
-/* Script for modifying the task list via drag-and-drop */
+/**
+Function: tasklist()
+Description: Tasklist function.
+Input: None.
+Output: None.
+Result: All tasklist functionality.
+*/
 function tasklist () {
   const focusedTask = []
   const masterList = []
@@ -13,6 +19,14 @@ function tasklist () {
   const dropZones = []
   let curr
 
+  /**
+  Function: buildNewTask()
+  Description: A new task object is created as a div, then it's buttons and text are
+  appended to it.
+  Input: None.
+  Output: newTask.
+  Result: New task DOM is created and returned to calling function
+  */
   function buildNewTask () {
     const taskInput = document.getElementById('pomo-task')
     const newTask = document.createElement('div')
@@ -47,6 +61,13 @@ function tasklist () {
     return newTask
   }
 
+  /**
+  Function: addToList()
+  Description: buildNewTask is called; task is initialized with correct values, and added to task list.
+  Input: None.
+  Output: None.
+  Result: New task is built, initialized, and added to task list.
+  */
   function addToList () {
     const newTask = buildNewTask()
     const tmptask = {
@@ -81,6 +102,15 @@ function tasklist () {
     redrawList()
   }
 
+  /**
+  Function: focusTask()
+  Description: desired task is popped, moved to front of list, and set to being focused, then list is redrawn.
+  If there is already a focused task then it is moved to the general task list. A focused task has its focus
+  button disabled.
+  Input: None.
+  Output: None.
+  Result: desired task is moved to the top of the list and "focused"
+  */
   function focusTask () {
     const temp = focusedTask.pop()
     const index = masterList.findIndex(x => x.taskBody === this.parentElement)
@@ -107,7 +137,13 @@ function tasklist () {
     redrawList()
   }
 
-  /* Removes an item from our task list */
+  /**
+  Function: delFromList()
+  Description: the focused task is removed and the list is updated.
+  Input: None.
+  Output: None.
+  Result: Item is removed from task list.
+  */
   function delFromList () {
     if (focusedTask.length > 0) {
       if (this.parentElement === focusedTask[0].taskBody) {
@@ -129,6 +165,13 @@ function tasklist () {
     redrawList()
   }
 
+  /**
+  Function: completeTask()
+  Description: Task is popped from list, a child html element is created to show the time taken on the task.
+  Input: None.
+  Output: None.
+  Result: Completed task is removed and page is updated to show time taken on task.
+  */
   function completeTask () {
     let temp
     if (focusedTask.length > 0) {
@@ -157,27 +200,57 @@ function tasklist () {
     redrawList()
   }
 
-  /* Highlights valid drop zones when the dragged item moves over them */
+  /**
+  Function: dragIn()
+  Description: Highlights items for drag and drop.
+  Input: None.
+  Output: None.
+  Result: Highlights valid drop zones when the dragged item moves over them.
+  */
   function dragIn (zone) {
     zone.setAttribute('class', 'active')
   }
 
-  /* Removes highlight on drop zones when dragged item leaves */
+  /**
+  Function: dragOut()
+  Description: Removes highlights on items for drag and drop.
+  Input: None.
+  Output: None.
+  Result: Removes highlight on drop zones when dragged item leaves
+  */
   function dragOut (zone) {
     zone.setAttribute('class', '')
   }
 
-  /* Dragover default needs to be overridden for proper dropping */
+  /**
+  Function: dragOn()
+  Description: Overrides dragover default for proper dropping
+  Input: None.
+  Output: None.
+  Result: Dragover default needs to be overridden for proper dropping 
+  */
   function dragOn (event) {
     event.preventDefault()
   }
 
-  /* This just helps us keep track of which bullet point is being moved */
+  /**
+  Function: dragTask()
+  Description: Sets current to item
+  Input: item.
+  Output: None.
+  Result: This just helps us keep track of which bullet point is being moved
+  */
   function dragTask (item) {
     curr = item
   }
 
-  /* Rearranges the list when an item is dropped */
+  /**
+  Function: dropMove()
+  Description: rearranges and redraws the list, and drops the end
+  Input: item.
+  Output: None.
+  Result: Rearranges the list when an item is dropped
+  */
   function dropMove (event, item) {
     let bulletIndex
     let dropIndex
@@ -201,16 +274,26 @@ function tasklist () {
     dropEnd()
   }
 
-  /* This is for manually removing the highlights, similar to dragOut function
-     but when we rearrange it only fires a dragend event and not
-     a dragleave so the highlight stays */
+  /**
+  Function: dropEnd()
+  Description: Removes the highlights but doesn't trigger dragLeave
+  Input: item.
+  Output: None.
+  Result: Removed highlights, similar to dragOut function but it only fires a dragEnd event
+  */
   function dropEnd () {
     for (const i of dropZones) {
       i.setAttribute('class', '')
     }
   }
 
-  /* Take our bullet point and drop zone and use them to rewrite the array */
+  /**
+  Function: movePos()
+  Description: Deletes the old bullet and moves it down, places current in drop zone
+  Input: bullet, drop.
+  Output: None.
+  Result: Places the item in the new drop zone
+  */
   function movePos (bullet, drop) {
     const tmpB = listItems[bullet]
     const tmpD = delBtns[bullet]
@@ -227,8 +310,13 @@ function tasklist () {
     }
   }
 
-  /* This deletes all of the children of the task list and repopulates them
-     using the arrays that represent their contents */
+  /**
+  Function: redrawList()
+  Description: Deletes all children of task list and repopulates with the arrays that represent their contents.
+  Input: None.
+  Output: None.
+  Result: List is redrawn.
+  */
   function redrawList () {
     while (list.firstChild) {
       list.removeChild(list.firstChild)
@@ -246,6 +334,13 @@ function tasklist () {
     }
   }
 
+  /**
+  Function: trackTime()
+  Description: Updates time.
+  Input: None.
+  Output: None.
+  Result: Time updates.
+  */
   function trackTime () {
     focusedTask[0].time += 1000
   }
