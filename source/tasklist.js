@@ -227,7 +227,7 @@ function tasklist () {
   Description: Overrides dragover default for proper dropping
   Input: None.
   Output: None.
-  Result: Dragover default needs to be overridden for proper dropping 
+  Result: Dragover default needs to be overridden for proper dropping
   */
   function dragOn (event) {
     event.preventDefault()
