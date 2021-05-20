@@ -11,9 +11,9 @@
 * Dylan Palmer
 * Yuke Liu
 
-Site: https://udaykalra.github.io/cse110-w21-group15/
+Site: https://peonylum.github.io/Tomato-Timer/
 
-jsDocs: https://udaykalra.github.io/cse110-w21-group15/source/out
+jsDocs: https://peonylum.github.io/Tomato-Timer/source/out
 
 Public Video: https://youtu.be/BLF3c1pMIFg
 
